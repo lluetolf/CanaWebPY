@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "year" : 2018,
+    "rancho": 1,
+    "tons": 0,
+    "ingenio_file_id": null,
+    "ingresos": {
+        "pre_liquidacion": 0,
+        "liquidacion": 0,
+        "ajuste": 0
+    },
+    "deductiones": {
+      "fid_garant__liq_sca": 0.0,
+      "socas_y_res": 0.0,
+      "corte_soca": 0.0,
+      "alce_soca": 0.0,
+      "acarreo_soca": 0.0,
+      "otros_gastos_de_cosecha": 0.0,
+      "est_gastos_dist_soca": 0.0,
+      "est_gastos_de_grupo": 0.0,
+      "est_imss_prod_y_cortadore": 0.0
+    }
+  }
+]
