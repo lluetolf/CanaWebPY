@@ -18,6 +18,8 @@ field_schema = {
 
 def validate_field(request):
     try:
+        print(request)
+        print(request.json)
         validate(instance=request.json, schema=field_schema, format_checker=draft7_format_checker)
     except Exception as e:
         if hasattr(e, 'message'):

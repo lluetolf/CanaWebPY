@@ -2,15 +2,6 @@ from dataclasses import dataclass
 from dataclasses_json import dataclass_json
 
 
-@dataclass_json
-@dataclass
-class Ingresos:
-    pre_liquidacion: float
-    liquidacion: float
-    ajuste: float
-
-
-
 
 
 @dataclass_json
