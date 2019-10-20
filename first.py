@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 from entities.liquidacion import Liquidacion
-from entities.rancho import Rancho
+from entities.field import Rancho
 
 
 def write_json_file(data):
