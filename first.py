@@ -1,9 +1,6 @@
 import json
 from pathlib import Path
 
-from entities.liquidacion import Liquidacion
-from entities.field import Rancho
-
 
 def write_json_file(data):
     with open("data_file.json", "w") as write_file:
