@@ -102,7 +102,7 @@ def get_field(field_id) -> str:
     return jsonify(r), 200
 
 
-@app.route("/deduction", methods=['POST'])
+@app.route("/zafra", methods=['POST'])
 def add_deduction() -> str:
     errors = validate_zafra(request)
     if errors is not None:
@@ -114,7 +114,7 @@ def add_deduction() -> str:
     return jsonify(response), 200
 
 
-@app.route("/deduction", methods=['GET'])
+@app.route("/zafra", methods=['GET'])
 def get_all_deduction() -> str:
     print(deductions)
     return jsonify(deductions), 200
