@@ -2,9 +2,11 @@
 
 from flask import Flask, jsonify, request
 
+from InvalidUsage import InvalidUsage
+from entities.deductions import validate_deduction
 from entities.field import validate_field
 
-fields =[
+fields = [
     {
         "acquisition_date": "2018-08-26",
         "cultivated_area": 5.5,
@@ -27,6 +29,8 @@ fields =[
     }
 ]
 
+deductions = []
+
 app = Flask(__name__)
 
 
@@ -36,15 +40,6 @@ def handle_invalid_usage(error):
    response.status_code = error.status_code
    return response
 
-
-def say_hello_to(s):
-    return "Hello {}".format(s)
-
-
-@app.route("/")
-def index() -> str:
-    # transform a dict into an application/json response
-    return jsonify({"message": "It Works"})
 
 
 @app.route("/field", methods=['POST'])
@@ -73,6 +68,24 @@ def get_field(field_id) -> str:
         return jsonify({"message": "Unable to find field with id: {}".format(field_id)}), 400
 
     return jsonify(r), 200
+
+
+@app.route("/deduction", methods=['POST'])
+def add_deduction() -> str:
+    errors = validate_deduction(request)
+    if errors is not None:
+        print(errors)
+        raise InvalidUsage(errors)
+    deductions.append(request.json)
+    response = {"status": "ok",
+                "message": "Nbr of fields: {}".format(len(deductions))}
+    return jsonify(response), 200
+
+
+@app.route("/deduction", methods=['GET'])
+def get_all_deduction() -> str:
+    print(deductions)
+    return jsonify(deductions), 200
 
 
 if __name__ == '__main__':
