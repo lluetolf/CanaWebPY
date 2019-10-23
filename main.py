@@ -1,6 +1,6 @@
 # src/app/main.py:
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 
 from InvalidUsage import InvalidUsage
 from entities.zafra import validate_zafra
@@ -72,6 +72,13 @@ def handle_invalid_usage(error):
     response.status_code = error.status_code
     return response
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/index_static')
+def static_index():
+    return render_template('index_static.html')
 
 
 @app.route("/field", methods=['POST'])
