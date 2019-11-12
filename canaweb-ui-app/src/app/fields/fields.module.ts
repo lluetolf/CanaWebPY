@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SidenavContentComponent } from './sidenav-content/sidenav-content.component';
-import { MainContentComponent } from './main-content/main-content.component';
-import { FieldsListComponent } from './fields-list/fields-list.component';
-import { FieldEditDialogComponent } from './field-edit-dialog/field-edit-dialog.component';
+import { FormsModule } from '@angular/forms';
 
+import { FieldsRoutingModule } from './fields-routing.module';
+import { FieldListComponent } from './field-list/field-list.component';
+import { FieldDetailComponent } from './field-detail/field-detail.component';
 
 
 @NgModule({
-  declarations: [SidenavContentComponent, MainContentComponent, FieldsListComponent, FieldEditDialogComponent],
+  declarations: [FieldListComponent, FieldDetailComponent],
   imports: [
-    CommonModule
+    FormsModule,
+    CommonModule,
+    FieldsRoutingModule
   ]
 })
 export class FieldsModule { }
