@@ -1,17 +1,30 @@
-<mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav [mode]="mode.value">
-    <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
-    <p>
-      <mat-radio-group class="example-radio-group" [formControl]="mode">
-        <label>Mode:</label>
-        <mat-radio-button value="over">Over</mat-radio-button>
-        <mat-radio-button value="side">Side</mat-radio-button>
-        <mat-radio-button value="push">Push</mat-radio-button>
-      </mat-radio-group>
-    </p>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button>
+      <h1>CanaWebPY</h1>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" class="sidenav-sidenav">
+
+      <mat-nav-list>
+
+          <a mat-list-item [routerLink]="'/accounts'"> Fields </a>
+          <a mat-list-item [routerLink]="'/create-account'"> Payable </a>
+          <a mat-list-item [routerLink]="'/create-contact'"> Receivable </a>
+          <a mat-list-item [routerLink]="'/contacts'"> Contacts </a>
+    
+        </mat-nav-list>
+
   </mat-sidenav>
 
-  <mat-sidenav-content>
-    <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
+  <mat-sidenav-content class="sidenav-content">
+    <h1>Main Page</h1>
+    <p>Hello Hello
+      what a nice morning.
+    </p>
   </mat-sidenav-content>
 </mat-sidenav-container>

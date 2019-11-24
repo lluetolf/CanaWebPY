@@ -8,6 +8,9 @@ ng new canaweb-ui-app --routing=true --style=scss
 cd canaweb-ui-app
 npm install --save @angular/material @angular/cdk @angular/animations
 npm install --save hammerjs
+npm install angular-in-memory-web-api --save
+
+ng add @angular/material
 
 # Static pages
 ng g c version-page --skip-tests
@@ -24,6 +27,7 @@ ng g c fields/create-field-dialog --skip-tests
 ng g s fields/fields --skip-tests
 
 # Shared
+ng g m shared/material --flat
 # ng g m core
 # ng g s core/services/auth --skip-tests
 # ng g s core/services/local-storage --skip-tests
