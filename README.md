@@ -6,21 +6,27 @@
 # Create Angular skeleton
 ng new canaweb-ui-app --routing=true --style=scss
 cd canaweb-ui-app
-ng g m shared
-ng g c shared/material --flat --skip-tests --inline-style --inline-template
-ng g c shared/toolbar --skip-tests
-touch shared/components/index.ts
-ng g m core
-ng g s core/services/auth --skip-tests
-ng g s core/services/local-storage --skip-tests
- 
-ng g m fields
-ng g c fields/sidenav-content --skip-tests
-ng g c fields/main-content --skip-tests
-ng g c fields/fields-list --skip-tests
-ng g c fields/field-edit-dialog --skip-tests
+npm install --save @angular/material @angular/cdk @angular/animations
+npm install --save hammerjs
+
+# Static pages
+ng g c version-page --skip-tests
+ng g c page-not-found --skip-tests
+
+# Mock data service
+ng generate service InMemoryData
+
+# Fields Module
+ng g m fields/fields --module app --flat --routing
+ng g c fields/field-list --skip-tests
+ng g c fields/edit-field-dialog --skip-tests
+ng g c fields/create-field-dialog --skip-tests
 ng g s fields/fields --skip-tests
-cd ..
+
+# Shared
+# ng g m core
+# ng g s core/services/auth --skip-tests
+# ng g s core/services/local-storage --skip-tests
 
 # Build ng
 rm templates/*.*
