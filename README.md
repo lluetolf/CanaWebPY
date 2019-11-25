@@ -16,6 +16,9 @@ ng add @angular/material
 ng g c version-page --skip-tests
 ng g c page-not-found --skip-tests
 
+# Model
+ng g class model/Field --skipTests
+
 # Mock data service
 ng generate service InMemoryData
 

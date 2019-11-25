@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FieldsService } from '../fields.service';
 
 @Component({
   selector: 'app-field-list',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FieldListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private fieldService: FieldsService) { }
 
   ngOnInit() {
   }
