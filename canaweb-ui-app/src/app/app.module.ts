@@ -12,12 +12,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { FieldsModule } from './fields/fields.module';
 import { MaterialModule } from './shared/material.module';
 import { InMemoryDataService } from './in-memory-data.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VersionPageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DashboardComponent
   ],
   imports: [
     MaterialModule,
