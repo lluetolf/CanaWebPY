@@ -21,10 +21,10 @@ export class FieldListComponent implements OnInit {
 
   getFields(): void {
     this.fieldService.getFields()
-      .subscribe(fields => { 
+      .subscribe(fields => {
         this.fields.data = fields;
         fields.forEach(element => {
-          console.log(JSON.stringify(element))
+          console.log(JSON.stringify(element));
         });
       });
   }

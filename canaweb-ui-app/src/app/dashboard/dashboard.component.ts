@@ -9,7 +9,7 @@ import { FieldsService } from '../fields/fields.service';
 })
 export class DashboardComponent implements OnInit {
   fields: Field[] = [];
-  
+
   constructor(private fieldsService: FieldsService) {}
 
   ngOnInit() {
@@ -18,10 +18,10 @@ export class DashboardComponent implements OnInit {
 
   getFields(): void {
     this.fieldsService.getFields()
-      .subscribe(fields => { 
+      .subscribe(fields => {
         this.fields = fields;
         fields.forEach(element => {
-          console.log(JSON.stringify(element))
+          console.log(JSON.stringify(element));
         });
       }
       );

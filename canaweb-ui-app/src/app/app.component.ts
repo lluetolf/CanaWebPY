@@ -9,8 +9,6 @@ import { Field } from './model/field';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  
-  constructor() {}
 
-  ngOnInit() { }
+  constructor() {}
 }

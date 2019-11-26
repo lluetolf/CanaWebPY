@@ -13,12 +13,12 @@ const routes: Routes = [
   { path: 'receivableList', component: FieldListComponent },
   { path: 'contact', component: FieldListComponent },
   { path: 'version', component: VersionPageComponent }
-  
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(
-    routes, 
+    routes,
     { enableTracing: true }
     )],
   exports: [RouterModule]
