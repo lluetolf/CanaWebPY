@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FieldsService } from '../fields.service';
 import { Field } from 'src/app/model/field';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource, MatDialog } from '@angular/material';
+import { EditFieldDialogComponent } from '../edit-field-dialog/edit-field-dialog.component';
 
 @Component({
   selector: 'app-field-list',
@@ -13,7 +14,7 @@ export class FieldListComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'owner', 'last_updated', 'actions'];
 
-  constructor(private fieldService: FieldsService) { }
+  constructor(private fieldService: FieldsService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getFields();
@@ -27,5 +28,29 @@ export class FieldListComponent implements OnInit {
           console.log(JSON.stringify(element));
         });
       });
+  }
+
+  openEditDialog(field: Field): void {
+    const dialogRef = this.dialog.open(EditFieldDialogComponent, {
+      width: '600px',
+      data: field
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(field)
+    });
+  }
+
+  openCreateDialog(field: Field): void {
+    const dialogRef = this.dialog.open(EditFieldDialogComponent, {
+      width: '250px',
+      data: field
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(field)
+    });
   }
 }

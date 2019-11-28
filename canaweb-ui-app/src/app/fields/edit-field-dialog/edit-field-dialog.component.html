@@ -1,1 +1,37 @@
-<p>edit-field-dialog works!</p>
+<h1 mat-dialog-title>Edit Field</h1>
+
+<div mat-dialog-content>
+    <div class="example-container">
+        <p>{{field.id}}</p>
+
+        <mat-form-field>
+            <input matInput placeholder="Ingenio Id" [(ngModel)]="field.ingenio_id" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Name" [(ngModel)]="field.name" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Owner" [(ngModel)]="field.owner" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Size" [(ngModel)]="field.size">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Cultivated" [(ngModel)]="field.cultivated_area">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Acquisition date" [(ngModel)]="field.acquisition_date" required>
+        </mat-form-field>
+
+    </div>           
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="dismiss()">No Thanks</button>
+  <button mat-button cdkFocusInitial (click)="save()">Save</button>
+</div>

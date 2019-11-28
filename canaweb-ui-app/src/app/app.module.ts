@@ -13,6 +13,7 @@ import { FieldsModule } from './fields/fields.module';
 import { MaterialModule } from './shared/material.module';
 import { InMemoryDataService } from './in-memory-data.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { EditFieldDialogComponent } from './fields/edit-field-dialog/edit-field-dialog.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     )
   ],
   providers: [],
+  entryComponents: [EditFieldDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
