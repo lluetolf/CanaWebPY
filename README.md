@@ -16,6 +16,9 @@ ng add @angular/material
 ng g c version-page --skip-tests
 ng g c page-not-found --skip-tests
 
+#Dashboard
+ng g c dashboard --skip-tests
+
 # Model
 ng g class model/Field --skipTests
 
