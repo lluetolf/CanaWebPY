@@ -28,7 +28,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n      <button mat-icon-button>\n        <mat-icon (click)=\"sidenav.toggle()\">menu</mat-icon>\n      </button>\n      <h1>CanaWebPY</h1>\n    </mat-toolbar-row>\n  </mat-toolbar>\n\n<mat-sidenav-container class=\"sidenav-container\">\n  <mat-sidenav #sidenav mode=\"side\" class=\"sidenav-sidenav\">\n\n      <mat-nav-list>\n\n          <a mat-list-item [routerLink]=\"'/dashboard'\"> Home </a>\n          <a mat-list-item [routerLink]=\"'/fieldList'\"> Fields </a>\n          <a mat-list-item [routerLink]=\"'/payableList'\"> Payable </a>\n          <a mat-list-item [routerLink]=\"'/receivableList'\"> Receivable </a>\n          <a mat-list-item [routerLink]=\"'/contacts'\"> Contacts </a>\n    \n        </mat-nav-list>\n\n  </mat-sidenav>\n\n  <mat-sidenav-content class=\"sidenav-content\">\n    <router-outlet></router-outlet>\n  </mat-sidenav-content>\n</mat-sidenav-container>");
+            /* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n      <button mat-icon-button>\n        <mat-icon (click)=\"sidenav.toggle()\">menu</mat-icon>\n      </button>\n      <h1>CanaWebPY</h1>\n    </mat-toolbar-row>\n  </mat-toolbar>\n\n<mat-sidenav-container class=\"sidenav-container\">\n  <mat-sidenav #sidenav mode=\"side\" class=\"sidenav-sidenav\">\n\n      <mat-nav-list>\n\n          <a mat-list-item [routerLink]=\"'/dashboard'\"> Home </a>\n          <a mat-list-item [routerLink]=\"'/fieldList'\"> Fields </a>\n          <a mat-list-item [routerLink]=\"'/payableList'\"> Payable </a>\n          <a mat-list-item [routerLink]=\"'/receivableList'\"> Receivable </a>\n          <!-- <a mat-list-item [routerLink]=\"'/contacts'\"> Contacts </a> -->\n    \n        </mat-nav-list>\n\n  </mat-sidenav>\n\n  <mat-sidenav-content class=\"sidenav-content\">\n    <router-outlet></router-outlet>\n  </mat-sidenav-content>\n</mat-sidenav-container>");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/dashboard/dashboard.component.html": 
@@ -50,7 +50,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<p>create-field-dialog works!</p>\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>Add Field</h1>\n\n<div mat-dialog-content>\n    <div class=\"example-container\">\n        <p>{{field.id}}</p>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Ingenio Id\" [(ngModel)]=\"field.ingenioId\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Name\" [(ngModel)]=\"field.name\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Owner\" [(ngModel)]=\"field.owner\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Size\" [(ngModel)]=\"field.size\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Cultivated\" [(ngModel)]=\"field.cultivatedArea\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Acquisition date\" [(ngModel)]=\"field.acquisitionDate\" required>\n        </mat-form-field>\n\n    </div>           \n</div>\n\n<div mat-dialog-actions>\n  <button mat-button (click)=\"dismiss()\">No Thanks</button>\n  <button mat-button cdkFocusInitial (click)=\"save()\">Create</button>\n</div>");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/fields/edit-field-dialog/edit-field-dialog.component.html": 
@@ -61,7 +61,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>Edit Field</h1>\n\n<div mat-dialog-content>\n    <div class=\"example-container\">\n        <p>{{field.id}}</p>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Ingenio Id\" [(ngModel)]=\"field.ingenio_id\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Name\" [(ngModel)]=\"field.name\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Owner\" [(ngModel)]=\"field.owner\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Size\" [(ngModel)]=\"field.size\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Cultivated\" [(ngModel)]=\"field.cultivated_area\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Acquisition date\" [(ngModel)]=\"field.acquisition_date\" required>\n        </mat-form-field>\n\n    </div>           \n</div>\n\n<div mat-dialog-actions>\n  <button mat-button (click)=\"dismiss()\">No Thanks</button>\n  <button mat-button cdkFocusInitial (click)=\"save()\">Save</button>\n</div>");
+            /* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>Edit Field</h1>\n\n<div mat-dialog-content>\n    <div class=\"example-container\">\n        <p>{{field.id}}</p>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Ingenio Id\" [(ngModel)]=\"field.ingenioId\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Name\" [(ngModel)]=\"field.name\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Owner\" [(ngModel)]=\"field.owner\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Size\" [(ngModel)]=\"field.size\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Cultivated\" [(ngModel)]=\"field.cultivatedArea\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Acquisition date\" [(ngModel)]=\"field.acquisitionDate\" required>\n        </mat-form-field>\n\n    </div>           \n</div>\n\n<div mat-dialog-actions>\n  <button mat-button (click)=\"dismiss()\">No Thanks</button>\n  <button mat-button cdkFocusInitial (click)=\"save()\">Save</button>\n</div>");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/fields/field-list/field-list.component.html": 
@@ -72,7 +72,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<h1>FieldList!</h1>\n<div class=\"container\">\n    <table mat-table [dataSource]=\"fields\" class=\"mat-elevation-z8\">\n        <ng-container matColumnDef=\"name\">\n            <th mat-header-cell *matHeaderCellDef> Name </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n            <td mat-footer-cell *matFooterCellDef></td>\n        </ng-container>\n        <ng-container matColumnDef=\"owner\">\n            <th mat-header-cell *matHeaderCellDef> Owner </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.owner}} </td>\n            <td mat-footer-cell *matFooterCellDef></td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"id\">\n            <th mat-header-cell *matHeaderCellDef> Id </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.id}} </td>\n            <td mat-footer-cell *matFooterCellDef></td>\n        </ng-container>\n    \n        <ng-container matColumnDef=\"last_updated\">\n            <th mat-header-cell *matHeaderCellDef> Last Update </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.last_updated}} </td>\n            <td mat-footer-cell *matFooterCellDef></td>\n        </ng-container>\n\n        \n        <ng-container matColumnDef=\"actions\">\n            <th mat-header-cell *matHeaderCellDef>  </th>\n            <td mat-cell *matCellDef=\"let element\"> \n                <div class=\"buttoncontainer\">\n                    <button mat-mini-fab aria-label=\"Edit\" (click)=\"openEditDialog(element)\">\n                        <mat-icon>edit</mat-icon>\n                    </button>\n                </div>\n            </td>\n            <td mat-footer-cell *matFooterCellDef>\n                <div class=\"buttoncontainer\">\n                    <button mat-flat-button color=\"primary\" aria-label=\"add\" >\n                        <mat-icon>add</mat-icon>\n                    </button>\n                </div>\n            </td>\n        </ng-container>\n\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns\"></tr>\n        <tr mat-footer-row *matFooterRowDef=\"displayedColumns\"></tr>\n    </table>\n\n</div>");
+            /* harmony default export */ __webpack_exports__["default"] = ("<h1>FieldList!</h1>\n<div class=\"container\">\n    <table mat-table [dataSource]=\"fields\" class=\"mat-elevation-z8\">\n        <ng-container matColumnDef=\"name\">\n            <th mat-header-cell *matHeaderCellDef> Name </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n            <td mat-footer-cell *matFooterCellDef></td>\n        </ng-container>\n        <ng-container matColumnDef=\"owner\">\n            <th mat-header-cell *matHeaderCellDef> Owner </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.owner}} </td>\n            <td mat-footer-cell *matFooterCellDef></td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"id\">\n            <th mat-header-cell *matHeaderCellDef> Id </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.id}} </td>\n            <td mat-footer-cell *matFooterCellDef></td>\n        </ng-container>\n    \n        <ng-container matColumnDef=\"last_updated\">\n            <th mat-header-cell *matHeaderCellDef> Last Update </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.last_updated}} </td>\n            <td mat-footer-cell *matFooterCellDef></td>\n        </ng-container>\n\n        \n        <ng-container matColumnDef=\"actions\">\n            <th mat-header-cell *matHeaderCellDef>  </th>\n            <td mat-cell *matCellDef=\"let element\"> \n                <div class=\"buttoncontainer\">\n                    <button mat-mini-fab aria-label=\"Edit\" (click)=\"openEditDialog(element)\">\n                        <mat-icon>edit</mat-icon>\n                    </button>\n                </div>\n            </td>\n            <td mat-footer-cell *matFooterCellDef>\n                <div class=\"buttoncontainer\">\n                    <button mat-flat-button color=\"primary\" aria-label=\"add\" (click)=\"openCreateDialog()\">\n                        <mat-icon>add</mat-icon>\n                    </button>\n                </div>\n            </td>\n        </ng-container>\n\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns\"></tr>\n        <tr mat-footer-row *matFooterRowDef=\"displayedColumns\"></tr>\n    </table>\n\n</div>");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/page-not-found/page-not-found.component.html": 
@@ -428,7 +428,7 @@
             }());
             AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-                    imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes, { enableTracing: true })],
+                    imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes, { enableTracing: false })],
                     exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
                 })
             ], AppRoutingModule);
@@ -495,6 +495,7 @@
             /* harmony import */ var _in_memory_data_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./in-memory-data.service */ "./src/app/in-memory-data.service.ts");
             /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
             /* harmony import */ var _fields_edit_field_dialog_edit_field_dialog_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./fields/edit-field-dialog/edit-field-dialog.component */ "./src/app/fields/edit-field-dialog/edit-field-dialog.component.ts");
+            /* harmony import */ var _fields_create_field_dialog_create_field_dialog_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./fields/create-field-dialog/create-field-dialog.component */ "./src/app/fields/create-field-dialog/create-field-dialog.component.ts");
             var AppModule = /** @class */ (function () {
                 function AppModule() {
                 }
@@ -522,7 +523,7 @@
                         angular_in_memory_web_api__WEBPACK_IMPORTED_MODULE_5__["HttpClientInMemoryWebApiModule"].forRoot(_in_memory_data_service__WEBPACK_IMPORTED_MODULE_13__["InMemoryDataService"], { dataEncapsulation: false })
                     ],
                     providers: [],
-                    entryComponents: [_fields_edit_field_dialog_edit_field_dialog_component__WEBPACK_IMPORTED_MODULE_15__["EditFieldDialogComponent"]],
+                    entryComponents: [_fields_edit_field_dialog_edit_field_dialog_component__WEBPACK_IMPORTED_MODULE_15__["EditFieldDialogComponent"], _fields_create_field_dialog_create_field_dialog_component__WEBPACK_IMPORTED_MODULE_16__["CreateFieldDialogComponent"]],
                     bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
                 })
             ], AppModule);
@@ -591,7 +592,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2ZpZWxkcy9jcmVhdGUtZmllbGQtZGlhbG9nL2NyZWF0ZS1maWVsZC1kaWFsb2cuY29tcG9uZW50LnNjc3MifQ== */");
+            /* harmony default export */ __webpack_exports__["default"] = (".example-container {\n  display: flex;\n  flex-direction: column;\n}\n\n.example-container > * {\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9tbnQvYy9Vc2Vycy9sdWthcy9QeWNoYXJtUHJvamVjdHMvQ2FuYVdlYlBZL2NhbmF3ZWItdWktYXBwL3NyYy9hcHAvZmllbGRzL2NyZWF0ZS1maWVsZC1kaWFsb2cvY3JlYXRlLWZpZWxkLWRpYWxvZy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZmllbGRzL2NyZWF0ZS1maWVsZC1kaWFsb2cvY3JlYXRlLWZpZWxkLWRpYWxvZy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGFBQUE7RUFDQSxzQkFBQTtBQ0NKOztBREVFO0VBQ0UsV0FBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvZmllbGRzL2NyZWF0ZS1maWVsZC1kaWFsb2cvY3JlYXRlLWZpZWxkLWRpYWxvZy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5leGFtcGxlLWNvbnRhaW5lciB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICB9XHJcbiAgXHJcbiAgLmV4YW1wbGUtY29udGFpbmVyID4gKiB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICB9IiwiLmV4YW1wbGUtY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbn1cblxuLmV4YW1wbGUtY29udGFpbmVyID4gKiB7XG4gIHdpZHRoOiAxMDAlO1xufSJdfQ== */");
             /***/ 
         }),
         /***/ "./src/app/fields/create-field-dialog/create-field-dialog.component.ts": 
@@ -605,13 +606,34 @@
             /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateFieldDialogComponent", function () { return CreateFieldDialogComponent; });
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+            /* harmony import */ var src_app_model_field__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/model/field */ "./src/app/model/field.ts");
+            /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+            /* harmony import */ var _fields_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../fields.service */ "./src/app/fields/fields.service.ts");
             var CreateFieldDialogComponent = /** @class */ (function () {
-                function CreateFieldDialogComponent() {
+                function CreateFieldDialogComponent(dialogRef, fieldService) {
+                    this.dialogRef = dialogRef;
+                    this.fieldService = fieldService;
                 }
                 CreateFieldDialogComponent.prototype.ngOnInit = function () {
+                    this.field = new src_app_model_field__WEBPACK_IMPORTED_MODULE_2__["Field"]();
+                    console.log("Sent to CreateFieldDialogComponent: ");
+                };
+                CreateFieldDialogComponent.prototype.save = function () {
+                    var _this = this;
+                    this.fieldService.addField(this.field).subscribe(function (field) {
+                        console.log("Create:" + field);
+                        _this.dialogRef.close();
+                    });
+                };
+                CreateFieldDialogComponent.prototype.dismiss = function () {
+                    this.dialogRef.close();
                 };
                 return CreateFieldDialogComponent;
             }());
+            CreateFieldDialogComponent.ctorParameters = function () { return [
+                { type: _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"] },
+                { type: _fields_service__WEBPACK_IMPORTED_MODULE_4__["FieldsService"] }
+            ]; };
             CreateFieldDialogComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
                     selector: 'app-create-field-dialog',
@@ -645,23 +667,29 @@
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
             /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
             /* harmony import */ var src_app_model_field__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/model/field */ "./src/app/model/field.ts");
+            /* harmony import */ var _fields_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../fields.service */ "./src/app/fields/fields.service.ts");
             var EditFieldDialogComponent = /** @class */ (function () {
-                function EditFieldDialogComponent(dialogRef, data) {
+                function EditFieldDialogComponent(dialogRef, data, fieldService) {
                     this.dialogRef = dialogRef;
                     this.data = data;
+                    this.fieldService = fieldService;
                 }
                 EditFieldDialogComponent.prototype.ngOnInit = function () {
-                    console.log("From Dialog: ", this.data);
+                    console.log("Sent to Dialog: ", this.data);
                     this.field = Object.assign({}, this.data);
                 };
                 EditFieldDialogComponent.prototype.save = function () {
-                    this.data.ingenioId = this.field.ingenioId;
-                    this.data.acquisitionDate = this.field.acquisitionDate;
-                    this.data.name = this.field.name;
-                    this.data.owner = this.field.owner;
-                    this.data.size = this.field.size;
-                    this.data.cultivatedArea = this.field.cultivatedArea;
-                    this.data.lastUpdated = new Date();
+                    var _this = this;
+                    this.fieldService.updateField(this.field).subscribe(function (obs) {
+                        console.log("update:" + obs);
+                        _this.data.ingenioId = _this.field.ingenioId;
+                        _this.data.acquisitionDate = _this.field.acquisitionDate;
+                        _this.data.name = _this.field.name;
+                        _this.data.owner = _this.field.owner;
+                        _this.data.size = _this.field.size;
+                        _this.data.cultivatedArea = _this.field.cultivatedArea;
+                        _this.dialogRef.close();
+                    });
                 };
                 EditFieldDialogComponent.prototype.dismiss = function () {
                     this.dialogRef.close();
@@ -670,7 +698,8 @@
             }());
             EditFieldDialogComponent.ctorParameters = function () { return [
                 { type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] },
-                { type: src_app_model_field__WEBPACK_IMPORTED_MODULE_3__["Field"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"],] }] }
+                { type: src_app_model_field__WEBPACK_IMPORTED_MODULE_3__["Field"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"],] }] },
+                { type: _fields_service__WEBPACK_IMPORTED_MODULE_4__["FieldsService"] }
             ]; };
             EditFieldDialogComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -707,6 +736,7 @@
             /* harmony import */ var _fields_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fields.service */ "./src/app/fields/fields.service.ts");
             /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
             /* harmony import */ var _edit_field_dialog_edit_field_dialog_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../edit-field-dialog/edit-field-dialog.component */ "./src/app/fields/edit-field-dialog/edit-field-dialog.component.ts");
+            /* harmony import */ var _create_field_dialog_create_field_dialog_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../create-field-dialog/create-field-dialog.component */ "./src/app/fields/create-field-dialog/create-field-dialog.component.ts");
             var FieldListComponent = /** @class */ (function () {
                 function FieldListComponent(fieldService, dialog) {
                     this.fieldService = fieldService;
@@ -734,17 +764,16 @@
                     });
                     dialogRef.afterClosed().subscribe(function (result) {
                         console.log('The dialog was closed');
-                        console.log(field);
                     });
                 };
                 FieldListComponent.prototype.openCreateDialog = function (field) {
-                    var dialogRef = this.dialog.open(_edit_field_dialog_edit_field_dialog_component__WEBPACK_IMPORTED_MODULE_4__["EditFieldDialogComponent"], {
-                        width: '250px',
-                        data: field
+                    var _this = this;
+                    var dialogRef = this.dialog.open(_create_field_dialog_create_field_dialog_component__WEBPACK_IMPORTED_MODULE_5__["CreateFieldDialogComponent"], {
+                        width: '600px'
                     });
                     dialogRef.afterClosed().subscribe(function (result) {
+                        _this.getFields();
                         console.log('The dialog was closed');
-                        console.log(field);
                     });
                 };
                 return FieldListComponent;
@@ -838,13 +867,57 @@
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
             /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
             /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+            /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
             var FieldsService = /** @class */ (function () {
                 function FieldsService(http) {
                     this.http = http;
                     this.serviceURL = 'api/fields';
+                    this.httpOptions = {
+                        headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/json' })
+                    };
                 }
+                /* Get all Fields from the server */
                 FieldsService.prototype.getFields = function () {
-                    return this.http.get(this.serviceURL);
+                    var _this = this;
+                    return this.http.get(this.serviceURL)
+                        .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log('fetched all fields'); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getFields', [])));
+                };
+                /** GET field by id. Return `undefined` when id not found */
+                FieldsService.prototype.getHeroNo404 = function (id) {
+                    var _this = this;
+                    var url = this.serviceURL + "/?id=" + id;
+                    return this.http.get(url)
+                        .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (fields) { return fields[0]; }), // returns a {0|1} element array
+                    Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (h) {
+                        var outcome = h ? "fetched" : "did not find";
+                        _this.log(outcome + " field id=" + id);
+                    }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError("getHero id=" + id)));
+                };
+                /** GET field by id. Will 404 if id not found */
+                FieldsService.prototype.getField = function (id) {
+                    var _this = this;
+                    var url = this.serviceURL + "/" + id;
+                    return this.http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("fetched field id=" + id); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError("getField id=" + id)));
+                };
+                /** PUT: update the hero on the server */
+                FieldsService.prototype.updateField = function (field) {
+                    var _this = this;
+                    return this.http.put(this.serviceURL, field, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("updated field id=" + field.id); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('updateField')));
+                };
+                /** POST: add a new hero to the server */
+                FieldsService.prototype.addField = function (hero) {
+                    var _this = this;
+                    return this.http.post(this.serviceURL, hero, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (newField) { return _this.log("added field w/ id=" + newField.id); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('addField')));
+                };
+                /** DELETE: delete the hero from the server */
+                FieldsService.prototype.deleteField = function (hero) {
+                    var _this = this;
+                    var id = typeof hero === 'number' ? hero : hero.id;
+                    var url = this.serviceURL + "/" + id;
+                    return this.http.delete(url, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("deleted field id=" + id); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('deleteField')));
+                };
+                FieldsService.prototype.log = function (message) {
+                    console.log("FieldsService: " + message);
                 };
                 FieldsService.prototype.handleError = function (operation, result) {
                     var _this = this;
@@ -857,9 +930,6 @@
                         // Let the app keep running by returning an empty result.
                         return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
                     };
-                };
-                FieldsService.prototype.log = function (message) {
-                    console.log("FieldsService: " + message);
                 };
                 return FieldsService;
             }());
@@ -891,20 +961,20 @@
                     var fields = [
                         {
                             id: 1,
-                            acquisition_date: '2018-08-26',
-                            cultivated_area: 5.5,
-                            ingenio_id: 12345,
-                            last_updated: '2018-08-26',
+                            acquisitionDate: '2018-08-26',
+                            cultivatedArea: 5.5,
+                            ingenioId: 12345,
+                            lastUpdated: '2018-08-26',
                             name: 'Pandita',
                             owner: 'Pandita',
                             size: 5.5
                         },
                         {
                             id: 2,
-                            acquisition_date: '2015-12-28',
-                            cultivated_area: 5.5,
-                            ingenio_id: 54321,
-                            last_updated: '2015-12-28',
+                            acquisitionDate: '2015-12-28',
+                            cultivatedArea: 5.5,
+                            ingenioId: 54321,
+                            lastUpdated: '2015-12-28',
                             name: 'Monkey',
                             owner: 'Monkey',
                             size: 5.5
