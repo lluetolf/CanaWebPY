@@ -3,6 +3,8 @@ import { FieldsService } from '../fields.service';
 import { Field } from 'src/app/model/field';
 import { MatTableDataSource, MatDialog } from '@angular/material';
 import { EditFieldDialogComponent } from '../edit-field-dialog/edit-field-dialog.component';
+import { stringify } from 'querystring';
+import { CreateFieldDialogComponent } from '../create-field-dialog/create-field-dialog.component';
 
 @Component({
   selector: 'app-field-list',
@@ -38,19 +40,18 @@ export class FieldListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      console.log(field)
+      
     });
   }
 
   openCreateDialog(field: Field): void {
-    const dialogRef = this.dialog.open(EditFieldDialogComponent, {
-      width: '250px',
-      data: field
+    const dialogRef = this.dialog.open(CreateFieldDialogComponent, {
+      width: '600px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.getFields();
       console.log('The dialog was closed');
-      console.log(field)
     });
   }
 }

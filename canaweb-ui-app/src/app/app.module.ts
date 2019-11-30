@@ -14,6 +14,7 @@ import { MaterialModule } from './shared/material.module';
 import { InMemoryDataService } from './in-memory-data.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditFieldDialogComponent } from './fields/edit-field-dialog/edit-field-dialog.component';
+import { CreateFieldDialogComponent } from './fields/create-field-dialog/create-field-dialog.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { EditFieldDialogComponent } from './fields/edit-field-dialog/edit-field-
     )
   ],
   providers: [],
-  entryComponents: [EditFieldDialogComponent],
+  entryComponents: [EditFieldDialogComponent, CreateFieldDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

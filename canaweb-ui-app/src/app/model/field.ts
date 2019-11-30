@@ -1,10 +1,10 @@
 export class Field {
-    public 'acquisitionDate': Date;
-    public 'cultivatedArea': number;
     public 'id': number;
-    public 'ingenioId': number;
-    public 'lastUpdated': Date;
     public 'name': string;
     public 'owner': string;
     public 'size': number;
+    public 'cultivatedArea': number;
+    public 'ingenioId': number;
+    public 'acquisitionDate': Date;
+    public 'lastUpdated': Date;
 }
