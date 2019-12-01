@@ -5,6 +5,6 @@ export class Field {
     public 'size': number;
     public 'cultivatedArea': number;
     public 'ingenioId': number;
-    public 'acquisitionDate': Date;
+    public 'acquisitionDate': string;
     public 'lastUpdated': Date;
 }

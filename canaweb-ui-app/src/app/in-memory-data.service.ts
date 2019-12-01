@@ -10,7 +10,7 @@ export class InMemoryDataService implements InMemoryDbService {
     const fields = [
       {
         id: 1,
-        acquisitionDate: '2018-08-26',
+        acquisitionDate: '26.08.2018',
         cultivatedArea: 5.5,
         ingenioId: 12345,
         lastUpdated: '2018-08-26',
@@ -20,7 +20,7 @@ export class InMemoryDataService implements InMemoryDbService {
       },
       {
         id: 2,
-        acquisitionDate: '2015-12-28',
+        acquisitionDate: '28.12.2015',
         cultivatedArea: 5.5,
         ingenioId: 54321,
         lastUpdated: '2015-12-28',

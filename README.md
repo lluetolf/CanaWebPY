@@ -6,8 +6,10 @@
 # Create Angular skeleton
 ng new canaweb-ui-app --routing=true --style=scss
 cd canaweb-ui-app
-npm install --save @angular/material @angular/cdk @angular/animations
+npm install --save @angular/material @angular/cdk @angular/animations @angular/material-moment-adapter
 npm install --save hammerjs
+npm install --save moment
+npm install --save  date-fns
 npm install angular-in-memory-web-api --save
 
 ng add @angular/material
@@ -37,6 +39,7 @@ ng g m shared/material --flat
 # ng g m core
 # ng g s core/services/auth --skip-tests
 # ng g s core/services/local-storage --skip-tests
+
 
 # Build ng
 rm templates/*.*

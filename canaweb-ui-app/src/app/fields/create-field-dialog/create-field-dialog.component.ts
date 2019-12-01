@@ -1,6 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, ViewChild, OnInit, Inject } from '@angular/core';
 import { Field } from 'src/app/model/field';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDatepicker, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
 import { FieldsService } from '../fields.service';
 
 @Component({
@@ -9,7 +10,9 @@ import { FieldsService } from '../fields.service';
   styleUrls: ['./create-field-dialog.component.scss']
 })
 export class CreateFieldDialogComponent implements OnInit {
+  readonly dateFormat: string = 'dd.MM.yyyy';
   field: Field;
+  acquisitionDateField: Date;
 
   constructor(
     public dialogRef: MatDialogRef<CreateFieldDialogComponent>,
@@ -17,19 +20,25 @@ export class CreateFieldDialogComponent implements OnInit {
 
   ngOnInit() {
     this.field = new Field();
-    console.log("Sent to CreateFieldDialogComponent: ");
+    console.log('Sent to CreateFieldDialogComponent: ');
   }
 
   save() {
-    this.fieldService.addField(this.field).subscribe(field => {
-      console.log("Create:" + field)
+    // Transform Date to String
+    const ad = this.acquisitionDateField;
+    const formattedDate = (ad.getDate()) + '.' + (ad.getMonth() + 1) + '.' + ad.getFullYear();
+    this.field.acquisitionDate = formattedDate;
 
-      this.dialogRef.close()
+    this.fieldService.addField(this.field).subscribe(field => {
+      console.log('Create:' + field);
+
+      this.dialogRef.close();
     });
   }
 
   dismiss() {
-    this.dialogRef.close()
+    this.dialogRef.close();
   }
 
 }
+
