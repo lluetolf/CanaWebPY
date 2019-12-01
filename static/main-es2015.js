@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>version-page works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>version-page works!!</p>\n<p>Last build: 15:06</p>");
 
 /***/ }),
 
@@ -368,7 +368,6 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_5__["DashboardComponent"] },
-    { path: 'fieldList', component: _fields_field_list_field_list_component__WEBPACK_IMPORTED_MODULE_3__["FieldListComponent"] },
     { path: 'payableList', component: _fields_field_list_field_list_component__WEBPACK_IMPORTED_MODULE_3__["FieldListComponent"] },
     { path: 'receivableList', component: _fields_field_list_field_list_component__WEBPACK_IMPORTED_MODULE_3__["FieldListComponent"] },
     { path: 'contact', component: _fields_field_list_field_list_component__WEBPACK_IMPORTED_MODULE_3__["FieldListComponent"] },
@@ -835,10 +834,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _field_list_field_list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./field-list/field-list.component */ "./src/app/fields/field-list/field-list.component.ts");
 
 
 
-const routes = [];
+
+const routes = [{
+        path: 'fieldList', component: _field_list_field_list_component__WEBPACK_IMPORTED_MODULE_3__["FieldListComponent"]
+    }
+];
 let FieldsRoutingModule = class FieldsRoutingModule {
 };
 FieldsRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
