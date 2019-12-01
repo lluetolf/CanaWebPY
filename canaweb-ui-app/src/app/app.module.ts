@@ -15,6 +15,7 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditFieldDialogComponent } from './fields/edit-field-dialog/edit-field-dialog.component';
 import { CreateFieldDialogComponent } from './fields/create-field-dialog/create-field-dialog.component';
+import { PayablesModule } from './payable/payables.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,9 @@ import { CreateFieldDialogComponent } from './fields/create-field-dialog/create-
     // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+
+    PayablesModule
   ],
   providers: [],
   entryComponents: [EditFieldDialogComponent, CreateFieldDialogComponent],

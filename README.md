@@ -34,6 +34,13 @@ ng g c fields/edit-field-dialog --skip-tests
 ng g c fields/create-field-dialog --skip-tests
 ng g s fields/fields --skip-tests
 
+# Payable Module
+ng g m payable/payables --module app --flat --routing
+ng g c payable/payable-list --skip-tests
+ng g c payable/edit-payable --skip-tests
+ng g c payable/create-payable --skip-tests
+ng g s payable/payables --skip-tests
+
 # Shared
 ng g m shared/material --flat
 # ng g m core
