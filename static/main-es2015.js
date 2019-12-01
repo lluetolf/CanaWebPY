@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>Add Field</h1>\n\n<div mat-dialog-content>\n    <div class=\"example-container\">\n        <p>{{field.id}}</p>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Ingenio Id\" [(ngModel)]=\"field.ingenioId\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Name\" [(ngModel)]=\"field.name\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Owner\" [(ngModel)]=\"field.owner\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Size\" [(ngModel)]=\"field.size\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Cultivated\" [(ngModel)]=\"field.cultivatedArea\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Acquisition date\" [(ngModel)]=\"field.acquisitionDate\" required>\n        </mat-form-field>\n\n    </div>           \n</div>\n\n<div mat-dialog-actions>\n  <button mat-button (click)=\"dismiss()\">No Thanks</button>\n  <button mat-button cdkFocusInitial (click)=\"save()\">Create</button>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>Add Field</h1>\n\n<div mat-dialog-content>\n    <div class=\"example-container\">\n        <p>{{field.id}}</p>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Ingenio Id\" [(ngModel)]=\"field.ingenioId\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Name\" [(ngModel)]=\"field.name\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Owner\" [(ngModel)]=\"field.owner\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Size\" [(ngModel)]=\"field.size\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Cultivated\" [(ngModel)]=\"field.cultivatedArea\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput [matDatepicker]=\"picker\" placeholder=\"Acquisition date\" \n                [(ngModel)]=\"acquisitionDateField\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n            <mat-datepicker #picker></mat-datepicker>\n        </mat-form-field>\n\n    </div>           \n</div>\n\n<div mat-dialog-actions>\n  <button mat-button (click)=\"dismiss()\">No Thanks</button>\n  <button mat-button cdkFocusInitial (click)=\"save()\">Create</button>\n</div>");
 
 /***/ }),
 
@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>Edit Field</h1>\n\n<div mat-dialog-content>\n    <div class=\"example-container\">\n        <p>{{field.id}}</p>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Ingenio Id\" [(ngModel)]=\"field.ingenioId\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Name\" [(ngModel)]=\"field.name\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Owner\" [(ngModel)]=\"field.owner\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Size\" [(ngModel)]=\"field.size\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Cultivated\" [(ngModel)]=\"field.cultivatedArea\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Acquisition date\" [(ngModel)]=\"field.acquisitionDate\" required>\n        </mat-form-field>\n\n    </div>           \n</div>\n\n<div mat-dialog-actions>\n  <button mat-button (click)=\"dismiss()\">No Thanks</button>\n  <button mat-button cdkFocusInitial (click)=\"save()\">Save</button>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>Edit Field</h1>\n\n<div mat-dialog-content>\n    <div class=\"example-container\">\n        <p>{{field.id}}</p>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Ingenio Id\" [(ngModel)]=\"field.ingenioId\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Name\" [(ngModel)]=\"field.name\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Owner\" [(ngModel)]=\"field.owner\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Size\" [(ngModel)]=\"field.size\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Cultivated\" [(ngModel)]=\"field.cultivatedArea\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput [matDatepicker]=\"picker\" placeholder=\"Acquisition date\" \n                [(ngModel)]=\"acquisitionDateField\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n            <mat-datepicker #picker></mat-datepicker>\n        </mat-form-field>\n\n    </div>           \n</div>\n\n<div mat-dialog-actions>\n  <button mat-button (click)=\"dismiss()\">No Thanks</button>\n  <button mat-button cdkFocusInitial (click)=\"save()\">Save</button>\n</div>");
 
 /***/ }),
 
@@ -605,14 +605,19 @@ let CreateFieldDialogComponent = class CreateFieldDialogComponent {
     constructor(dialogRef, fieldService) {
         this.dialogRef = dialogRef;
         this.fieldService = fieldService;
+        this.dateFormat = 'dd.MM.yyyy';
     }
     ngOnInit() {
         this.field = new src_app_model_field__WEBPACK_IMPORTED_MODULE_2__["Field"]();
-        console.log("Sent to CreateFieldDialogComponent: ");
+        console.log('Sent to CreateFieldDialogComponent: ');
     }
     save() {
+        // Transform Date to String
+        const ad = this.acquisitionDateField;
+        const formattedDate = (ad.getDate()) + '.' + (ad.getMonth() + 1) + '.' + ad.getFullYear();
+        this.field.acquisitionDate = formattedDate;
         this.fieldService.addField(this.field).subscribe(field => {
-            console.log("Create:" + field);
+            console.log('Create:' + field);
             this.dialogRef.close();
         });
     }
@@ -664,6 +669,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
 /* harmony import */ var src_app_model_field__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/model/field */ "./src/app/model/field.ts");
 /* harmony import */ var _fields_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../fields.service */ "./src/app/fields/fields.service.ts");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/index.js");
+
 
 
 
@@ -674,14 +681,26 @@ let EditFieldDialogComponent = class EditFieldDialogComponent {
         this.dialogRef = dialogRef;
         this.data = data;
         this.fieldService = fieldService;
+        this.dateFormat = 'dd.MM.yyyy';
     }
     ngOnInit() {
-        console.log("Sent to Dialog: ", this.data);
+        console.log('Sent to Dialog: ', this.data);
         this.field = Object.assign({}, this.data);
+        const ad = this.field.acquisitionDate;
+        this.acquisitionDateField = Object(date_fns__WEBPACK_IMPORTED_MODULE_5__["parse"])(ad, this.dateFormat, new Date());
+    }
+    pickAcquisitionDate(event) {
+        const data = event;
+        const formattedDate = data.getDate() + '-' + (data.getMonth() + 1) + '-' + data.getFullYear();
+        this.field.acquisitionDate = formattedDate;
+        console.log('Reformated to: ' + formattedDate);
     }
     save() {
+        // Transform Date to String
+        const ad = this.acquisitionDateField;
+        const formattedDate = (ad.getDate()) + '.' + (ad.getMonth() + 1) + '.' + ad.getFullYear();
+        this.field.acquisitionDate = formattedDate;
         this.fieldService.updateField(this.field).subscribe(obs => {
-            console.log("update:" + obs);
             this.data.ingenioId = this.field.ingenioId;
             this.data.acquisitionDate = this.field.acquisitionDate;
             this.data.name = this.field.name;
@@ -704,6 +723,7 @@ EditFieldDialogComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-edit-field-dialog',
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./edit-field-dialog.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/fields/edit-field-dialog/edit-field-dialog.component.html")).default,
+        providers: [],
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./edit-field-dialog.component.scss */ "./src/app/fields/edit-field-dialog/edit-field-dialog.component.scss")).default]
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"]))
@@ -988,7 +1008,7 @@ let InMemoryDataService = class InMemoryDataService {
         const fields = [
             {
                 id: 1,
-                acquisitionDate: '2018-08-26',
+                acquisitionDate: '26.08.2018',
                 cultivatedArea: 5.5,
                 ingenioId: 12345,
                 lastUpdated: '2018-08-26',
@@ -998,7 +1018,7 @@ let InMemoryDataService = class InMemoryDataService {
             },
             {
                 id: 2,
-                acquisitionDate: '2015-12-28',
+                acquisitionDate: '28.12.2015',
                 cultivatedArea: 5.5,
                 ingenioId: 54321,
                 lastUpdated: '2015-12-28',
@@ -1172,7 +1192,8 @@ MaterialModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatToolbarModule"],
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTooltipModule"],
             _angular_cdk_table__WEBPACK_IMPORTED_MODULE_3__["CdkTableModule"]
-        ]
+        ],
+        declarations: []
     })
 ], MaterialModule);
 
