@@ -28,8 +28,48 @@ export class InMemoryDataService implements InMemoryDbService {
         owner: 'Monkey',
         size: 5.5
       }
-  ];
-    return {fields};
+    ];
+
+    const payables = [
+      {
+        id: 1,
+        pricePerUnit: 5.00,
+        transactionDate: '01.01.2018',
+        quantity: 1,
+        documentId: 1,
+        fieldId: 1,
+        category: 'Fertilizante',
+        subCategory: 'Algo algo',
+        comment: 'Mini dice que se necesita.',
+        lastUpdated: '01.01.2018',
+      },
+      {
+        id: 2,
+        pricePerUnit: 67.00,
+        transactionDate: '01.01.2018',
+        quantity: 3,
+        documentId: 5,
+        fieldId: 2,
+        category: 'Fertilizante',
+        subCategory: 'Algo algo',
+        comment: 'Mini dice que se necesita.',
+        lastUpdated: '01.01.2018',
+      },
+      {
+        id: 3,
+        pricePerUnit: 1111.00,
+        transactionDate: '01.01.2018',
+        quantity: 2,
+        documentId: 3,
+        fieldId: 1,
+        category: 'Fertilizante',
+        subCategory: 'Algo algo',
+        comment: 'Mini dice que se necesita.',
+        lastUpdated: '19.05.2018',
+      },
+    ]
+
+    return {fields, payables};
   }
 
   constructor() { }
