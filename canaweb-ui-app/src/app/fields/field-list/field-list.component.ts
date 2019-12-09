@@ -14,7 +14,7 @@ import { CreateFieldDialogComponent } from '../create-field-dialog/create-field-
 export class FieldListComponent implements OnInit {
   fields = new MatTableDataSource<Field>();
 
-  displayedColumns: string[] = ['id', 'name', 'owner', 'last_updated', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'owner', 'size', 'cultivatedArea', 'acquisitionDate', 'actions'];
 
   constructor(private fieldService: FieldsService, public dialog: MatDialog) { }
 

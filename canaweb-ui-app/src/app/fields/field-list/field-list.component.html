@@ -18,9 +18,21 @@
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
     
-        <ng-container matColumnDef="last_updated">
-            <th mat-header-cell *matHeaderCellDef> Last Update </th>
-            <td mat-cell *matCellDef="let element"> {{element.last_updated}} </td>
+        <ng-container matColumnDef="acquisitionDate">
+            <th mat-header-cell *matHeaderCellDef> Acquisition Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.acquisitionDate}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <ng-container matColumnDef="size">
+            <th mat-header-cell *matHeaderCellDef> Size </th>
+            <td mat-cell *matCellDef="let element"> {{element.size}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <ng-container matColumnDef="cultivatedArea">
+            <th mat-header-cell *matHeaderCellDef> Cultivated Area </th>
+            <td mat-cell *matCellDef="let element"> {{element.cultivatedArea}} </td>
             <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
 
