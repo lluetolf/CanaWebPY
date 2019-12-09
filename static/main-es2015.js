@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>Dashboard!</p>\n<div *ngFor=\"let field of fields\" class=\"module \">\n    <pre>{{field | json}}</pre>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>Dashboard!</p>\n<h3>Fields</h3>\n<div *ngFor=\"let field of fields\" class=\"module \">\n    <pre>{{field | json}}</pre>\n</div>\n\n<h3>Payables</h3>\n<div *ngFor=\"let payable of payables\" class=\"module \">\n    <pre>{{payable | json}}</pre>\n</div>");
 
 /***/ }),
 
@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>Add Field</h1>\n\n<div mat-dialog-content>\n    <div class=\"example-container\">\n        <p>{{field.id}}</p>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Ingenio Id\" [(ngModel)]=\"field.ingenioId\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Name\" [(ngModel)]=\"field.name\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Owner\" [(ngModel)]=\"field.owner\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Size\" [(ngModel)]=\"field.size\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Cultivated\" [(ngModel)]=\"field.cultivatedArea\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput [matDatepicker]=\"picker\" placeholder=\"Acquisition date\" \n                [(ngModel)]=\"acquisitionDateField\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n            <mat-datepicker #picker></mat-datepicker>\n        </mat-form-field>\n\n    </div>           \n</div>\n\n<div mat-dialog-actions>\n  <button mat-button (click)=\"dismiss()\">No Thanks</button>\n  <button mat-button cdkFocusInitial (click)=\"save()\">Create</button>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>Add Field</h1>\n\n<div mat-dialog-content>\n    <div class=\"example-container\">\n        <p>{{field.id}}</p>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Ingenio Id\" [(ngModel)]=\"field.ingenioId\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Name\" [(ngModel)]=\"field.name\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Owner\" [(ngModel)]=\"field.owner\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Size\" [(ngModel)]=\"field.size\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Cultivated\" [(ngModel)]=\"field.cultivatedArea\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput [matDatepicker]=\"picker\" placeholder=\"Acquisition date\" \n                [(ngModel)]=\"acquisitionDateField\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n            <mat-datepicker #picker></mat-datepicker>\n        </mat-form-field>\n\n    </div>           \n</div>\n\n<div mat-dialog-actions>\n  <button mat-button (click)=\"dismiss()\">Cancel</button>\n  <button mat-button cdkFocusInitial (click)=\"save()\">Create</button>\n</div>");
 
 /***/ }),
 
@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>Edit Field</h1>\n\n<div mat-dialog-content>\n    <div class=\"example-container\">\n        <p>{{field.id}}</p>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Ingenio Id\" [(ngModel)]=\"field.ingenioId\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Name\" [(ngModel)]=\"field.name\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Owner\" [(ngModel)]=\"field.owner\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Size\" [(ngModel)]=\"field.size\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Cultivated\" [(ngModel)]=\"field.cultivatedArea\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput [matDatepicker]=\"picker\" placeholder=\"Acquisition date\" \n                [(ngModel)]=\"acquisitionDateField\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n            <mat-datepicker #picker></mat-datepicker>\n        </mat-form-field>\n\n    </div>           \n</div>\n\n<div mat-dialog-actions>\n  <button mat-button (click)=\"dismiss()\">No Thanks</button>\n  <button mat-button cdkFocusInitial (click)=\"save()\">Save</button>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>Edit Field</h1>\n\n<div mat-dialog-content>\n    <div class=\"example-container\">\n        <p>{{field.id}}</p>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Ingenio Id\" [(ngModel)]=\"field.ingenioId\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Name\" [(ngModel)]=\"field.name\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Owner\" [(ngModel)]=\"field.owner\" required>\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Size\" [(ngModel)]=\"field.size\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput placeholder=\"Cultivated\" [(ngModel)]=\"field.cultivatedArea\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <input matInput [matDatepicker]=\"picker\" placeholder=\"Acquisition date\" \n                [(ngModel)]=\"acquisitionDateField\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n            <mat-datepicker #picker></mat-datepicker>\n        </mat-form-field>\n\n    </div>           \n</div>\n\n<div mat-dialog-actions>\n  <button mat-button (click)=\"dismiss()\">Cancel</button>\n  <button mat-button cdkFocusInitial (click)=\"save()\">Save</button>\n</div>");
 
 /***/ }),
 
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1>FieldList!</h1>\n<div class=\"container\">\n    <table mat-table [dataSource]=\"fields\" class=\"mat-elevation-z8\">\n        <ng-container matColumnDef=\"name\">\n            <th mat-header-cell *matHeaderCellDef> Name </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n            <td mat-footer-cell *matFooterCellDef></td>\n        </ng-container>\n        <ng-container matColumnDef=\"owner\">\n            <th mat-header-cell *matHeaderCellDef> Owner </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.owner}} </td>\n            <td mat-footer-cell *matFooterCellDef></td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"id\">\n            <th mat-header-cell *matHeaderCellDef> Id </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.id}} </td>\n            <td mat-footer-cell *matFooterCellDef></td>\n        </ng-container>\n    \n        <ng-container matColumnDef=\"last_updated\">\n            <th mat-header-cell *matHeaderCellDef> Last Update </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.last_updated}} </td>\n            <td mat-footer-cell *matFooterCellDef></td>\n        </ng-container>\n\n        \n        <ng-container matColumnDef=\"actions\">\n            <th mat-header-cell *matHeaderCellDef>  </th>\n            <td mat-cell *matCellDef=\"let element\"> \n                <div class=\"buttoncontainer\">\n                    <button mat-mini-fab aria-label=\"Edit\" (click)=\"openEditDialog(element)\">\n                        <mat-icon>edit</mat-icon>\n                    </button>\n                </div>\n            </td>\n            <td mat-footer-cell *matFooterCellDef>\n                <div class=\"buttoncontainer\">\n                    <button mat-flat-button color=\"primary\" aria-label=\"add\" (click)=\"openCreateDialog()\">\n                        <mat-icon>add</mat-icon>\n                    </button>\n                </div>\n            </td>\n        </ng-container>\n\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns\"></tr>\n        <tr mat-footer-row *matFooterRowDef=\"displayedColumns\"></tr>\n    </table>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1>FieldList!</h1>\n<div class=\"container\">\n    <table mat-table [dataSource]=\"fields\" class=\"mat-elevation-z8\">\n        <ng-container matColumnDef=\"name\">\n            <th mat-header-cell *matHeaderCellDef> Name </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n            <td mat-footer-cell *matFooterCellDef></td>\n        </ng-container>\n        <ng-container matColumnDef=\"owner\">\n            <th mat-header-cell *matHeaderCellDef> Owner </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.owner}} </td>\n            <td mat-footer-cell *matFooterCellDef></td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"id\">\n            <th mat-header-cell *matHeaderCellDef> Id </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.id}} </td>\n            <td mat-footer-cell *matFooterCellDef></td>\n        </ng-container>\n    \n        <ng-container matColumnDef=\"acquisitionDate\">\n            <th mat-header-cell *matHeaderCellDef> Acquisition Date </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.acquisitionDate}} </td>\n            <td mat-footer-cell *matFooterCellDef></td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"size\">\n            <th mat-header-cell *matHeaderCellDef> Size </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.size}} </td>\n            <td mat-footer-cell *matFooterCellDef></td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"cultivatedArea\">\n            <th mat-header-cell *matHeaderCellDef> Cultivated Area </th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.cultivatedArea}} </td>\n            <td mat-footer-cell *matFooterCellDef></td>\n        </ng-container>\n\n        \n        <ng-container matColumnDef=\"actions\">\n            <th mat-header-cell *matHeaderCellDef>  </th>\n            <td mat-cell *matCellDef=\"let element\"> \n                <div class=\"buttoncontainer\">\n                    <button mat-mini-fab aria-label=\"Edit\" (click)=\"openEditDialog(element)\">\n                        <mat-icon>edit</mat-icon>\n                    </button>\n                </div>\n            </td>\n            <td mat-footer-cell *matFooterCellDef>\n                <div class=\"buttoncontainer\">\n                    <button mat-flat-button color=\"primary\" aria-label=\"add\" (click)=\"openCreateDialog()\">\n                        <mat-icon>add</mat-icon>\n                    </button>\n                </div>\n            </td>\n        </ng-container>\n\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns\"></tr>\n        <tr mat-footer-row *matFooterRowDef=\"displayedColumns\"></tr>\n    </table>\n\n</div>");
 
 /***/ }),
 
@@ -98,6 +98,45 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<p>page-not-found works!</p>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/payable/create-payable/create-payable.component.html":
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/payable/create-payable/create-payable.component.html ***!
+  \************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>create-payable works!</p>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/payable/edit-payable/edit-payable.component.html":
+/*!********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/payable/edit-payable/edit-payable.component.html ***!
+  \********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>edit-payable works!</p>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/payable/payable-list/payable-list.component.html":
+/*!********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/payable/payable-list/payable-list.component.html ***!
+  \********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>payable-list works!</p>\n");
 
 /***/ }),
 
@@ -455,6 +494,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
 /* harmony import */ var _fields_edit_field_dialog_edit_field_dialog_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./fields/edit-field-dialog/edit-field-dialog.component */ "./src/app/fields/edit-field-dialog/edit-field-dialog.component.ts");
 /* harmony import */ var _fields_create_field_dialog_create_field_dialog_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./fields/create-field-dialog/create-field-dialog.component */ "./src/app/fields/create-field-dialog/create-field-dialog.component.ts");
+/* harmony import */ var _payable_payables_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./payable/payables.module */ "./src/app/payable/payables.module.ts");
+
 
 
 
@@ -493,7 +534,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
             // and returns simulated server responses.
             // Remove it when a real server is ready to receive requests.
-            angular_in_memory_web_api__WEBPACK_IMPORTED_MODULE_5__["HttpClientInMemoryWebApiModule"].forRoot(_in_memory_data_service__WEBPACK_IMPORTED_MODULE_13__["InMemoryDataService"], { dataEncapsulation: false })
+            angular_in_memory_web_api__WEBPACK_IMPORTED_MODULE_5__["HttpClientInMemoryWebApiModule"].forRoot(_in_memory_data_service__WEBPACK_IMPORTED_MODULE_13__["InMemoryDataService"], { dataEncapsulation: false }),
+            _payable_payables_module__WEBPACK_IMPORTED_MODULE_17__["PayablesModule"]
         ],
         providers: [],
         entryComponents: [_fields_edit_field_dialog_edit_field_dialog_component__WEBPACK_IMPORTED_MODULE_15__["EditFieldDialogComponent"], _fields_create_field_dialog_create_field_dialog_component__WEBPACK_IMPORTED_MODULE_16__["CreateFieldDialogComponent"]],
@@ -531,29 +573,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _fields_fields_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fields/fields.service */ "./src/app/fields/fields.service.ts");
+/* harmony import */ var _payable_payables_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../payable/payables.service */ "./src/app/payable/payables.service.ts");
+
 
 
 
 let DashboardComponent = class DashboardComponent {
-    constructor(fieldsService) {
+    constructor(fieldsService, payablesService) {
         this.fieldsService = fieldsService;
+        this.payablesService = payablesService;
         this.fields = [];
+        this.payables = [];
     }
     ngOnInit() {
         this.getFields();
+        this.getPayables();
     }
     getFields() {
         this.fieldsService.getFields()
             .subscribe(fields => {
             this.fields = fields;
+            console.log("Fields: ");
             fields.forEach(element => {
+                console.log(JSON.stringify(element));
+            });
+        });
+    }
+    getPayables() {
+        this.payablesService.getPayables()
+            .subscribe(payables => {
+            this.payables = payables;
+            console.log("Payables: ");
+            payables.forEach(element => {
                 console.log(JSON.stringify(element));
             });
         });
     }
 };
 DashboardComponent.ctorParameters = () => [
-    { type: _fields_fields_service__WEBPACK_IMPORTED_MODULE_2__["FieldsService"] }
+    { type: _fields_fields_service__WEBPACK_IMPORTED_MODULE_2__["FieldsService"] },
+    { type: _payable_payables_service__WEBPACK_IMPORTED_MODULE_3__["PayablesService"] }
 ];
 DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -772,7 +831,7 @@ let FieldListComponent = class FieldListComponent {
         this.fieldService = fieldService;
         this.dialog = dialog;
         this.fields = new _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"]();
-        this.displayedColumns = ['id', 'name', 'owner', 'last_updated', 'actions'];
+        this.displayedColumns = ['id', 'name', 'owner', 'size', 'cultivatedArea', 'acquisitionDate', 'actions'];
     }
     ngOnInit() {
         this.getFields();
@@ -1011,27 +1070,5221 @@ let InMemoryDataService = class InMemoryDataService {
     createDb() {
         const fields = [
             {
-                id: 1,
-                acquisitionDate: '26.08.2018',
-                cultivatedArea: 5.5,
-                ingenioId: 12345,
-                lastUpdated: '2018-08-26',
-                name: 'Pandita',
-                owner: 'Pandita',
-                size: 5.5
+                "id": 1,
+                "name": "Unknown",
+                "owner": "Catsito",
+                "acquisitionDate": "01.01.2017",
+                "cultivatedArea": 0,
+                "ingenioId": -1,
+                "lastUpdated": "09.12.2019",
+                "size": 0
             },
             {
-                id: 2,
-                acquisitionDate: '28.12.2015',
-                cultivatedArea: 5.5,
-                ingenioId: 54321,
-                lastUpdated: '2015-12-28',
-                name: 'Monkey',
-                owner: 'Monkey',
-                size: 5.5
+                "id": 2,
+                "name": "Abuelo",
+                "owner": "Abuelo",
+                "acquisitionDate": "01.01.2017",
+                "cultivatedArea": 14,
+                "ingenioId": -1,
+                "lastUpdated": "09.12.2019",
+                "size": 14
+            },
+            {
+                "id": 3,
+                "name": "Papa",
+                "owner": "Papa",
+                "acquisitionDate": "01.01.2017",
+                "cultivatedArea": 12,
+                "ingenioId": -1,
+                "lastUpdated": "09.12.2019",
+                "size": 12
+            },
+            {
+                "id": 4,
+                "name": "Arturo",
+                "owner": "Arturo",
+                "acquisitionDate": "01.01.2017",
+                "cultivatedArea": 12,
+                "ingenioId": -1,
+                "lastUpdated": "09.12.2019",
+                "size": 12
+            },
+            {
+                "id": 5,
+                "name": "Alma",
+                "owner": "Abuelo",
+                "acquisitionDate": "01.01.2017",
+                "cultivatedArea": 7.5,
+                "ingenioId": -1,
+                "lastUpdated": "09.12.2019",
+                "size": 7.5
+            },
+            {
+                "id": 6,
+                "name": "Sandra",
+                "owner": "Abuelo",
+                "acquisitionDate": "01.01.2017",
+                "cultivatedArea": 6.5,
+                "ingenioId": -1,
+                "lastUpdated": "09.12.2019",
+                "size": 6.5
+            },
+            {
+                "id": 7,
+                "name": "Julito",
+                "owner": "Abuelo",
+                "acquisitionDate": "01.01.2017",
+                "cultivatedArea": 5,
+                "ingenioId": -1,
+                "lastUpdated": "09.12.2019",
+                "size": 5
+            },
+            {
+                "id": 8,
+                "name": "Grinchy 1",
+                "owner": "Catsito",
+                "acquisitionDate": "01.01.2017",
+                "cultivatedArea": 10,
+                "ingenioId": -1,
+                "lastUpdated": "09.12.2019",
+                "size": 10
+            },
+            {
+                "id": 9,
+                "name": "Grinchy 2",
+                "owner": "Catsito",
+                "acquisitionDate": "01.01.2017",
+                "cultivatedArea": 16,
+                "ingenioId": -1,
+                "lastUpdated": "09.12.2019",
+                "size": 16
+            },
+            {
+                "id": 10,
+                "name": "Limones",
+                "owner": "Papa",
+                "acquisitionDate": "01.01.2017",
+                "cultivatedArea": 10,
+                "ingenioId": -1,
+                "lastUpdated": "09.12.2019",
+                "size": 10
             }
         ];
-        return { fields };
+        const payables = [
+            {
+                "id": 1,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-01-02 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido Viviana, Riego cal y abono Abuelo, Trabajo en el lindero de Samuel",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 2,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-03 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Trabajo VLTG, Retapa de cana Jardin,  Fertilization Abuelo y Sandra, Corte de Cana",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 3,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-04 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Trabajo VLTG, Retapa de cana Jardin,  Fertilization Abuelo y Sandra, Corte de Cana",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 4,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-05 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Trabajo VLTG, Retapa de cana Jardin,  Fertilization Abuelo y Sandra, Corte de Cana",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 5,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-06 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Trabajo VLTG, Retapa de cana Jardin,  Fertilization Abuelo y Sandra, Corte de Cana",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 6,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-07 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Trabajo VLTG, Retapa de cana Jardin,  Fertilization Abuelo y Sandra, Corte de Cana",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 7,
+                "category": "Propina",
+                "subCategory": "Quema",
+                "pricePerUnit": 840,
+                "transactionDate": "2016-01-08 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Propina en la semana 4-9 enero",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 8,
+                "category": "Propina",
+                "subCategory": "Quema",
+                "pricePerUnit": 560,
+                "transactionDate": "2016-01-08 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Propina en la semana 4-9 enero",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 9,
+                "category": "Propina",
+                "subCategory": "Corte",
+                "pricePerUnit": 270,
+                "transactionDate": "2016-01-13 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Refrescos y galletas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 10,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-15 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Fertilizante SLTB y AMTG y Jardin, Guardaraya en JCMT, Quema de basura ARTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 11,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-15 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Fertilizante SLTB y AMTG y Jardin, Guardaraya en JCMT, Quema de basura ARTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 12,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-15 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Fertilizante SLTB y AMTG y Jardin, Guardaraya en JCMT, Quema de basura ARTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 13,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-15 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Fertilizante SLTB y AMTG y Jardin, Guardaraya en JCMT, Quema de basura ARTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 14,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-15 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Fertilizante SLTB y AMTG y Jardin, Guardaraya en JCMT, Quema de basura ARTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 15,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-15 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Fertilizante SLTB y AMTG y Jardin, Guardaraya en JCMT, Quema de basura ARTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 16,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-15 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Fertilizante SLTB y AMTG y Jardin, Guardaraya en JCMT, Quema de basura ARTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 17,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 700,
+                "transactionDate": "2016-01-15 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 18,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 700,
+                "transactionDate": "2016-01-15 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 19,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 700,
+                "transactionDate": "2016-01-15 00:00:00",
+                "quantity": 6,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "SLTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 20,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 700,
+                "transactionDate": "2016-01-15 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 21,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 700,
+                "transactionDate": "2016-01-15 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 22,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 700,
+                "transactionDate": "2016-01-15 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 23,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 700,
+                "transactionDate": "2016-01-15 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "jardin",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 24,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-16 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Abrirar giardaraya, quema de cana de Rogelio (AMTG, JCMT), Veneno en el predio de los limones",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 25,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-17 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Abrirar giardaraya, quema de cana de Rogelio (AMTG, JCMT), Veneno en el predio de los limones",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 26,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-18 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Abrirar giardaraya, quema de cana de Rogelio (AMTG, JCMT), Veneno en el predio de los limones",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 27,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-19 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Abrirar giardaraya, quema de cana de Rogelio (AMTG, JCMT), Veneno en el predio de los limones",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 28,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-20 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Abrirar giardaraya, quema de cana de Rogelio (AMTG, JCMT), Veneno en el predio de los limones",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 29,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-21 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Abrirar giardaraya, quema de cana de Rogelio (AMTG, JCMT), Veneno en el predio de los limones",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 30,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-22 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Abrirar giardaraya, quema de cana de Rogelio (AMTG, JCMT), Veneno en el predio de los limones",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 31,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 8400,
+                "transactionDate": "2016-01-22 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "1 VLTG, 2 AMTG, 4 JCMT, 4 AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 32,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-23 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Quema basur en JCMT y AMTG, Quema de cana, Riego de liquido VLTG, Aberture de guardarayas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 33,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 140,
+                "transactionDate": "2016-01-23 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Quema basur en JCMT y AMTG, Quema de cana, Riego de liquido VLTG, Aberture de guardarayas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 34,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-23 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Quema basur en JCMT y AMTG, Quema de cana, Riego de liquido VLTG, Aberture de guardarayas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 35,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-23 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Quema basur en JCMT y AMTG, Quema de cana, Riego de liquido VLTG, Aberture de guardarayas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 36,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-23 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Quema basur en JCMT y AMTG, Quema de cana, Riego de liquido VLTG, Aberture de guardarayas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 37,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-23 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Quema basur en JCMT y AMTG, Quema de cana, Riego de liquido VLTG, Aberture de guardarayas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 38,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-23 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Quema basur en JCMT y AMTG, Quema de cana, Riego de liquido VLTG, Aberture de guardarayas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 39,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-01-30 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido y agua VLTG y Limones, Ayuda a tractoristas, Fantasmas VLTG, ARTB, AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 40,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-01-31 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido y agua VLTG y Limones, Ayuda a tractoristas, Fantasmas VLTG, ARTB, AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 41,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-02-01 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido y agua VLTG y Limones, Ayuda a tractoristas, Fantasmas VLTG, ARTB, AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 42,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-02-02 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido y agua VLTG y Limones, Ayuda a tractoristas, Fantasmas VLTG, ARTB, AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 43,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-02-03 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido y agua VLTG y Limones, Ayuda a tractoristas, Fantasmas VLTG, ARTB, AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 44,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-02-04 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido y agua VLTG y Limones, Ayuda a tractoristas, Fantasmas VLTG, ARTB, AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 45,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 150,
+                "transactionDate": "2016-02-05 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido y agua VLTG y Limones, Ayuda a tractoristas, Fantasmas VLTG, ARTB, AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 46,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 150,
+                "transactionDate": "2016-02-06 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido y agua VLTG y Limones, Ayuda a tractoristas, Fantasmas VLTG, ARTB, AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 47,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-02-08 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Fantasmas JCMT, Riego agua y chapeo Limones",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 48,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-02-09 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Fantasmas JCMT, Riego agua y chapeo Limones",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 49,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-02-11 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Fantasmas JCMT, Riego agua y chapeo Limones",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 50,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-02-12 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Fantasmas JCMT, Riego agua y chapeo Limones",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 51,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-02-23 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido ATB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 52,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-02-24 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido ATB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 53,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-02-25 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido ATB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 54,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-02-26 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido ATB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 55,
+                "category": "Tanques",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-02-27 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido ATB y Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 56,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-02-28 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido ATB y Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 57,
+                "category": "Tanques",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-02-29 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido ATB y Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 58,
+                "category": "Tanques",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-03-01 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido ATB y Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 59,
+                "category": "Tanques",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-03-02 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido ATB y Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 60,
+                "category": "Tanques",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-03-03 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido ATB y Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 61,
+                "category": "Tanques",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-03-04 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido ATB y Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 62,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-03-05 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de cal en ARTB y JCMT, Tarpaleo en AMTG, Riego de liquido en Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 63,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-03-06 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de cal en ARTB y JCMT, Tarpaleo en AMTG, Riego de liquido en Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 64,
+                "category": "Herramienta",
+                "subCategory": "Tritor",
+                "pricePerUnit": 125,
+                "transactionDate": "2016-03-06 00:00:00",
+                "quantity": 32,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "32l, 2l por cada tanque",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 65,
+                "category": "Herramienta",
+                "subCategory": "Herbicol",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-03-06 00:00:00",
+                "quantity": 16,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "16l, 1l por cada tanque",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 66,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-03-07 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de cal en ARTB y JCMT, Tarpaleo en AMTG, Riego de liquido en Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 67,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-03-08 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de cal en ARTB y JCMT, Tarpaleo en AMTG, Riego de liquido en Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 68,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-03-09 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de cal en ARTB y JCMT, Tarpaleo en AMTG, Riego de liquido en Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 69,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-03-09 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de cal en ARTB y JCMT, Tarpaleo en AMTG, Riego de liquido en Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 70,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-03-10 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de cal en ARTB y JCMT, Tarpaleo en AMTG, Riego de liquido en Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 71,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-03-10 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de cal en ARTB y JCMT, Tarpaleo en AMTG, Riego de liquido en Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 72,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-03-11 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de cal en ARTB y JCMT, Tarpaleo en AMTG, Riego de liquido en Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 73,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-03-12 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 74,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-03-13 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 75,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-03-14 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 76,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-03-15 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Fertilizante en Limones, Tarpaleo Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 77,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-03-16 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Fertilizante en Limones, Tarpaleo Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 78,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-03-17 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Fertilizante en Limones, Tarpaleo Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 79,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-03-18 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Fertilizante en Limones, Tarpaleo Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 80,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-03-19 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Tarpaleo en Abuelo, Junta y quema de Cana VLTG y AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 81,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-03-20 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 82,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-03-21 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 83,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-03-22 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Tarpaleo en Abuelo, Junta y quema de Cana VLTG y AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 84,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-03-23 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Tarpaleo en Abuelo, Junta y quema de Cana VLTG y AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 85,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-03-24 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Tarpaleo en Abuelo, Junta y quema de Cana VLTG y AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 86,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-03-25 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Tarpaleo en Abuelo, Junta y quema de Cana VLTG y AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 87,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-03-26 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Tarpaleo en Abuelo, Junta y quema de Cana VLTG y AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 88,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-03-26 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Tarpaleo en Abuelo, Junta y quema de Cana VLTG y AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 89,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-03-27 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Corte de cana en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 90,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-03-28 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Corte de cana en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 91,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-03-29 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Corte de cana en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 92,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-03-30 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Corte de cana en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 93,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-03-31 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Corte de cana en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 94,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-01 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Corte de cana en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 95,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-04-01 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "?",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 96,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-02 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "?",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 97,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-04-03 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "?",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 98,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-04 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "?",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 99,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-04 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Otro senor. Arancando troncones de cania de venado cerca de la cana.",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 100,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-04-05 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "?",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 101,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-05 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Otro senor. Arancando troncones de cania de venado cerca de la cana.",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 102,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-04-06 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "?",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 103,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-06 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Otro senor. Arancando troncones de cania de venado cerca de la cana.",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 104,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-04-07 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "?",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 105,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-04-07 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "?",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 106,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-07 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Otro senor. Arancando troncones de cania de venado cerca de la cana.",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 107,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-04-08 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "?",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 108,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-04-08 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "?",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 109,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-08 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Otro senor. Arancando troncones de cania de venado cerca de la cana.",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 110,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 150,
+                "transactionDate": "2016-04-09 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "?",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 111,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 150,
+                "transactionDate": "2016-04-10 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Quema y corte de cana en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 112,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-11 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Quema y corte de cana en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 113,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-04-11 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Quema y corte de cana en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 114,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-04-12 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Quema y corte de cana en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 115,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 150,
+                "transactionDate": "2016-04-13 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Quema y corte de cana en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 116,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-04-13 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Quema y corte de cana en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 117,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-04-14 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Quema y corte de cana en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 118,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-04-15 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Quema y corte de cana en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 119,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-16 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Quema y corte de cana en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 120,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-04-17 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 121,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-18 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquidos en Limones, Quema de basura",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 122,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-04-19 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquidos en Limones, Quema de basura",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 123,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-20 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquidos en Limones, Quema de basura",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 124,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-04-21 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquidos en Limones, Quema de basura",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 125,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-22 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquidos en Limones, Quema de basura",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 126,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-04-23 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquidos en Limones, Quema de basura",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 127,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-04-23 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquidos en Limones, Quema de basura",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 128,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-04-24 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 129,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-25 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Pintar arboles en Abuelo, Veneno contra las tusas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 130,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-26 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Pintar arboles en Abuelo, Veneno contra las tusas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 131,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-26 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Pintar arboles en Abuelo, Veneno contra las tusas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 132,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-27 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Pintar arboles en Abuelo, Veneno contra las tusas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 133,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-27 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Pintar arboles en Abuelo, Veneno contra las tusas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 134,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-28 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Pintar arboles en Abuelo, Veneno contra las tusas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 135,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-28 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Pintar arboles en Abuelo, Veneno contra las tusas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 136,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-29 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Pintar arboles en Abuelo, Veneno contra las tusas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 137,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-29 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Pintar arboles en Abuelo, Veneno contra las tusas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 138,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-04-30 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Pintar arboles en Abuelo, Veneno contra las tusas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 139,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-05-01 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 140,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-05-02 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Veneno de tusa en VLTG, Revision del gusano",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 141,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-05-03 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Veneno de tusa en VLTG, Revision del gusano",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 142,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-05-04 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 143,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-05-05 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 144,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-05-06 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 145,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-05-07 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 146,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-05-08 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 147,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-05-09 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 148,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-05-10 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego en VLTG, Predio Carlos",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 149,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-05-11 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego en VLTG, Predio Carlos",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 150,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-05-12 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego en VLTG, Predio Carlos",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 151,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-05-13 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego en VLTG, Predio Carlos",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 152,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-05-14 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 153,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-05-15 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 154,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-05-16 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 155,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-05-17 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego foliar en Abuelo (porton)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 156,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-05-18 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego foliar en Abuelo (porton)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 157,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-05-19 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego foliar en Abuelo (porton)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 158,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-05-20 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego foliar en Abuelo (porton)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 159,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-05-21 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego foliar en Abuelo (porton)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 160,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-05-22 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 161,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-05-23 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido en Abuelo (porton), Riego furadan en VLTG (Carlos), Tarpaleo Abuelo (porton)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 162,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-05-24 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido en Abuelo (porton), Riego furadan en VLTG (Carlos), Tarpaleo Abuelo (porton)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 163,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-05-25 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido en Abuelo (porton), Riego furadan en VLTG (Carlos), Tarpaleo Abuelo (porton)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 164,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-05-26 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido en Abuelo (porton), Riego furadan en VLTG (Carlos), Tarpaleo Abuelo (porton)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 165,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-05-27 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido en Abuelo (porton), Riego furadan en VLTG (Carlos), Tarpaleo Abuelo (porton)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 166,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-05-27 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido en Abuelo (porton), Riego furadan en VLTG (Carlos), Tarpaleo Abuelo (porton)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 167,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-05-28 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido en Abuelo (porton), Riego furadan en VLTG (Carlos), Tarpaleo Abuelo (porton)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 168,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-05-28 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido en Abuelo (porton), Riego furadan en VLTG (Carlos), Tarpaleo Abuelo (porton)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 169,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-05-29 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 170,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-05-30 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 171,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-05-31 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 172,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-06-01 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 173,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-06-02 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 174,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-06-03 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 175,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-06-04 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 176,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-06-05 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 177,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-06 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Pinta de arboles en Limones, Riego foliar en Limones, Chapeo Limones",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 178,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-07 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Pinta de arboles en Limones, Riego foliar en Limones, Chapeo Limones",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 179,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-08 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Pinta de arboles en Limones, Riego foliar en Limones, Chapeo Limones",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 180,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-09 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Pinta de arboles en Limones, Riego foliar en Limones, Chapeo Limones",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 181,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-10 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Pinta de arboles en Limones, Riego foliar en Limones, Chapeo Limones",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 182,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-11 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Pinta de arboles en Limones, Riego foliar en Limones, Chapeo Limones",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 183,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-06-12 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 184,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-13 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Revision de Cana, Riego abono en AMTG, Riego foliar en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 185,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-06-13 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Revision de Cana, Riego abono en AMTG, Riego foliar en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 186,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-14 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Revision de Cana, Riego abono en AMTG, Riego foliar en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 187,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-15 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Revision de Cana, Riego abono en AMTG, Riego foliar en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 188,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-16 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Revision de Cana, Riego abono en AMTG, Riego foliar en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 189,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-17 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Revision de Cana, Riego abono en AMTG, Riego foliar en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 190,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-18 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Revision de Cana, Riego abono en AMTG, Riego foliar en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 191,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-06-18 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Revision de Cana, Riego abono en AMTG, Riego foliar en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 192,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-19 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Revision de Cana, Riego abono en AMTG, Riego foliar en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 193,
+                "category": "Herramienta",
+                "subCategory": "Pronamex",
+                "pricePerUnit": 3720,
+                "transactionDate": "2016-06-20 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "precio por tonelada, sulfato de amonio",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 194,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-20 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego furadan (conejo) en VLTG, Riego de fertilizante en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 195,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-06-21 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 196,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-22 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego furadan (conejo) en VLTG, Riego de fertilizante en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 197,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-06-22 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego furadan (conejo) en VLTG, Riego de fertilizante en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 198,
+                "category": "Herramienta",
+                "subCategory": "Pronamex",
+                "pricePerUnit": 3720,
+                "transactionDate": "2016-06-22 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "precio por tonelada, sulfato de amonio",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 199,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-23 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego furadan (conejo) en VLTG, Riego de fertilizante en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 200,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-06-23 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego furadan (conejo) en VLTG, Riego de fertilizante en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 201,
+                "category": "Herramienta",
+                "subCategory": "Pronamex",
+                "pricePerUnit": 3720,
+                "transactionDate": "2016-06-23 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "precio por tonelada, sulfato de amonio",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 202,
+                "category": "Herramienta",
+                "subCategory": "Pronamex",
+                "pricePerUnit": 3720,
+                "transactionDate": "2016-06-23 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "precio por tonelada, sulfato de amonio (2t = 65 sacos)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 203,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-24 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego furadan (conejo) en VLTG, Riego de fertilizante en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 204,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-06-24 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego furadan (conejo) en VLTG, Riego de fertilizante en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 205,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-25 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego furadan (conejo) en VLTG, Riego de fertilizante en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 206,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-26 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego furadan (conejo) en VLTG, Riego de fertilizante en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 207,
+                "category": "Herramienta",
+                "subCategory": "Pronamex",
+                "pricePerUnit": 3720,
+                "transactionDate": "2016-06-27 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "precio por tonelada, sulfato de amonio",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 208,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-27 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido de Limones, Tardes corte de mango y pinar robles",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 209,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-28 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido de Limones, Tardes corte de mango y pinar robles",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 210,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-29 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido de Limones, Tardes corte de mango y pinar robles",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 211,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-06-29 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido de Limones, Tardes corte de mango y pinar robles",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 212,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-06-30 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido de Limones, Tardes corte de mango y pinar robles",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 213,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-06-30 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido de Limones, Tardes corte de mango y pinar robles",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 214,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-01 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido de Limones, Tardes corte de mango y pinar robles",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 215,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-07-02 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido de Limones, Tardes corte de mango y pinar robles",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 216,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-03 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido de Limones, Tardes corte de mango y pinar robles",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 217,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-07-04 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "?",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 218,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-07-05 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "?",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 219,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-07-06 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "?",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 220,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-07-07 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "?",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 221,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-07-08 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "?",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 222,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-07-09 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "?",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 223,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-07-10 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "?",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 224,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-11 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Destape de tubo de alcantarilla",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 225,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-07-11 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 226,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-12 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 227,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-13 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 228,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-14 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 229,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-15 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 230,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-18 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 231,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-19 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de abono",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 232,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-20 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de abono",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 233,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-21 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de abono",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 234,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-22 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido con Don Arturo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 235,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-23 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido con Don Beni enel porton",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 236,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-24 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Podada de jardin",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 237,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-25 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 238,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-26 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de abono en la tabla de Don Arturo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 239,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-27 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 240,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-28 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 241,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-29 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de abono en la tabla de Don Beni",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 242,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-07-30 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 243,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-07-31 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 244,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-08-01 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 245,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-02 00:00:00",
+                "quantity": 6,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 246,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-03 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 247,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-08-03 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 248,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-04 00:00:00",
+                "quantity": 5,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 249,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-08-04 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 250,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-05 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido Don Beni",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 251,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-06 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 252,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-07 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 253,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-08-08 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 254,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-09 00:00:00",
+                "quantity": 6,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 255,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-10 00:00:00",
+                "quantity": 6,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 256,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-11 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 257,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-12 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 258,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-13 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 259,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-14 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 260,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-15 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Chapeo en el jardin",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 261,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-16 00:00:00",
+                "quantity": 8,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 262,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-17 00:00:00",
+                "quantity": 8,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 263,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-08-17 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de fertilizante VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 264,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-18 00:00:00",
+                "quantity": 8,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de fertilizante AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 265,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-19 00:00:00",
+                "quantity": 5,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de jade VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 266,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-20 00:00:00",
+                "quantity": 5,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de jade AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 267,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-20 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 268,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-21 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 269,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-22 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Chapeo del jardin",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 270,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-22 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de jade de ABT",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 271,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-23 00:00:00",
+                "quantity": 8,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 272,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-24 00:00:00",
+                "quantity": 8,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido SLBT",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 273,
+                "category": "Herramienta",
+                "subCategory": "Yunta",
+                "pricePerUnit": 250,
+                "transactionDate": "2016-08-24 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego hierbicida en los limones (Tons= 240)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 274,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-24 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 275,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-25 00:00:00",
+                "quantity": 8,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 276,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-26 00:00:00",
+                "quantity": 8,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 277,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-27 00:00:00",
+                "quantity": 5,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 278,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-08-28 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 279,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-28 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 280,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-29 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de jade",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 281,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-30 00:00:00",
+                "quantity": 8,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido SLBT",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 282,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-08-31 00:00:00",
+                "quantity": 6,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido ARBT",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 283,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-01 00:00:00",
+                "quantity": 6,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido JCMT",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 284,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-02 00:00:00",
+                "quantity": 5,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Banderiar en el predio de Rogelio",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 285,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-03 00:00:00",
+                "quantity": 6,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 286,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-04 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 287,
+                "category": "Sacos",
+                "subCategory": "Turbo / Jade",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-05 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Papas en Dallas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 288,
+                "category": "Sacos",
+                "subCategory": "Turbo / Jade",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-06 00:00:00",
+                "quantity": 5,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego Jade predio de ARTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 289,
+                "category": "Sacos",
+                "subCategory": "Turbo / Jade",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-07 00:00:00",
+                "quantity": 5,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego Jade predio de SLTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 290,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-09-07 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 291,
+                "category": "Sacos",
+                "subCategory": "Turbo / Jade",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-08 00:00:00",
+                "quantity": 5,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego Jade predio de VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 292,
+                "category": "Sacos",
+                "subCategory": "Turbo / Jade",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-09 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego Jade predio de AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 293,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-10 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derrame arboles SLTB y ARTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 294,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-09-11 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Papas en Dallas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 295,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-12 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derrame de linderos, Riego de liquido en JCMT, Riego fertilicante en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 296,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-13 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derrame de linderos, Riego de liquido en JCMT, Riego fertilicante en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 297,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-14 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derrame de linderos, Riego de liquido en JCMT, Riego fertilicante en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 298,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-15 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derrame de linderos, Riego de liquido en JCMT, Riego fertilicante en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 299,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-09-15 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derrame de linderos, Riego de liquido en JCMT, Riego fertilicante en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 300,
+                "category": "Herramienta",
+                "subCategory": "Urea",
+                "pricePerUnit": 285,
+                "transactionDate": "2016-09-15 00:00:00",
+                "quantity": 15,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derrame de linderos, Riego de liquido en JCMT, Riego fertilicante en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 301,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-16 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derrame de linderos, Riego de liquido en JCMT, Riego fertilicante en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 302,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-17 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derrame de linderos, Riego de liquido en JCMT, Riego fertilicante en VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 303,
+                "category": "Herramienta",
+                "subCategory": "Motosierra",
+                "pricePerUnit": 100,
+                "transactionDate": "2016-09-18 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 304,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-09-19 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 305,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-09-19 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 306,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-20 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de fertilizante VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 307,
+                "category": "Herramienta",
+                "subCategory": "Urea",
+                "pricePerUnit": 285,
+                "transactionDate": "2016-09-20 00:00:00",
+                "quantity": 13,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Puedo ser un double entrée con el 15 septiembre",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 308,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-21 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Ladeo cania en guardaraya",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 309,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-09-21 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Revision de cania VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 310,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 1500,
+                "transactionDate": "2016-09-21 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Chapeo de calles (Cordoba)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 311,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 1500,
+                "transactionDate": "2016-09-21 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Chapeo de calles (Carlos)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 312,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 1500,
+                "transactionDate": "2016-09-21 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Chapeo de calles ",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 313,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 600,
+                "transactionDate": "2016-09-21 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Chapeo de calles",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 314,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 600,
+                "transactionDate": "2016-09-21 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Chapeo de calles",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 315,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 2000,
+                "transactionDate": "2016-09-21 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Chapeo de calles",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 316,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 1500,
+                "transactionDate": "2016-09-21 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Chapeo de calles",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 317,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-09-22 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 318,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-23 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Desrame SLTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 319,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-24 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Desrame ARTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 320,
+                "category": "Herramienta",
+                "subCategory": "Motosierra",
+                "pricePerUnit": 100,
+                "transactionDate": "2016-09-24 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 321,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-09-25 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 322,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-26 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Abertura cania VLTG - ARTB - Don Beni",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 323,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-09-27 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 324,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-28 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de abono Don Beni",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 325,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-29 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de abono Papa",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 326,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-09-30 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de abono VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 327,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-01 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Desrame con Don Beni (lindero con Ventura)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 328,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-10-02 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 329,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-03 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Desrame Don Beni (Ventura)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 330,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-04 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 331,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-05 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 332,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-06 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 333,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-07 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego VLTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 334,
+                "category": "Herramienta",
+                "subCategory": "Motosierra",
+                "pricePerUnit": 100,
+                "transactionDate": "2016-10-08 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "4 dias de la semana se uso la motosierra",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 335,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-10-09 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 336,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-10-10 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 337,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-11 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido guardarayas (predio Cordoba)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 338,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-12 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido guardarayas VLTG; AMTG",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 339,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-13 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego liquido guardarayas JCMT (predio Carlos / Rogelio)",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 340,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-14 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido Papa",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 341,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-15 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido SLTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 342,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-10-16 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 343,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-10-17 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 344,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-18 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido Abuelo, Revision Cana en Limones, Riego liquido en VLTG y JCMT",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 345,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-19 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido Abuelo, Revision Cana en Limones, Riego liquido en VLTG y JCMT",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 346,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-10-19 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido Abuelo, Revision Cana en Limones, Riego liquido en VLTG y JCMT",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 347,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-20 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido Abuelo, Revision Cana en Limones, Riego liquido en VLTG y JCMT",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 348,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-10-21 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 349,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-22 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido Abuelo, Revision Cana en Limones, Riego liquido en VLTG y JCMT",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 350,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-10-23 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 351,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-24 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido Abuelo (Jardin) y ARTB y Abuelo pozas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 352,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-25 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido Abuelo (Jardin) y ARTB y Abuelo pozas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 353,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-26 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido Abuelo (Jardin) y ARTB y Abuelo pozas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 354,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-27 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido Abuelo (Jardin) y ARTB y Abuelo pozas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 355,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-28 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido Abuelo (Jardin) y ARTB y Abuelo pozas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 356,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-10-29 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido Abuelo (Jardin) y ARTB y Abuelo pozas",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 357,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-10-30 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 358,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-10-31 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 359,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-11-01 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido Limones, Chapeo Limones, Apuertura de calle Viviana, Chapeo Tractor",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 360,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-11-02 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido Limones, Chapeo Limones, Apuertura de calle Viviana, Chapeo Tractor",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 361,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-11-03 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 362,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-11-04 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido Limones, Chapeo Limones, Apuertura de calle Viviana, Chapeo Tractor",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 363,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-11-04 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido Limones, Chapeo Limones, Apuertura de calle Viviana, Chapeo Tractor",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 364,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-11-05 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego de liquido Limones, Chapeo Limones, Apuertura de calle Viviana, Chapeo Tractor",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 365,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-11-06 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 366,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-11-07 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Chapeo Limones, Riego liquido Limones, Quema en jambre Limones, Corte de Cana ATB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 367,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-11-07 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Chapeo Limones, Riego liquido Limones, Quema en jambre Limones, Corte de Cana ATB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 368,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-11-08 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Chapeo Limones, Riego liquido Limones, Quema en jambre Limones, Corte de Cana ATB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 369,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-11-09 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Chapeo Limones, Riego liquido Limones, Quema en jambre Limones, Corte de Cana ATB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 370,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-11-10 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Chapeo Limones, Riego liquido Limones, Quema en jambre Limones, Corte de Cana ATB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 371,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-11-11 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Chapeo Limones, Riego liquido Limones, Quema en jambre Limones, Corte de Cana ATB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 372,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-11-12 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Chapeo Limones, Riego liquido Limones, Quema en jambre Limones, Corte de Cana ATB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 373,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-11-13 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Chapeo Limones, Riego liquido Limones, Quema en jambre Limones, Corte de Cana ATB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 374,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-11-14 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Corte Cana ATB y SLTB, Tapa cana VLTB, Riego de liquido limones, Tardes: quema de abejas y junta de ticket",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 375,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-11-15 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Corte Cana ATB y SLTB, Tapa cana VLTB, Riego de liquido limones, Tardes: quema de abejas y junta de ticket",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 376,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-11-16 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 377,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-11-17 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Corte Cana ATB y SLTB, Tapa cana VLTB, Riego de liquido limones, Tardes: quema de abejas y junta de ticket",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 378,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-11-18 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Corte Cana ATB y SLTB, Tapa cana VLTB, Riego de liquido limones, Tardes: quema de abejas y junta de ticket",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 379,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-11-18 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Corte Cana ATB y SLTB, Tapa cana VLTB, Riego de liquido limones, Tardes: quema de abejas y junta de ticket",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 380,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-11-19 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Corte Cana ATB y SLTB, Tapa cana VLTB, Riego de liquido limones, Tardes: quema de abejas y junta de ticket",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 381,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-11-19 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Corte Cana ATB y SLTB, Tapa cana VLTB, Riego de liquido limones, Tardes: quema de abejas y junta de ticket",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 382,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-11-20 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 383,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-11-21 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derame, Quema basura SLTB y ATB, Corte y quema SLTB y ATB, Riego de graba, Corte cana Abuelo, Riego de cal ATB, Colecta de tickets, Riego de Furadan ATB, Corte de cana SLTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 384,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-11-22 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derame, Quema basura SLTB y ATB, Corte y quema SLTB y ATB, Riego de graba, Corte cana Abuelo, Riego de cal ATB, Colecta de tickets, Riego de Furadan ATB, Corte de cana SLTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 385,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-11-23 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derame, Quema basura SLTB y ATB, Corte y quema SLTB y ATB, Riego de graba, Corte cana Abuelo, Riego de cal ATB, Colecta de tickets, Riego de Furadan ATB, Corte de cana SLTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 386,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-11-23 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derame, Quema basura SLTB y ATB, Corte y quema SLTB y ATB, Riego de graba, Corte cana Abuelo, Riego de cal ATB, Colecta de tickets, Riego de Furadan ATB, Corte de cana SLTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 387,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-11-24 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derame, Quema basura SLTB y ATB, Corte y quema SLTB y ATB, Riego de graba, Corte cana Abuelo, Riego de cal ATB, Colecta de tickets, Riego de Furadan ATB, Corte de cana SLTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 388,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-11-24 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derame, Quema basura SLTB y ATB, Corte y quema SLTB y ATB, Riego de graba, Corte cana Abuelo, Riego de cal ATB, Colecta de tickets, Riego de Furadan ATB, Corte de cana SLTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 389,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-11-25 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derame, Quema basura SLTB y ATB, Corte y quema SLTB y ATB, Riego de graba, Corte cana Abuelo, Riego de cal ATB, Colecta de tickets, Riego de Furadan ATB, Corte de cana SLTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 390,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-11-25 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derame, Quema basura SLTB y ATB, Corte y quema SLTB y ATB, Riego de graba, Corte cana Abuelo, Riego de cal ATB, Colecta de tickets, Riego de Furadan ATB, Corte de cana SLTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 391,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-11-26 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derame, Quema basura SLTB y ATB, Corte y quema SLTB y ATB, Riego de graba, Corte cana Abuelo, Riego de cal ATB, Colecta de tickets, Riego de Furadan ATB, Corte de cana SLTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 392,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-11-26 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derame, Quema basura SLTB y ATB, Corte y quema SLTB y ATB, Riego de graba, Corte cana Abuelo, Riego de cal ATB, Colecta de tickets, Riego de Furadan ATB, Corte de cana SLTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 393,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-11-27 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Derame, Quema basura SLTB y ATB, Corte y quema SLTB y ATB, Riego de graba, Corte cana Abuelo, Riego de cal ATB, Colecta de tickets, Riego de Furadan ATB, Corte de cana SLTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 394,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 350,
+                "transactionDate": "2016-11-28 00:00:00",
+                "quantity": 10,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Precio por hectaria, Aliniation de basura",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 395,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 350,
+                "transactionDate": "2016-11-28 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": " Aliniation de basura",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 396,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 160,
+                "transactionDate": "2016-11-28 00:00:00",
+                "quantity": 7,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Tareas de doble pase de rastra",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 397,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-11-28 00:00:00",
+                "quantity": 7,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Tareas de surco",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 398,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-11-28 00:00:00",
+                "quantity": 3,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Tareas de barbecho",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 399,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 1200,
+                "transactionDate": "2016-11-28 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Chapeo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 400,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-12-05 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego Furadan SLTB",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 401,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-12-06 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 402,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-12-07 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 403,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-12-08 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 404,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-12-09 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 405,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-12-10 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 406,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-12-11 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 407,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-12-12 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego Furadan VLTG y ATB, Retapa ATB y SLTB y Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 408,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-12-13 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego Furadan VLTG y ATB, Retapa ATB y SLTB y Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 409,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-12-13 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego Furadan VLTG y ATB, Retapa ATB y SLTB y Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 410,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-12-14 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Riego Furadan VLTG y ATB, Retapa ATB y SLTB y Abuelo",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 411,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-12-15 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 412,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-12-16 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 413,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-12-17 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 414,
+                "category": "Descanso",
+                "subCategory": "",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-12-18 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 415,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-12-19 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Siembra Cana, Corte y picada, Abono",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 416,
+                "category": "Tambos",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-12-20 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 417,
+                "category": "Herramienta",
+                "subCategory": "Tractor",
+                "pricePerUnit": 0,
+                "transactionDate": "2016-12-20 00:00:00",
+                "quantity": 0,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 418,
+                "category": "Siembra Nueva",
+                "subCategory": "MO ",
+                "pricePerUnit": 3000,
+                "transactionDate": "2016-12-20 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Voltea y siembra de cana",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 419,
+                "category": "Siembra Nueva",
+                "subCategory": "Tractor Rastra",
+                "pricePerUnit": 800,
+                "transactionDate": "2016-12-20 00:00:00",
+                "quantity": 4,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "2 pasadas por hectaria 2 hectarias",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 420,
+                "category": "Siembra Nueva",
+                "subCategory": "Tractor Surco",
+                "pricePerUnit": 800,
+                "transactionDate": "2016-12-20 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "2 hectarias",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 421,
+                "category": "Siembra Nueva",
+                "subCategory": "Tractor Acareo",
+                "pricePerUnit": 1000,
+                "transactionDate": "2016-12-20 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "semilla, 2 hectarias",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 422,
+                "category": "Siembra Nueva",
+                "subCategory": "Tractor Tapada",
+                "pricePerUnit": 800,
+                "transactionDate": "2016-12-20 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "2 hectarias",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 423,
+                "category": "MO Vespertina",
+                "subCategory": "",
+                "pricePerUnit": 80,
+                "transactionDate": "2016-12-23 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Corte de cana ARTB, Quema de basura y guardaraya",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 424,
+                "category": "MO Dia",
+                "subCategory": "",
+                "pricePerUnit": 200,
+                "transactionDate": "2016-12-24 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Corte de cana ARTB, Quema de basura y guardaraya",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 425,
+                "category": "MO Matutina",
+                "subCategory": "",
+                "pricePerUnit": 120,
+                "transactionDate": "2016-12-25 00:00:00",
+                "quantity": 2,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "Corte de cana ARTB, Quema de basura y guardaraya",
+                "lastUpdated": "09.12.2019"
+            },
+            {
+                "id": 426,
+                "category": "Propina",
+                "subCategory": "Quema",
+                "pricePerUnit": 700,
+                "transactionDate": "2016-12-24 00:00:00",
+                "quantity": 1,
+                "documentId": -1,
+                "fieldId": "Catsito",
+                "comment": "",
+                "lastUpdated": "09.12.2019"
+            }
+        ];
+        return { fields, payables };
     }
 };
 InMemoryDataService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1101,6 +6354,268 @@ PageNotFoundComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./page-not-found.component.scss */ "./src/app/page-not-found/page-not-found.component.scss")).default]
     })
 ], PageNotFoundComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/payable/create-payable/create-payable.component.scss":
+/*!**********************************************************************!*\
+  !*** ./src/app/payable/create-payable/create-payable.component.scss ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BheWFibGUvY3JlYXRlLXBheWFibGUvY3JlYXRlLXBheWFibGUuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/payable/create-payable/create-payable.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/payable/create-payable/create-payable.component.ts ***!
+  \********************************************************************/
+/*! exports provided: CreatePayableComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreatePayableComponent", function() { return CreatePayableComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let CreatePayableComponent = class CreatePayableComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+CreatePayableComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-create-payable',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./create-payable.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/payable/create-payable/create-payable.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./create-payable.component.scss */ "./src/app/payable/create-payable/create-payable.component.scss")).default]
+    })
+], CreatePayableComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/payable/edit-payable/edit-payable.component.scss":
+/*!******************************************************************!*\
+  !*** ./src/app/payable/edit-payable/edit-payable.component.scss ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BheWFibGUvZWRpdC1wYXlhYmxlL2VkaXQtcGF5YWJsZS5jb21wb25lbnQuc2NzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/payable/edit-payable/edit-payable.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/payable/edit-payable/edit-payable.component.ts ***!
+  \****************************************************************/
+/*! exports provided: EditPayableComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditPayableComponent", function() { return EditPayableComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let EditPayableComponent = class EditPayableComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+EditPayableComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-edit-payable',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./edit-payable.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/payable/edit-payable/edit-payable.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./edit-payable.component.scss */ "./src/app/payable/edit-payable/edit-payable.component.scss")).default]
+    })
+], EditPayableComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/payable/payable-list/payable-list.component.scss":
+/*!******************************************************************!*\
+  !*** ./src/app/payable/payable-list/payable-list.component.scss ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BheWFibGUvcGF5YWJsZS1saXN0L3BheWFibGUtbGlzdC5jb21wb25lbnQuc2NzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/payable/payable-list/payable-list.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/payable/payable-list/payable-list.component.ts ***!
+  \****************************************************************/
+/*! exports provided: PayableListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayableListComponent", function() { return PayableListComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let PayableListComponent = class PayableListComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+PayableListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-payable-list',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./payable-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/payable/payable-list/payable-list.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./payable-list.component.scss */ "./src/app/payable/payable-list/payable-list.component.scss")).default]
+    })
+], PayableListComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/payable/payables-routing.module.ts":
+/*!****************************************************!*\
+  !*** ./src/app/payable/payables-routing.module.ts ***!
+  \****************************************************/
+/*! exports provided: PayablesRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayablesRoutingModule", function() { return PayablesRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
+
+const routes = [];
+let PayablesRoutingModule = class PayablesRoutingModule {
+};
+PayablesRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
+    })
+], PayablesRoutingModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/payable/payables.module.ts":
+/*!********************************************!*\
+  !*** ./src/app/payable/payables.module.ts ***!
+  \********************************************/
+/*! exports provided: PayablesModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayablesModule", function() { return PayablesModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _payables_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./payables-routing.module */ "./src/app/payable/payables-routing.module.ts");
+/* harmony import */ var _payable_list_payable_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./payable-list/payable-list.component */ "./src/app/payable/payable-list/payable-list.component.ts");
+/* harmony import */ var _edit_payable_edit_payable_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./edit-payable/edit-payable.component */ "./src/app/payable/edit-payable/edit-payable.component.ts");
+/* harmony import */ var _create_payable_create_payable_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./create-payable/create-payable.component */ "./src/app/payable/create-payable/create-payable.component.ts");
+
+
+
+
+
+
+
+let PayablesModule = class PayablesModule {
+};
+PayablesModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        declarations: [_payable_list_payable_list_component__WEBPACK_IMPORTED_MODULE_4__["PayableListComponent"], _edit_payable_edit_payable_component__WEBPACK_IMPORTED_MODULE_5__["EditPayableComponent"], _create_payable_create_payable_component__WEBPACK_IMPORTED_MODULE_6__["CreatePayableComponent"]],
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _payables_routing_module__WEBPACK_IMPORTED_MODULE_3__["PayablesRoutingModule"]
+        ]
+    })
+], PayablesModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/payable/payables.service.ts":
+/*!*********************************************!*\
+  !*** ./src/app/payable/payables.service.ts ***!
+  \*********************************************/
+/*! exports provided: PayablesService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayablesService", function() { return PayablesService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+
+let PayablesService = class PayablesService {
+    constructor(http) {
+        this.http = http;
+        this.serviceURL = 'api/payables';
+        this.httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/json' })
+        };
+    }
+    log(message) {
+        console.log(`FieldsService: ${message}`);
+    }
+    handleError(operation = 'operation', result) {
+        return (error) => {
+            // TODO: send the error to remote logging infrastructure
+            console.error(error); // log to console instead
+            // TODO: better job of transforming error for user consumption
+            this.log(`${operation} failed: ${error.message}`);
+            // Let the app keep running by returning an empty result.
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(result);
+        };
+    }
+    /* Get all Fields from the server */
+    getPayables() {
+        return this.http.get(this.serviceURL)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(_ => this.log('fetched all payables')), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getFields', [])));
+    }
+};
+PayablesService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+PayablesService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], PayablesService);
 
 
 
