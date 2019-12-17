@@ -15,7 +15,7 @@ export class PayablesService {
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  }
+  };
 
 
   private log(message: string) {
