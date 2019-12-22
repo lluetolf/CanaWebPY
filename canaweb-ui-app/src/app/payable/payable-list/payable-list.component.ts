@@ -11,7 +11,7 @@ import { PayablesService } from '../payables.service';
 export class PayableListComponent implements OnInit {
   payables = new MatTableDataSource<Payable>();
 
-  displayedColumns: string[] = ['id', 'transactionDate', 'category', 'subCategory', 'quantity', 'pricePerUnit', 'actions'];
+displayedColumns: string[] = ['id', 'transactionDate', 'category', 'subCategory', 'quantity', 'pricePerUnit', 'actions'];
 
   constructor(private service: PayablesService) { }
 
@@ -27,5 +27,28 @@ export class PayableListComponent implements OnInit {
             console.log(JSON.stringify(element));
           });
         });
+  }
+
+  openEditDialog(payable: Payable): void {
+  //   const dialogRef = this.dialog.open(EditFieldDialogComponent, {
+  //     width: '600px',
+  //     data: field
+  //   });
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed');
+
+  //   });
+   }
+
+  openCreateDialog(payable: Payable): void {
+    // const dialogRef = this.dialog.open(CreateFieldDialogComponent, {
+    //   width: '600px'
+    // });
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   this.getFields();
+    //   console.log('The dialog was closed');
+    // });
   }
 }

@@ -72,9 +72,11 @@ def handle_invalid_usage(error):
     response.status_code = error.status_code
     return response
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/index_static')
 def static_index():
@@ -121,10 +123,10 @@ def add_deduction() -> str:
     return jsonify(response), 200
 
 
-@app.route("/zafra", methods=['GET'])
-def get_all_deduction() -> str:
-    print(deductions)
-    return jsonify(deductions), 200
+    @app.route("/zafra", methods=['GET'])
+    def get_all_deduction() -> str:
+        print(deductions)
+        return jsonify(deductions), 200
 
 
 if __name__ == '__main__':

@@ -43,7 +43,7 @@ export class PayablesService {
     return this.http.get<Payable[]>(this.serviceURL)
       .pipe(
         tap(_ => this.log('fetched all payables')),
-        catchError(this.handleError<Payable[]>('getFields', []))
+        catchError(this.handleError<Payable[]>('getPayables', []))
       );
   }
 }
