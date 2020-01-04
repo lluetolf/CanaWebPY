@@ -3,4 +3,5 @@ flask
 jsonschema
 flask-heroku
 pymongo
+pymongo[srv]
 
