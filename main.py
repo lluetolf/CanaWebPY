@@ -72,7 +72,7 @@ def add_field() -> str:
     if errors is not None:
         print(errors)
         raise InvalidUsage(errors)
-    FieldDB.create(request)
+    FieldDB.create(request.json)
     response = {"status": "ok",
                 "message": "Field added."}
     return jsonify(response), 200

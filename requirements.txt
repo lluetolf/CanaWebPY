@@ -4,5 +4,3 @@ jsonschema
 flask-heroku
 pymongo
 dnspython
-pymongo[srv]
-

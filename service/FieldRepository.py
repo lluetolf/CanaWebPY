@@ -13,8 +13,8 @@ class FieldRepository(object):
     def create(self, field):
         if field is not None:
             new_id = self._get_next_id()
-            field.id = new_id
-            self.database.fields.insert(field.json)
+            field['id'] = new_id
+            self.database.fields.insert(field)
             print("Created new field with id: {}".format(new_id))
         else:
             raise Exception("Nothing to save, because field parameter is None")
