@@ -5,29 +5,8 @@ from flask import Flask, jsonify, request, render_template
 from InvalidUsage import InvalidUsage
 from entities.zafra import validate_zafra
 from entities.field import validate_field
+from service.FieldRepository import FieldRepository
 
-fields = [
-    {
-        "acquisition_date": "2018-08-26",
-        "cultivated_area": 5.5,
-        "id": 1,
-        "ingenio_id": 12345,
-        "last_updated": "2018-08-26",
-        "name": "Pandita",
-        "owner": "Pandita",
-        "size": 5.5
-    },
-    {
-        "acquisition_date": "2015-12-28",
-        "cultivated_area": 5.5,
-        "id": 2,
-        "ingenio_id": 54321,
-        "last_updated": "2015-12-28",
-        "name": "Monkey",
-        "owner": "Monkey",
-        "size": 5.5
-    }
-]
 
 deductions = [
   {
@@ -64,6 +43,7 @@ deductions = [
 ]
 
 app = Flask(__name__)
+FieldDB = FieldRepository()
 
 
 @app.errorhandler(InvalidUsage)
@@ -72,43 +52,60 @@ def handle_invalid_usage(error):
     response.status_code = error.status_code
     return response
 
+#
+# Angular and static endpoints
+#
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/index_static')
 def static_index():
     return render_template('index_static.html')
 
-
+#
+# Field related endpoints
+# At some stage should be extracted to a Field Microservice
+#
 @app.route("/field", methods=['POST'])
 def add_field() -> str:
-    errors = validate_field(request)
+    errors = validate_field(request.json)
     if errors is not None:
         print(errors)
         raise InvalidUsage(errors)
-    fields.append(request.json)
+    FieldDB.create(request)
     response = {"status": "ok",
-                "message": "Nbr of fields: {}".format(len(fields))}
+                "message": "Field added."}
     return jsonify(response), 200
 
 
 @app.route("/field", methods=['GET'])
 def get_all_fields() -> str:
-    print(fields)
-    return jsonify(fields), 200
+    all_fields = FieldDB.read_all()
+    for field in all_fields:
+        errors = validate_field(field)
+        if errors is not None:
+            print(errors)
+            raise InvalidUsage(errors)
+
+    return jsonify(all_fields), 200
 
 
 @app.route("/field/<field_id>", methods=['GET'])
 def get_field(field_id) -> str:
     try:
-        r = next(r for r in fields if r['id'] == int(field_id))
-    except StopIteration:
+        field = FieldDB.read_one(field_id)
+    except Exception as e:
         return jsonify({"message": "Unable to find field with id: {}".format(field_id)}), 400
 
-    return jsonify(r), 200
+    return jsonify(field), 200
 
 
+#
+# Zafra related endpoints
+# At some stage should be extracted to a Zafra Microservice
+#
 @app.route("/zafra", methods=['POST'])
 def add_deduction() -> str:
     errors = validate_zafra(request)
@@ -127,5 +124,10 @@ def get_all_deduction() -> str:
     return jsonify(deductions), 200
 
 
+#
+#
+# Run App
+#
+#
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)

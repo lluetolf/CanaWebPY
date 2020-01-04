@@ -7,20 +7,22 @@ field_schema = {
        'name': {'type': 'string'},
        'owner': {'type': 'string'},
        'size': {'type': 'number'},
-       'cultivated_area': {'type': 'number'},
-       'acquisition_date': {'format': 'date'},
-       'ingenio_id': {'type': 'number'},
-       'last_updated': {'format': 'date'}
+       'cultivatedArea': {'type': 'number'},
+       'acquisitionDate': {
+           "type": "string",
+           "pattern": "^[0-9]{2}.[0-9]{2}.[0-9]{4}$"
+       },
+       'ingenioId': {'type': 'number'},
+       'lastUpdated': {'type': 'string'}
    },
-   'required': ['id', 'name', 'owner', 'size', 'cultivated_area', 'acquisition_date', 'ingenio_id', 'last_updated']
+   'required': ['id', 'name', 'owner', 'size', 'cultivatedArea', 'acquisitionDate', 'ingenioId', 'lastUpdated']
 }
 
 
-def validate_field(request):
+def validate_field(field):
     try:
-        print(request)
-        print(request.json)
-        validate(instance=request.json, schema=field_schema, format_checker=draft7_format_checker)
+        print(field)
+        validate(instance=field, schema=field_schema, format_checker=draft7_format_checker)
     except Exception as e:
         if hasattr(e, 'message'):
             return e.message
