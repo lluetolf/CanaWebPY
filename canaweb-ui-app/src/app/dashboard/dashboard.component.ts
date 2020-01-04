@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
     this.fieldsService.getFields()
       .subscribe(fields => {
         this.fields = fields;
-        console.log("Fields: ");
+        console.log('Fields: ');
         fields.forEach(element => {
           console.log(JSON.stringify(element));
         });
@@ -37,7 +37,7 @@ export class DashboardComponent implements OnInit {
     this.payablesService.getPayables()
       .subscribe(payables => {
         this.payables = payables;
-        console.log("Payables: ");
+        console.log('Payables: ');
         payables.forEach(element => {
           console.log(JSON.stringify(element));
         });

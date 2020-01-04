@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FieldListComponent } from './field-list/field-list.component';
 
 
-const routes: Routes = [  { 
+const routes: Routes = [  {
   path: 'fieldList', component: FieldListComponent }
 ];
 

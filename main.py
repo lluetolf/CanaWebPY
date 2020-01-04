@@ -1,5 +1,3 @@
-# src/app/main.py:
-
 from flask import Flask, jsonify, request, render_template
 
 from InvalidUsage import InvalidUsage
