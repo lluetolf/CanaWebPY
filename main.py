@@ -1,47 +1,17 @@
 from flask import Flask, jsonify, request, render_template
+import os
 
 from InvalidUsage import InvalidUsage
 from entities.zafra import validate_zafra
 from entities.field import validate_field
 from service.FieldRepository import FieldRepository
+from service.ZafraRepository import ZafraRepository
 
-
-deductions = [
-  {
-    'id': 0,
-    'last_updated': '2019-10-20',
-    'document_id': 2856,
-    'zafra': '2018/2019',
-    'transaction_date': '2019-07-30',
-    'beneficiary': 'ATB',
-    'expenses': {
-      'avio_socas_y_resocas': 60519.26,
-      'prog_de_mejoramiento': 422.76,
-      'corte_y_alce': 54606.0,
-      'acarreo': 42898.48,
-      'gastos_de_administracion_de_cosecha': 14561.6,
-      'prorrateo_paga_dominical_y_festivos': 589.4,
-      'caminos_generales_y_secundarios': 578.57,
-      'gastos_de_grupo': 16563.17,
-      'becas': 127.11,
-      'cuota_imss_trabajadores': 6975.46,
-      'comite_de_produccion_y_calidad': 2539.04,
-      'agrupaciones_caneras_locales': 2096.06,
-      'agrupaciones_caneras_nationales': 2822.38,
-      'mutualidad_canera': 598.21,
-      'derivacion': 592.26,
-      'prorrateo_de_cana_quedada': 249.64
-    },
-    'income': {
-      'pre_liquidacion': 0.0,
-      'liquidacion': 0.0,
-      'ajuste': 0.0
-    }
-  }
-]
 
 app = Flask(__name__)
-FieldDB = FieldRepository()
+srv = os.getenv("CANAWEB_MONGO")
+FieldDB = FieldRepository(srv)
+ZafraDB = ZafraRepository(srv)
 
 
 @app.errorhandler(InvalidUsage)
@@ -117,9 +87,16 @@ def add_deduction() -> str:
 
 
 @app.route("/zafra", methods=['GET'])
-def get_all_deduction() -> str:
-    print(deductions)
-    return jsonify(deductions), 200
+def get_all_zafra() -> str:
+    all_zafras= ZafraDB.read_all()
+
+#    for zafra in all_zafras:
+    #            errors = validate_field(zafra)
+    #        if errors is not None:
+    #       print(errors)
+    #       raise InvalidUsage(errors)
+
+    return jsonify(all_zafras), 200
 
 
 #
