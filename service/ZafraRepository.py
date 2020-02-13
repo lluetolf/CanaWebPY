@@ -5,7 +5,7 @@ from pymongo import MongoClient
 class ZafraRepository(object):
     """ Repository implementing CRUD operations on zafras collection in MongoDB """
 
-    def __init__(self, srv):
+    def __init__(self, srv=None):
         self.client = MongoClient(srv)
         self.database = self.client['CanaWebDB']
 
