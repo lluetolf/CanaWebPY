@@ -32,20 +32,23 @@ def index():
 def static_index():
     return render_template('index_static.html')
 
+
 #
 # Field related endpoints
 # At some stage should be extracted to a Field Microservice
 #
 @app.route("/field", methods=['POST'])
 def add_field() -> str:
-    errors = validate_field(request.json)
-    if errors is not None:
-        print(errors)
-        raise InvalidUsage(errors)
-    FieldDB.create(request.json)
-    response = {"status": "ok",
-                "message": "Field added."}
-    return jsonify(response), 200
+    try:
+        errors = validate_field(request.json)
+        if errors is not None:
+            print(errors)
+            raise InvalidUsage(errors)
+        field = FieldDB.create(request.json)
+        response = {"status": "ok", "message": "Field added."}
+        return jsonify(field), 200
+    except Exception as e:
+        return jsonify({"message": "Error creating a new field."}), 400
 
 
 @app.route("/field", methods=['GET'])
@@ -56,7 +59,6 @@ def get_all_fields() -> str:
         if errors is not None:
             print(errors)
             raise InvalidUsage(errors)
-
     return jsonify(all_fields), 200
 
 
@@ -68,6 +70,32 @@ def get_field(field_id) -> str:
         return jsonify({"message": "Unable to find field with id: {}".format(field_id)}), 400
 
     return jsonify(field), 200
+
+
+@app.route("/field", methods=['PATCH'])
+def update_field() -> str:
+    try:
+        errors = validate_field(request.json)
+        if errors is not None:
+            print(errors)
+            raise InvalidUsage(errors)
+        field = FieldDB.update(request.json)
+        return jsonify(field), 200
+    except Exception as e:
+        return jsonify({"message": "Unable to update field."}), 400
+
+
+@app.route("/field", methods=['DELETE'])
+def delete_field() -> str:
+    try:
+        errors = validate_field(request.json)
+        if errors is not None:
+            print(errors)
+            raise InvalidUsage(errors)
+        field = FieldDB.delete(request.json)
+        return jsonify({"message": "Deleted"}), 200
+    except Exception as e:
+        return jsonify({"message": "Unable to delete field."}), 400
 
 
 #
