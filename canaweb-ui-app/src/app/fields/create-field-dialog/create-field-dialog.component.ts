@@ -1,6 +1,8 @@
 import { Component, ViewChild, OnInit, Inject } from '@angular/core';
 import { Field } from 'src/app/model/field';
-import { MatDatepicker, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDatepicker } from '@angular/material/datepicker';
+
 
 import { FieldsService } from '../fields.service';
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FieldsService } from '../fields.service';
 import { Field } from 'src/app/model/field';
-import { MatTableDataSource, MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatTableModule, MatTableDataSource } from '@angular/material/table'
 import { EditFieldDialogComponent } from '../edit-field-dialog/edit-field-dialog.component';
 import { stringify } from 'querystring';
 import { CreateFieldDialogComponent } from '../create-field-dialog/create-field-dialog.component';
