@@ -39,7 +39,7 @@ def add_field() -> str:
     try:
         errors = validate_field(request.json)
         if errors is not None:
-            print(errors)
+            logging.error(errors)
             raise InvalidUsage(errors)
         field = FieldDB.create(request.json)
         response = {"status": "ok", "message": "Field added."}
@@ -54,7 +54,7 @@ def get_all_fields() -> str:
     for field in all_fields:
         errors = validate_field(field)
         if errors is not None:
-            print(errors)
+            logging.error(errors)
             raise InvalidUsage(errors)
     return jsonify(all_fields), 200
 
@@ -74,7 +74,7 @@ def update_field() -> str:
     try:
         errors = validate_field(request.json)
         if errors is not None:
-            print(errors)
+            logging.error(errors)
             raise InvalidUsage(errors)
         field = FieldDB.update(request.json)
         return jsonify(field), 200
@@ -87,7 +87,7 @@ def delete_field() -> str:
     try:
         errors = validate_field(request.json)
         if errors is not None:
-            print(errors)
+            logging.error(errors)
             raise InvalidUsage(errors)
         field = FieldDB.delete(request.json)
         return jsonify({"message": "Deleted"}), 200
@@ -103,7 +103,7 @@ def delete_field() -> str:
 def add_deduction() -> str:
     errors = validate_zafra(request)
     if errors is not None:
-        print(errors)
+        logging.error(errors)
         raise InvalidUsage(errors)
     deductions.append(request.json)
     response = {"status": "ok",
@@ -118,7 +118,7 @@ def get_all_zafra() -> str:
 #    for zafra in all_zafras:
     #            errors = validate_field(zafra)
     #        if errors is not None:
-    #       print(errors)
+    #       logging.error(errors)
     #       raise InvalidUsage(errors)
 
     return jsonify(all_zafras), 200
