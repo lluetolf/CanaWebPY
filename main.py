@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request, render_template
 import os
+import logging
 from flask_cors import CORS
 
 from InvalidUsage import InvalidUsage
@@ -129,4 +130,8 @@ def get_all_zafra() -> str:
 #
 #
 if __name__ == '__main__':
+    if srv is None:
+        logging.critical("MongoDB connection string not set.")
+        exit(-1)
+
     app.run(host='0.0.0.0', port=8080)
