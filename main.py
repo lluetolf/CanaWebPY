@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request, render_template
 import os
+from flask_cors import CORS
 
 from InvalidUsage import InvalidUsage
 from entities.zafra import validate_zafra
@@ -26,11 +27,6 @@ def handle_invalid_usage(error):
 @app.route('/')
 def index():
     return render_template('index.html')
-
-
-@app.route('/index_static')
-def static_index():
-    return render_template('index_static.html')
 
 
 #

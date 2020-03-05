@@ -4,3 +4,4 @@ jsonschema
 flask-heroku
 pymongo
 dnspython
+flask_cors

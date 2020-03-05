@@ -1,7 +1,6 @@
-**/__pycache__/
-**/.idea/
-canaweb-ui-app/.editorconfig
-canaweb-ui-app/.gitignore
-**/.vscode
-**/node_modules/
+__pycache__/
+.idea/
+.vscode/
+node_modules/
 canaweb-ui-app/dist/
+venv/
