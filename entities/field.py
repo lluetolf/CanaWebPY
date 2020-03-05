@@ -21,7 +21,6 @@ field_schema = {
 
 def validate_field(field):
     try:
-        print(field)
         validate(instance=field, schema=field_schema, format_checker=draft7_format_checker)
     except Exception as e:
         if hasattr(e, 'message'):
