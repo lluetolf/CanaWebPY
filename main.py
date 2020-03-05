@@ -11,6 +11,7 @@ from service.ZafraRepository import ZafraRepository
 
 
 app = Flask(__name__)
+CORS(app)
 srv = os.getenv("CANAWEB_MONGO")
 FieldDB = FieldRepository(srv)
 ZafraDB = ZafraRepository(srv)
@@ -123,6 +124,9 @@ def get_all_zafra() -> str:
 
     return jsonify(all_zafras), 200
 
+@app.route("/payable", methods=['GET'])
+def get_all_payable() -> str:
+    return jsonify(None), 200
 
 #
 #
