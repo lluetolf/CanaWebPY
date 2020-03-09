@@ -1,21 +1,25 @@
+
 from flask import Flask, jsonify, request, render_template
 import os
 import logging
+
 from flask_cors import CORS
 
 from InvalidUsage import InvalidUsage
 from entities.zafra import validate_zafra
 from entities.field import validate_field
+from helper.apiencoder import APIEncoder
 from service.FieldRepository import FieldRepository
 from service.ZafraRepository import ZafraRepository
 
 
+
 app = Flask(__name__)
+app.json_encoder = APIEncoder
 CORS(app)
 srv = os.getenv("CANAWEB_MONGO")
 FieldDB = FieldRepository(srv)
 ZafraDB = ZafraRepository(srv)
-
 
 @app.errorhandler(InvalidUsage)
 def handle_invalid_usage(error):
@@ -24,7 +28,7 @@ def handle_invalid_usage(error):
     return response
 
 #
-# Angular and static endpoints
+# Static endpoints
 #
 @app.route('/')
 def index():
@@ -52,11 +56,7 @@ def add_field() -> str:
 @app.route("/field", methods=['GET'])
 def get_all_fields() -> str:
     all_fields = FieldDB.read_all()
-    for field in all_fields:
-        errors = validate_field(field)
-        if errors is not None:
-            logging.error(errors)
-            raise InvalidUsage(errors)
+
     return jsonify(all_fields), 200
 
 
