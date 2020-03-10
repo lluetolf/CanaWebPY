@@ -1,5 +1,6 @@
 import datetime
 from flask.json import JSONEncoder
+from bson import ObjectId
 
 
 class APIEncoder(JSONEncoder):
@@ -7,6 +8,8 @@ class APIEncoder(JSONEncoder):
         try:
             if isinstance(o, datetime.datetime):
                 return o.isoformat()
+            if isinstance(o, ObjectId):
+                return str(o)
             else:
                 iterable = iter(o)
         except TypeError:
