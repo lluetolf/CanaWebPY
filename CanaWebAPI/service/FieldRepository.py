@@ -1,9 +1,7 @@
-import os
 from bson import ObjectId
-import dateutil.parser
 from pymongo import MongoClient
 
-from LogDecorator import logger
+from CanaWebAPI.LogDecorator import logger
 
 
 class FieldRepository(object):

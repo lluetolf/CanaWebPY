@@ -5,13 +5,13 @@ import logging
 
 from flask_cors import CORS
 
-from InvalidUsage import InvalidUsage
-from LogDecorator import logger
-from entities.zafra import validate_zafra
-from entities.field import validate_field
-from helper.apiencoder import APIEncoder
-from service.FieldRepository import FieldRepository
-from service.ZafraRepository import ZafraRepository
+from CanaWebAPI.InvalidUsage import InvalidUsage
+from CanaWebAPI.LogDecorator import logger
+from CanaWebAPI.entities.zafra import validate_zafra
+from CanaWebAPI.entities.field import validate_field
+from CanaWebAPI.helper.apiencoder import APIEncoder
+from CanaWebAPI.service.FieldRepository import FieldRepository
+from CanaWebAPI.service.ZafraRepository import ZafraRepository
 
 
 app = Flask(__name__)
