@@ -5,4 +5,4 @@ flask-heroku
 pymongo
 dnspython
 flask_cors
-dateutil
+python-dateutil
