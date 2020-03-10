@@ -1,5 +1,9 @@
 import os
+from bson import ObjectId
+import dateutil.parser
 from pymongo import MongoClient
+
+from LogDecorator import logger
 
 
 class FieldRepository(object):
@@ -12,37 +16,34 @@ class FieldRepository(object):
 
     def create(self, field):
         if field is not None:
-            new_id = self._get_next_id()
-            field['id'] = new_id
             self.fields.insert(field)
-            print("Created new field with id: {}".format(new_id))
+            print("Created new field with ObjectID: {}".format(field['_id']))
+            return field
         else:
             raise Exception("Nothing to save, because field parameter is None")
 
     def read_one(self, field_id=None):
-        return self.fields.find_one({"id": int(field_id)}, {"_id": 0})
+        logger.debug("Read_One: {}".format(field_id))
+        return self.fields.find_one({"_id": ObjectId(field_id)})
 
     def update(self, field):
-        if field is not None:
-            # Check if already exists
-            field_to_update = self.fields.find_one({"id": int(field.id)}, {"_id": 0})
-            if field_to_update:
-                self.fields.save(field.get_as_json())
-            else:
-                raise Exception("Nothing to update, field does not exist.")
-        else:
-            raise Exception("Nothing to update, because field parameter is None.")
+        if not field:
+            raise Exception("Nothing to update, field is None")
 
-    def delete(self, field):
-        if field is not None:
-            self.fields.remove(field.get_as_json())
-        else:
-            raise Exception("Nothing to delete, because field parameter is None")
+        logger.info("Updating field with ObjectId: {}".format(field['_id']))
+        field['_id'] = ObjectId(field['_id'])
+        result = self.fields.replace_one({'_id': field['_id']}, field)
+        logger.info("Return: {}".format(repr(result)))
+        return bool(result.modified_count)
+
+    def delete(self, field_id):
+        if field_id is None:
+            raise Exception("Nothing to delete, because field_id is None")
+
+        result = self.fields.delete_one( {'_id': ObjectId(field_id) } )
+        logger.debug("Delete return: {}".format(repr(result)))
+
+        return bool(result.deleted_count)
 
     def read_all(self):
-        return list(self.fields.find({}, {"_id": 0}))
-
-    def _get_next_id(self):
-        tmp = self.fields.find_one(sort=[("id", -1)])["id"]
-        return tmp + 1
-
+        return list(self.fields.find({}))

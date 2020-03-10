@@ -13,7 +13,6 @@ from service.FieldRepository import FieldRepository
 from service.ZafraRepository import ZafraRepository
 
 
-
 app = Flask(__name__)
 app.json_encoder = APIEncoder
 CORS(app)
@@ -41,27 +40,34 @@ def index():
 #
 @app.route("/field", methods=['POST'])
 def add_field() -> str:
+    if not request.json:
+        raise Exception("No JSON message sent.")
     try:
-        errors = validate_field(request.json)
+        r = request.json
+        field, errors = validate_field(r)
         if errors is not None:
             logging.error(errors)
             raise InvalidUsage(errors)
-        field = FieldDB.create(request.json)
-        response = {"status": "ok", "message": "Field added."}
+        del r['_id']
+        field = FieldDB.create(field)
         return jsonify(field), 200
     except Exception as e:
+        logging.error(e)
         return jsonify({"message": "Error creating a new field."}), 400
 
 
 @app.route("/field", methods=['GET'])
 def get_all_fields() -> str:
     all_fields = FieldDB.read_all()
-
     return jsonify(all_fields), 200
 
 
 @app.route("/field/<field_id>", methods=['GET'])
 def get_field(field_id) -> str:
+    if not field_id:
+        raise Exception("No valid FieldId provided.")
+
+    logger.info("Fetch field with ObjectID: {}".format(field_id))
     try:
         field = FieldDB.read_one(field_id)
     except Exception as e:
@@ -73,27 +79,34 @@ def get_field(field_id) -> str:
 @app.route("/field", methods=['PATCH'])
 def update_field() -> str:
     try:
-        errors = validate_field(request.json)
+        field, errors = validate_field(request.json)
         if errors is not None:
             logging.error(errors)
             raise InvalidUsage(errors)
-        field = FieldDB.update(request.json)
-        return jsonify(field), 200
+        if FieldDB.update(field):
+            return jsonify(field), 200
+        else:
+            raise Exception("Failed to update field: {}".format(field['_id']))
     except Exception as e:
-        return jsonify({"message": "Unable to update field."}), 400
+        logger.critical("Failed to update: {}".format(repr(e)))
+        return jsonify({"message": e.args[0]}), 400
 
 
-@app.route("/field", methods=['DELETE'])
-def delete_field() -> str:
+@app.route("/field/<field_id>", methods=['DELETE'])
+def delete_field(field_id) -> str:
     try:
-        errors = validate_field(request.json)
-        if errors is not None:
-            logging.error(errors)
-            raise InvalidUsage(errors)
-        field = FieldDB.delete(request.json)
-        return jsonify({"message": "Deleted"}), 200
+        if not field_id:
+            raise Exception("No valid FieldId provided.")
+
+        logger.info("Delete field with ObjectID: {}".format(field_id))
+
+        result = FieldDB.delete(field_id)
+        if result:
+            return jsonify({"message": "Deleted"}), 200
+        else:
+            raise Exception("Unable to delete field with id: {}".format(field_id))
     except Exception as e:
-        return jsonify({"message": "Unable to delete field."}), 400
+        return jsonify({"message": e.args[0]}), 400
 
 
 #
