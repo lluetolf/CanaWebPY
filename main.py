@@ -6,6 +6,7 @@ import logging
 from flask_cors import CORS
 
 from InvalidUsage import InvalidUsage
+from LogDecorator import logger
 from entities.zafra import validate_zafra
 from entities.field import validate_field
 from helper.apiencoder import APIEncoder
