@@ -3,6 +3,9 @@
 # Python 3.7 & Angular8
 #
 
+canaadmin / j43MF5RVZzYnsu1n
+db.fields.updateMany( {}, [{ "$set": { lastUpdated: { "$toDate": "$lastUpdated" } }] )
+
 # Create Angular skeleton
 ng new canaweb-ui-app --routing=true --style=scss
 cd canaweb-ui-app
