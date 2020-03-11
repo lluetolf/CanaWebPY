@@ -1,7 +1,17 @@
+import os
+
 from bson import ObjectId
+from flask import g
 from pymongo import MongoClient
 
 from CanaWebAPI.LogDecorator import logger
+
+
+def get_field_repo():
+    if 'FieldRepository' not in g:
+        g.FieldRepository = FieldRepository(os.getenv("CANAWEB_MONGO"))
+
+    return g.FieldRepository
 
 
 class FieldRepository(object):
