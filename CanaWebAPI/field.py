@@ -3,8 +3,9 @@ import functools
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for,
     logging, jsonify)
-from werkzeug.security import check_password_hash, generate_password_hash
+from flask import current_app as app
 
+from CanaWebAPI.LogDecorator import DebugLogs
 from CanaWebAPI.entities.field import validate_field
 from CanaWebAPI.helper.InvalidUsage import InvalidUsage
 from CanaWebAPI.service.FieldRepository import FieldRepository
@@ -18,6 +19,7 @@ FieldRepo = FieldRepository()
 # At some stage should be extracted to a Field Microservice
 #
 @bp.route("/", methods=['POST'])
+@DebugLogs
 def add_field() -> str:
     if not request.json:
         raise Exception("No JSON message sent.")
@@ -36,12 +38,14 @@ def add_field() -> str:
 
 
 @bp.route("/", methods=['GET'])
+@DebugLogs
 def get_all_fields() -> str:
     all_fields = FieldRepo.read_all()
     return jsonify(all_fields), 200
 
 
 @bp.route("/<field_id>", methods=['GET'])
+@DebugLogs
 def get_field(field_id) -> str:
     if not field_id:
         raise Exception("No valid FieldId provided.")
@@ -56,6 +60,7 @@ def get_field(field_id) -> str:
 
 
 @bp.route("/", methods=['PATCH'])
+@DebugLogs
 def update_field() -> str:
     try:
         field, errors = validate_field(request.json)
@@ -72,6 +77,7 @@ def update_field() -> str:
 
 
 @bp.route("/<field_id>", methods=['DELETE'])
+@DebugLogs
 def delete_field(field_id) -> str:
     try:
         if not field_id:

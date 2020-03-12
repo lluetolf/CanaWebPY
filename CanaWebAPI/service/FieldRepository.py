@@ -1,8 +1,8 @@
 from bson import ObjectId
 
-from CanaWebAPI.LogDecorator import logger
 
 from CanaWebAPI import mongo
+
 
 class FieldRepository(object):
     """ Repository implementing CRUD operations on fields collection in MongoDB """
