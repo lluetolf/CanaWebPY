@@ -8,6 +8,7 @@ from CanaWebAPI.helper.apiencoder import APIEncoder
 
 
 mongo = PyMongo()
+logger = None
 
 
 def create_app(test_config=None):
