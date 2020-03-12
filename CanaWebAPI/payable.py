@@ -57,3 +57,39 @@ def add_payable() -> str:
     except Exception as e:
         app.logger.error("Failed: {}".format(repr(e)))
         return jsonify({"message": "Error creating a new payable."}), 400
+
+
+@bp.route("", methods=['PATCH'])
+@DebugLogs
+def update_payable() -> str:
+    try:
+        payable, errors = validate_payable(request.json)
+        if errors is not None:
+            app.logger.error(errors)
+            raise InvalidUsage(errors)
+        if PayableRepo.update(payable):
+            return jsonify(payable), 200
+        else:
+            raise Exception("Failed to update payable: {}".format(payable['_id']))
+    except Exception as e:
+        app.logger.error("Failed to update: {}".format(repr(e)))
+        return jsonify({"message": e.args[0]}), 400
+
+
+@bp.route("/<payable_id>", methods=['DELETE'])
+@DebugLogs
+def delete_field(payable_id) -> str:
+    try:
+        if not payable_id:
+            raise Exception("No valid payable_id provided.")
+
+        app.logger.info("Delete payable with ObjectID: {}".format(payable_id))
+
+        result = PayableRepo.delete(payable_id)
+        if result:
+            return jsonify({"message": "Deleted"}), 200
+        else:
+            raise Exception("Unable to delete payable_id with id: {}".format(payable_id))
+    except Exception as e:
+        app.logger.error("Failed: {}".format(repr(e)))
+        return jsonify({"message": e.args[0]}), 400
