@@ -27,13 +27,13 @@ def add_field() -> str:
         r = request.json
         field, errors = validate_field(r)
         if errors is not None:
-            logging.error(errors)
+            app.logger.error(errors)
             raise InvalidUsage(errors)
         del r['_id']
         field = FieldRepo.create(field)
         return jsonify(field), 200
     except Exception as e:
-        logging.error(e)
+        app.logger.error(e)
         return jsonify({"message": "Error creating a new field."}), 400
 
 
@@ -50,7 +50,7 @@ def get_field(field_id) -> str:
     if not field_id:
         raise Exception("No valid FieldId provided.")
 
-    logging.info("Fetch field with ObjectID: {}".format(field_id))
+    app.logger.info("Fetch field with ObjectID: {}".format(field_id))
     try:
         field = FieldRepo.read_one(field_id)
     except Exception as e:
@@ -65,14 +65,14 @@ def update_field() -> str:
     try:
         field, errors = validate_field(request.json)
         if errors is not None:
-            logging.error(errors)
+            app.logger.error(errors)
             raise InvalidUsage(errors)
         if FieldRepo.update(field):
             return jsonify(field), 200
         else:
             raise Exception("Failed to update field: {}".format(field['_id']))
     except Exception as e:
-        logging.critical("Failed to update: {}".format(repr(e)))
+        app.logger.critical("Failed to update: {}".format(repr(e)))
         return jsonify({"message": e.args[0]}), 400
 
 
@@ -83,7 +83,7 @@ def delete_field(field_id) -> str:
         if not field_id:
             raise Exception("No valid FieldId provided.")
 
-        logging.info("Delete field with ObjectID: {}".format(field_id))
+        app.logger.info("Delete field with ObjectID: {}".format(field_id))
 
         result = FieldRepo.delete(field_id)
         if result:
