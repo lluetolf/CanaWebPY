@@ -1,4 +1,4 @@
-from flask import (Blueprint, jsonify)
+from flask import (Blueprint, jsonify, request)
 from flask import current_app as app
 
 from CanaWebAPI.LogDecorator import DebugLogs
