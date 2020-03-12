@@ -6,3 +6,4 @@ pymongo
 dnspython
 flask_cors
 python-dateutil
+flask-pymongo

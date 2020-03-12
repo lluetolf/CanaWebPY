@@ -1,26 +1,15 @@
-import os
-
 from bson import ObjectId
-from flask import g
-from pymongo import MongoClient
 
 from CanaWebAPI.LogDecorator import logger
 
-
-def get_field_repo():
-    if 'FieldRepository' not in g:
-        g.FieldRepository = FieldRepository(os.getenv("CANAWEB_MONGO"))
-
-    return g.FieldRepository
-
+from CanaWebAPI import mongo
 
 class FieldRepository(object):
     """ Repository implementing CRUD operations on fields collection in MongoDB """
 
-    def __init__(self, srv):
-        self.srv = srv
-        self.client = MongoClient(srv)
-        self.fields = self.client['CanaWebMDB'].fields
+    def __init__(self):
+        tmp = mongo
+        self.fields = mongo.db.fields
 
     def create(self, field):
         if field is not None:
