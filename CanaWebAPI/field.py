@@ -1,8 +1,4 @@
-import functools
-
-from flask import (
-    Blueprint, flash, g, redirect, render_template, request, session, url_for,
-    logging, jsonify)
+from flask import (Blueprint, jsonify)
 from flask import current_app as app
 
 from CanaWebAPI.LogDecorator import DebugLogs
