@@ -7,9 +7,11 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from CanaWebAPI.entities.field import validate_field
 from CanaWebAPI.helper.InvalidUsage import InvalidUsage
-from CanaWebAPI.service.FieldRepository import get_field_repo
+from CanaWebAPI.service.FieldRepository import FieldRepository
 
 bp = Blueprint('fields', __name__, url_prefix='/field')
+
+FieldRepo = FieldRepository()
 
 #
 # Field related endpoints
@@ -26,7 +28,7 @@ def add_field() -> str:
             logging.error(errors)
             raise InvalidUsage(errors)
         del r['_id']
-        field = get_field_repo().create(field)
+        field = FieldRepo.create(field)
         return jsonify(field), 200
     except Exception as e:
         logging.error(e)
@@ -35,7 +37,7 @@ def add_field() -> str:
 
 @bp.route("/", methods=['GET'])
 def get_all_fields() -> str:
-    all_fields = get_field_repo().read_all()
+    all_fields = FieldRepo.read_all()
     return jsonify(all_fields), 200
 
 
@@ -46,7 +48,7 @@ def get_field(field_id) -> str:
 
     logging.info("Fetch field with ObjectID: {}".format(field_id))
     try:
-        field = get_field_repo().read_one(field_id)
+        field = FieldRepo.read_one(field_id)
     except Exception as e:
         return jsonify({"message": "Unable to find field with id: {}".format(field_id)}), 400
 
@@ -60,7 +62,7 @@ def update_field() -> str:
         if errors is not None:
             logging.error(errors)
             raise InvalidUsage(errors)
-        if get_field_repo().update(field):
+        if FieldRepo.update(field):
             return jsonify(field), 200
         else:
             raise Exception("Failed to update field: {}".format(field['_id']))
@@ -77,7 +79,7 @@ def delete_field(field_id) -> str:
 
         logging.info("Delete field with ObjectID: {}".format(field_id))
 
-        result = get_field_repo().delete(field_id)
+        result = FieldRepo.delete(field_id)
         if result:
             return jsonify({"message": "Deleted"}), 200
         else:

@@ -2,10 +2,13 @@ import os
 
 from flask import Flask, render_template
 from flask_cors import CORS
+from flask_pymongo import PyMongo
 
 from CanaWebAPI.helper.apiencoder import APIEncoder
-from CanaWebAPI.service.FieldRepository import FieldRepository
-from CanaWebAPI.service.ZafraRepository import ZafraRepository
+
+
+
+mongo = PyMongo()
 
 
 def create_app(test_config=None):
@@ -31,6 +34,9 @@ def create_app(test_config=None):
 
     app.json_encoder = APIEncoder
     CORS(app)
+
+    app.config["MONGO_URI"] = os.getenv("CANAWEB_MONGO")
+    mongo.init_app(app)
 
     #
     # Static endpoints
