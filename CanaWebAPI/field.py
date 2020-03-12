@@ -18,7 +18,7 @@ FieldRepo = FieldRepository()
 # Field related endpoints
 # At some stage should be extracted to a Field Microservice
 #
-@bp.route("/", methods=['POST'])
+@bp.route("", methods=['POST'])
 @DebugLogs
 def add_field() -> str:
     if not request.json:
@@ -37,7 +37,7 @@ def add_field() -> str:
         return jsonify({"message": "Error creating a new field."}), 400
 
 
-@bp.route("/", methods=['GET'])
+@bp.route("", methods=['GET'])
 @DebugLogs
 def get_all_fields() -> str:
     try:
@@ -63,7 +63,7 @@ def get_field(field_id) -> str:
         return jsonify({"message": "Unable to find field with id: {}".format(field_id)}), 400
 
 
-@bp.route("/", methods=['PATCH'])
+@bp.route("", methods=['PATCH'])
 @DebugLogs
 def update_field() -> str:
     try:
