@@ -1,1 +1,1 @@
-web: gunicorn CanaWebPY:CanaWebAPI --log-file -
+web: gunicorn CanaWebAPI:create_app() --log-file -
