@@ -29,7 +29,7 @@ def add_field() -> str:
         field = FieldRepo.create(field)
         return jsonify(field), 200
     except Exception as e:
-        app.logger.error("Failed: {}".format(repr(e)))
+        app.logger.error("Failed: {}".format(e.details))
         return jsonify({"message": "Error creating a new field."}), 400
 
 
@@ -40,7 +40,7 @@ def get_all_fields() -> str:
         all_fields = FieldRepo.read_all()
         return jsonify(all_fields), 200
     except Exception as e:
-        app.logger.error("Failed: {}".format(repr(e)))
+        app.logger.error("Failed: {}".format(e.details))
         return jsonify({"message": "Error fetchingall fields."}), 400
 
 
@@ -55,7 +55,7 @@ def get_field(field_id) -> str:
         field = FieldRepo.read_one(field_id)
         return jsonify(field), 200
     except Exception as e:
-        app.logger.error("Failed: {}".format(repr(e)))
+        app.logger.error("Failed: {}".format(e.details))
         return jsonify({"message": "Unable to find field with id: {}".format(field_id)}), 400
 
 
@@ -72,7 +72,7 @@ def update_field() -> str:
         else:
             raise Exception("Failed to update field: {}".format(field['_id']))
     except Exception as e:
-        app.logger.error("Failed to update: {}".format(repr(e)))
+        app.logger.error("Failed to update: {}".format(e.details))
         return jsonify({"message": e.args[0]}), 400
 
 
@@ -91,6 +91,6 @@ def delete_field(field_id) -> str:
         else:
             raise Exception("Unable to delete field with id: {}".format(field_id))
     except Exception as e:
-        app.logger.error("Failed: {}".format(repr(e)))
+        app.logger.error("Failed: {}".format(e.details))
         return jsonify({"message": e.args[0]}), 400
 
