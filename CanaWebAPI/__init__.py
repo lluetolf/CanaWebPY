@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from flask_cors import CORS
 from flask_pymongo import PyMongo
 
@@ -41,8 +41,12 @@ def create_app(test_config=None):
     # Static endpoints
     #
     @app.route('/')
-    def index():
+    def index_html():
         return render_template('index.html')
+
+    @app.route('/upandrunning')
+    def index_json():
+        return jsonify({"msg": "Up and running!"}), 200
 
     #
     # Import endpoints
