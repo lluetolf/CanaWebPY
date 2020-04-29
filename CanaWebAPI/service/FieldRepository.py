@@ -8,7 +8,6 @@ class FieldRepository(object):
     """ Repository implementing CRUD operations on fields collection in MongoDB """
 
     def __init__(self):
-        tmp = mongo
         self.fields = mongo.db.fields
 
     def create(self, field):

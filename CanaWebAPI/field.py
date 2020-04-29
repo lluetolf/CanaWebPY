@@ -10,6 +10,7 @@ bp = Blueprint('fields', __name__, url_prefix='/field')
 
 FieldRepo = FieldRepository()
 
+
 #
 # Field related endpoints
 # At some stage should be extracted to a Field Microservice
