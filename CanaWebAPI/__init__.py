@@ -51,6 +51,9 @@ def create_app(test_config=None):
     #
     # Import endpoints
     #
+    from .views import auth
+    app.register_blueprint(auth.bp)
+
     from . import field
     app.register_blueprint(field.bp)
 
