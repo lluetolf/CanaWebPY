@@ -51,7 +51,7 @@ class BasicTests(BaseTestCase):
         response = self.client.post('/auth/register', json=payload)
         self.assert400(response)
 
-    def test_login(self):
+    def test_create_and_login(self):
         payload = {
             "email": "piggy@tv3.mx",
             "password": "oinky3"
@@ -61,7 +61,6 @@ class BasicTests(BaseTestCase):
 
         response = self.client.post('/auth/login', json=payload)
         self.assert200(response)
-
 
 
 if __name__ == "__main__":
