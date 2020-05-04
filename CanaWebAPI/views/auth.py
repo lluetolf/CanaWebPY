@@ -97,7 +97,7 @@ def register() -> str:
             }
             return jsonify(responseObject), 400
     except KeyError as e:
-        app.logger.warning(e)
+        app.logger.warning("The following attribute is missing: {}".format(e))
         responseObject = {
             'status': 'fail',
             'message': 'Invalid request body.'

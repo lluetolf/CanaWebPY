@@ -1,12 +1,26 @@
-import json
-import os
-import time
+
 import unittest
+
+from pymongo import MongoClient
 
 from tests.base import BaseTestCase
 
+from CanaWebAPI.config import TestingConfig
 
-class BasicTests(BaseTestCase):
+
+class AuthenticationTests(BaseTestCase):
+    @classmethod
+    def setUpClass(cls):
+        try:
+            client = MongoClient(TestingConfig.MONGO_URI)
+            users = client['CanaWebMDB_TEST']['users']
+            users.delete_many({})
+        except Exception as e:
+            print("Unable to prepare DB." + e)
+
+    @classmethod
+    def tearDownClass(cls):
+        pass
 
     def test_up_and_running(self):
         response_html = self.client.get('/')
