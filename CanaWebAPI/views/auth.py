@@ -1,8 +1,10 @@
 import datetime
 
 import jwt
-from flask import Blueprint, request, jsonify, make_response
+from flask import Blueprint, request, jsonify, make_response, url_for
 from flask import current_app as app
+from werkzeug.utils import redirect
+
 from CanaWebAPI import bcrypt
 
 from CanaWebAPI.service.AuthRepository import AuthRepository
@@ -10,6 +12,33 @@ from CanaWebAPI.service.AuthRepository import AuthRepository
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 auth_repo = AuthRepository()
+
+from functools import wraps
+
+
+def token_required(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        token = None
+
+        if 'x-access-token' in request.headers:
+            token = request.headers['x-access-token']
+
+        if not token:
+            return jsonify({'message': 'No Token provided!'}), 401
+
+        try:
+            code, resp = decode_auth_token(token)
+            if code == 0:
+                current_user = auth_repo.get_user(resp)
+            else:
+                return jsonify({'message': resp}), 401
+        except:
+            return jsonify({'message': 'Token is invalid!'}), 401
+
+        return f(current_user, *args, **kwargs)
+
+    return decorated
 
 
 def encode_auth_token(user_id):
@@ -19,7 +48,7 @@ def encode_auth_token(user_id):
     """
     try:
         payload = {
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(days=0, seconds=300),
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(days=0, seconds=30),
             'iat': datetime.datetime.utcnow(),
             'sub': user_id
         }
@@ -44,18 +73,19 @@ def decode_auth_token(auth_token):
         # if is_blacklisted_token:
         #     return 'Token blacklisted. Please log in again.'
         # else:
-        return payload['sub']
+        return 0, payload['sub']
     except jwt.ExpiredSignatureError:
-        return 'Signature expired. Please log in again.'
+        return -1, 'Signature expired. Please log in again.'
     except jwt.InvalidTokenError:
-        return 'Invalid token. Please log in again.'
+        return -2, 'Invalid token. Please log in again.'
 
 
 @bp.route("login", methods=['POST'])
 def login() -> str:
     app.logger.info("Login started")
-    post_data = request.get_json()
+
     try:
+        post_data = request.get_json()
         username = post_data.get('email')
         password = post_data.get('password')
         app.logger.info("Provided: {} / {}".format(username, password))
@@ -68,20 +98,21 @@ def login() -> str:
                     'message': 'Successfully logged in.',
                     'auth_token': auth_token.decode()
                 }
-                return make_response(jsonify(responseObject), 200)
+                return jsonify(responseObject), 200
             else:
                 responseObject = {
                     'status': 'fail',
                     'message': 'User does not exist.'
                 }
-                return make_response(jsonify(responseObject), 404)
+                return jsonify(responseObject), 404
     except Exception as e:
         print(e)
         responseObject = {
             'status': 'fail',
             'message': 'Try again'
         }
-        return make_response(jsonify(responseObject), 500)
+        return jsonify(responseObject), 500
+
 
 @bp.route("register", methods=['POST'])
 def register() -> str:
@@ -136,5 +167,6 @@ def ping() -> str:
 
 
 @bp.route("pong", methods=['GET'])
-def pong() -> str:
-    return jsonify({'msg': 'pong'}), 200
+@token_required
+def pong(current_user) -> str:
+    return jsonify({'msg': 'pong', 'user': current_user.get('username', 'UNKNOWN')}), 200
