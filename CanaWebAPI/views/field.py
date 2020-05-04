@@ -1,7 +1,7 @@
 from flask import (Blueprint, jsonify, request)
 from flask import current_app as app
 
-from CanaWebAPI.LogDecorator import DebugLogs
+from CanaWebAPI.views.LogDecorator import DebugLogs
 from CanaWebAPI.entities.field import validate_field
 from CanaWebAPI.helper.InvalidUsage import InvalidUsage
 from CanaWebAPI.service.FieldRepository import FieldRepository
