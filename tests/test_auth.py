@@ -63,9 +63,10 @@ class AuthenticationTests(BaseTestCase):
         self.assertEqual(response.status_code, 201)
 
         response = self.client.post('/auth/register', json=payload)
-        self.assert400(response)
+        self.assertEqual(response.status_code, 202)
+        self.assertEqual(response.json['message'], 'User already exists. Please Log in.')
 
-    def test_create_and_login(self):
+    def test_register_and_login(self):
         payload = {
             "email": "piggy@tv3.mx",
             "password": "oinky3"

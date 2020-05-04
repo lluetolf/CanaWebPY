@@ -3,12 +3,14 @@ import os
 from flask import Flask, render_template, jsonify
 from flask_cors import CORS
 from flask_pymongo import PyMongo
+from flask_bcrypt import Bcrypt
 
 from CanaWebAPI.helper.apiencoder import APIEncoder
 
 
 mongo = PyMongo()
 logger = None
+bcrypt = Bcrypt()
 
 
 def create_app():
@@ -32,6 +34,7 @@ def create_app():
     CORS(app)
 
     mongo.init_app(app)
+    bcrypt.init_app(app)
 
     #
     # Static endpoints

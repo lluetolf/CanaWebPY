@@ -10,6 +10,3 @@ class TestTestingConfig(TestCase):
         self.assertTrue(app.config['SECRET_KEY'] == 'my_precious')
         self.assertTrue(app.config['DEBUG'])
         self.assertTrue(app.config['TESTING'])
-        # self.assertTrue(
-        #     app.config['SQLALCHEMY_DATABASE_URI'] == 'postgresql://postgres:postgres@localhost/flask_jwt_auth_test'
-        # )
