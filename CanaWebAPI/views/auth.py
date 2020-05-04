@@ -1,15 +1,16 @@
 import datetime
 
 import jwt
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, make_response
 from flask import current_app as app
+from CanaWebAPI import bcrypt
 
-from CanaWebAPI.LogDecorator import DebugLogs
 from CanaWebAPI.service.AuthRepository import AuthRepository
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 auth_repo = AuthRepository()
+
 
 def encode_auth_token(user_id):
     """
@@ -58,44 +59,61 @@ def login() -> str:
         username = post_data.get('email')
         password = post_data.get('password')
         app.logger.info("Provided: {} / {}".format(username, password))
-
-        auth_token = encode_auth_token(username)
-        if auth_token:
-            responseObject = {
-                'status': 'success',
-                'message': 'Successfully logged in.',
-                'auth_token': auth_token.decode()
-            }
-            return jsonify(responseObject), 200
-        else:
-            responseObject = {
-                'status': 'fail',
-                'message': 'User does not exist.'
-            }
-            return jsonify(responseObject), 404
+        user = auth_repo.get_user(username)
+        if user and bcrypt.check_password_hash(user.get('password', ''), password):
+            auth_token = encode_auth_token(username)
+            if auth_token:
+                responseObject = {
+                    'status': 'success',
+                    'message': 'Successfully logged in.',
+                    'auth_token': auth_token.decode()
+                }
+                return make_response(jsonify(responseObject), 200)
+            else:
+                responseObject = {
+                    'status': 'fail',
+                    'message': 'User does not exist.'
+                }
+                return make_response(jsonify(responseObject), 404)
     except Exception as e:
         print(e)
         responseObject = {
             'status': 'fail',
             'message': 'Try again'
         }
-        return jsonify(responseObject), 500
+        return make_response(jsonify(responseObject), 500)
 
 @bp.route("register", methods=['POST'])
 def register() -> str:
-    post_data = request.get_json()
     try:
+        post_data = request.get_json()
         username = post_data['email']
         password = post_data['password']
 
-        msg = auth_repo.register_new_user(username, password)
+        user = auth_repo.get_user(username)
+        if not user:
+            msg = auth_repo.register_new_user(username, password)
 
-        if msg is not None:
+            if msg is not None:
+                responseObject = {
+                    'status': 'fail',
+                    'message': msg
+                }
+                return make_response(jsonify(responseObject), 400)
+            else:
+                auth_token = encode_auth_token(username)
+                responseObject = {
+                    'status': 'success',
+                    'message': 'Successfully registered.',
+                    'auth_token': auth_token.decode()
+                }
+                return make_response(jsonify(responseObject)), 201
+        else:
             responseObject = {
                 'status': 'fail',
-                'message': msg
+                'message': 'User already exists. Please Log in.',
             }
-            return jsonify(responseObject), 400
+            return make_response(jsonify(responseObject)), 202
     except KeyError as e:
         app.logger.warning("The following attribute is missing: {}".format(e))
         responseObject = {
@@ -111,15 +129,11 @@ def register() -> str:
         }
         return jsonify(responseObject), 500
 
-    responseObject = {
-        'status': 'success',
-        'message': 'Successfully registered.'
-    }
-    return jsonify(responseObject), 201
 
 @bp.route("ping", methods=['GET'])
 def ping() -> str:
     return jsonify({'msg': 'ping'}), 200
+
 
 @bp.route("pong", methods=['GET'])
 def pong() -> str:

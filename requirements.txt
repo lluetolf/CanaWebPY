@@ -8,4 +8,5 @@ flask_cors
 python-dateutil
 flask-pymongo
 Flask-Testing
-bcrypt
+flask-bcrypt
+pyJwt
