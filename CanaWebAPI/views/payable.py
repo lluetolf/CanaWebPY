@@ -1,7 +1,7 @@
 from flask import (Blueprint, jsonify, request)
 from flask import current_app as app
 
-from CanaWebAPI.LogDecorator import DebugLogs
+from CanaWebAPI.views.LogDecorator import DebugLogs
 from CanaWebAPI.entities.payable import validate_payable
 from CanaWebAPI.helper.InvalidUsage import InvalidUsage
 from CanaWebAPI.service.PayableRepository import PayableRepository
@@ -9,6 +9,7 @@ from CanaWebAPI.service.PayableRepository import PayableRepository
 bp = Blueprint('payables', __name__, url_prefix='/payable')
 
 PayableRepo = PayableRepository()
+
 
 #
 # Field related endpoints
@@ -22,7 +23,7 @@ def get_all_payables() -> str:
         return jsonify(all_fields), 200
     except Exception as e:
         app.logger.error("Failed: {}".format(repr(e)))
-        return jsonify({"message": "Error fetchingall fields."}), 400
+        return jsonify({"message": "Error fetching all fields."}), 400
 
 
 @bp.route("/<payable_id>", methods=['GET'])

@@ -1,4 +1,5 @@
-
+import os
+import time
 import unittest
 
 from pymongo import MongoClient
@@ -30,6 +31,33 @@ class AuthenticationTests(BaseTestCase):
         self.assert200(response_json)
         self.assertEqual(response_json.json, {'msg': "Up and running!"})
 
+    def test_register_user(self):
+        payload = {
+            "email": "piggy1@tv.mx",
+            "password": "oinky1"
+        }
+        response = self.client.post('/auth/register', json=payload)
+        self.assertEqual(response.status_code, 201)
+
+    def test_double_register_user_fail(self):
+        payload = {
+            "email": "piggy@tv2.mx",
+            "password": "oinky2"
+        }
+        response = self.client.post('/auth/register', json=payload)
+        self.assertEqual(response.status_code, 201)
+
+        response = self.client.post('/auth/register', json=payload)
+        self.assertEqual(response.status_code, 202)
+        self.assertEqual(response.json['message'], 'User already exists. Please Log in.')
+
+    def test_register_user_fail(self):
+        payload = {
+            "email": "piggy3@tv.mx"
+        }
+        response = self.client.post('/auth/register', json=payload)
+        self.assert400(response)
+
     def test_ping_pong(self):
         response = self.client.get('/auth/ping')
         self.assert200(response)
@@ -47,53 +75,39 @@ class AuthenticationTests(BaseTestCase):
         response = self.client.post('/auth/register', json=payload)
         self.assertEqual(response.status_code, 201)
 
-        auth_token = response.json["auth_token"]
+        self._test_token(response)
 
+    @unittest.skip("demonstrating skipping")
+    def test_register_login_timeout(self):
+        payload = {
+            "email": "piggy@tv6.mx",
+            "password": "oinky6"
+        }
+        response = self.client.post('/auth/register', json=payload)
+        self.assertEqual(response.status_code, 201)
+        self._test_token(response)
+
+        response = self.client.post('/auth/login', json=payload)
+        self.assert200(response)
+        self._test_token(response)
+
+        time.sleep(15)
+
+        response = self.client.get('/auth/pong', headers={'x-access-token': response.json["auth_token"]})
+        self.assert401(response)
+        self.assertEqual(response.json['message'], 'Signature expired. Please log in again.')
+
+        response = self.client.get('/auth/pong', headers={'x-access-token': 'THIS_IS_NOT_A_VALID_TOKEN'})
+        self.assert401(response)
+        self.assertEqual(response.json['message'], 'Invalid token. Please log in again.')
+
+    def _test_token(self, response):
+        auth_token = response.json["auth_token"]
         self.assertIsNotNone(auth_token)
 
         response = self.client.get('/auth/pong', headers={'x-access-token': auth_token})
         self.assert200(response)
         self.assertEqual(response.json['msg'], 'pong')
-
-
-
-    def test_register_user(self):
-        payload = {
-            "email": "piggy@tv.mx",
-            "password": "oinky"
-        }
-        response = self.client.post('/auth/register', json=payload)
-        self.assertEqual(response.status_code, 201)
-
-    def test_register_user_fail(self):
-        payload = {
-            "email": "piggy@tv.mx"
-        }
-        response = self.client.post('/auth/register', json=payload)
-        self.assert400(response)
-
-    def test_double_register_user_fail(self):
-        payload = {
-            "email": "piggy@tv2.mx",
-            "password": "oinky2"
-        }
-        response = self.client.post('/auth/register', json=payload)
-        self.assertEqual(response.status_code, 201)
-
-        response = self.client.post('/auth/register', json=payload)
-        self.assertEqual(response.status_code, 202)
-        self.assertEqual(response.json['message'], 'User already exists. Please Log in.')
-
-    def test_register_and_login(self):
-        payload = {
-            "email": "piggy@tv3.mx",
-            "password": "oinky3"
-        }
-        response = self.client.post('/auth/register', json=payload)
-        self.assertEqual(response.status_code, 201)
-
-        response = self.client.post('/auth/login', json=payload)
-        self.assert200(response)
 
 
 if __name__ == "__main__":

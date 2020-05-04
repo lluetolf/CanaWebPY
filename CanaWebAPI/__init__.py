@@ -1,5 +1,3 @@
-import os
-
 from flask import Flask, render_template, jsonify
 from flask_cors import CORS
 from flask_pymongo import PyMongo
@@ -53,10 +51,10 @@ def create_app():
     from .views import auth
     app.register_blueprint(auth.bp)
 
-    from . import field
+    from CanaWebAPI.views import field
     app.register_blueprint(field.bp)
 
-    from . import payable
+    from CanaWebAPI.views import payable
     app.register_blueprint(payable.bp)
 
 #    from . import zafra
