@@ -24,7 +24,9 @@ class DevConfig(Config):
 
 
 class TestingConfig(Config):
+    SECRET_KEY = 'my_precious'
     TESTING = True
+    DEBUG = True
     MONGO_URI = 'mongodb+srv://canauser:{}@canawebmdb-p5yz3.azure.mongodb.net/CanaWebMDB_TEST?retryWrites=true&w=majority'.format(
         os.environ.get('MONGO_PW', 'NO_PASSWORD_PROVIDED')
     )
