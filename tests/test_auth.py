@@ -36,8 +36,26 @@ class AuthenticationTests(BaseTestCase):
         self.assertEqual(response.json['msg'], 'ping')
 
         response = self.client.get('/auth/pong')
+        self.assert401(response)
+        self.assertEqual(response.json['message'], 'No Token provided!')
+
+        #register
+        payload = {
+            "email": "piggy5@tv.mx",
+            "password": "oinky"
+        }
+        response = self.client.post('/auth/register', json=payload)
+        self.assertEqual(response.status_code, 201)
+
+        auth_token = response.json["auth_token"]
+
+        self.assertIsNotNone(auth_token)
+
+        response = self.client.get('/auth/pong', headers={'x-access-token': auth_token})
         self.assert200(response)
         self.assertEqual(response.json['msg'], 'pong')
+
+
 
     def test_register_user(self):
         payload = {
