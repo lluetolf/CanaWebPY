@@ -8,7 +8,7 @@ from tests.base import BaseTestCase
 
 from CanaWebAPI.config import TestingConfig
 
-
+# @unittest.skip("demonstrating skipping")
 class AuthenticationTests(BaseTestCase):
     @classmethod
     def setUpClass(cls):
@@ -77,7 +77,6 @@ class AuthenticationTests(BaseTestCase):
 
         self._test_token(response)
 
-    @unittest.skip("demonstrating skipping")
     def test_register_login_timeout(self):
         payload = {
             "email": "piggy@tv6.mx",
