@@ -26,9 +26,8 @@ def add_field() -> str:
         if errors is not None:
             app.logger.error(errors)
             raise InvalidUsage(errors)
-        del r['_id']
         field = FieldRepo.create(field)
-        return jsonify(field), 200
+        return jsonify(field), 201
     except Exception as e:
         app.logger.error("Failed: {}".format(e.details))
         return jsonify({"message": "Error creating a new field."}), 400
@@ -45,19 +44,22 @@ def get_all_fields() -> str:
         return jsonify({"message": "Error fetchingall fields."}), 400
 
 
-@bp.route("/<field_id>", methods=['GET'])
+@bp.route("/<field_name>", methods=['GET'])
 @DebugLogs
-def get_field(field_id) -> str:
-    if not field_id:
-        raise Exception("No valid FieldId provided.")
+def get_field(field_name) -> str:
+    if not field_name:
+        raise Exception("No valid Name provided.")
 
-    app.logger.info("Fetch field with ObjectID: {}".format(field_id))
+    app.logger.info("Fetch field with Name: {}".format(field_name))
     try:
-        field = FieldRepo.read_one(field_id)
+        field = FieldRepo.read_one(field_name)
+        if field is None:
+            return {}, 204
+
         return jsonify(field), 200
     except Exception as e:
         app.logger.error("Failed: {}".format(e.details))
-        return jsonify({"message": "Unable to find field with id: {}".format(field_id)}), 400
+        return jsonify({"message": "Unable to find field with Name: {}".format(field_name)}), 400
 
 
 @bp.route("", methods=['PATCH'])
@@ -77,20 +79,20 @@ def update_field() -> str:
         return jsonify({"message": e.args[0]}), 400
 
 
-@bp.route("/<field_id>", methods=['DELETE'])
+@bp.route("/<field_name>", methods=['DELETE'])
 @DebugLogs
-def delete_field(field_id) -> str:
+def delete_field(field_name) -> str:
     try:
-        if not field_id:
-            raise Exception("No valid FieldId provided.")
+        if not field_name:
+            raise Exception("No valid Name provided.")
 
-        app.logger.info("Delete field with ObjectID: {}".format(field_id))
+        app.logger.info("Delete field with Name: {}".format(field_name))
 
-        result = FieldRepo.delete(field_id)
+        result = FieldRepo.delete(field_name)
         if result:
             return jsonify({"message": "Deleted"}), 200
         else:
-            raise Exception("Unable to delete field with id: {}".format(field_id))
+            raise Exception("Unable to delete field with id: {}".format(field_name))
     except Exception as e:
         app.logger.error("Failed: {}".format(e.details))
         return jsonify({"message": e.args[0]}), 400
