@@ -105,8 +105,6 @@ class FieldsBPTests(BaseTestCase):
         self.assert200(response)
         self.assertIsNotNone(response.json)
         fetched_durian = response.json
-        fetched_durian['acquisitionDate'] = dateutil.parser.parse(fetched_durian['acquisitionDate'])
-        fetched_durian['lastUpdated'] = dateutil.parser.parse(fetched_durian['lastUpdated'])
         for i in new_durian.keys():
             if i != 'lastUpdated':
                 self.assertEqual(new_durian[i], fetched_durian[i])
