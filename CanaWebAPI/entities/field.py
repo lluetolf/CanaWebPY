@@ -1,32 +1,32 @@
 import dateutil.parser
+from flask import jsonify
 from jsonschema import *
 
-field_schema = {
-   'type': 'object',
-   'properties': {
-       '_id': {'type': 'string'},
-       'name': {'type': 'string'},
-       'owner': {'type': 'string'},
-       'size': {'type': 'number'},
-       'cultivatedArea': {'type': 'number'},
-       'acquisitionDate': {
-           "type": "string",
-           "pattern": "^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])"
-       },
-       'ingenioId': {'type': 'number'},
-       'lastUpdated': {'type': 'string'}
-   },
-   'required': ['name', 'owner', 'size', 'cultivatedArea', 'acquisitionDate', 'ingenioId', 'lastUpdated']
-}
+
+class Field:
+    required = ['name', 'owner', 'size', 'cultivatedArea', 'acquisitionDate', 'ingenioId', 'lastUpdated']
+    optional = ['_id']
+
+    def __init__(self, json_dict: dict):
+        for i in Field.required + Field.optional:
+            self.__dict__[i] = json_dict.get(i, None)
+
+    # Method to ensure _id is not passed to MongoDB
+    def dict(self) -> dict:
+        copy = self.__dict__.copy()
+        copy.pop('_id', None)
+        return copy
+
+    def jsonify(self) -> dict:
+        return jsonify(self.__dict__)
+
+
 
 
 def validate_field(field):
     try:
         validate(instance=field, schema=field_schema, format_checker=draft7_format_checker)
-        if isinstance(field.get('acquisitionDate'), str):
-            field['acquisitionDate'] = dateutil.parser.isoparse(field['acquisitionDate'])
-        if isinstance(field.get('lastUpdated'), str):
-            field['lastUpdated'] = dateutil.parser.isoparse(field['lastUpdated'])
+
         return field, None
     except Exception as e:
         if hasattr(e, 'message'):

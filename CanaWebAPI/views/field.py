@@ -1,6 +1,7 @@
 from flask import (Blueprint, jsonify, request)
 from flask import current_app as app
 
+from CanaWebAPI.entities.entity_creator import EntityCreator
 from CanaWebAPI.views.LogDecorator import DebugLogs
 from CanaWebAPI.entities.field import validate_field
 from CanaWebAPI.helper.InvalidUsage import InvalidUsage
@@ -21,13 +22,11 @@ def add_field() -> str:
     if not request.json:
         raise Exception("No JSON message sent.")
     try:
-        r = request.json
-        field, errors = validate_field(r)
-        if errors is not None:
-            app.logger.error(errors)
-            raise InvalidUsage(errors)
-        field = FieldRepo.create(field)
-        return jsonify(field), 201
+        field = EntityCreator.create_field_from_json(request.json)
+        if FieldRepo.create(field):
+            return field.jsonify(), 201
+        else:
+            return jsonify({"message": "Error creating a new field."}), 400
     except Exception as e:
         app.logger.error("Failed: {}".format(e.details))
         return jsonify({"message": "Error creating a new field."}), 400
@@ -66,14 +65,11 @@ def get_field(field_name) -> str:
 @DebugLogs
 def update_field() -> str:
     try:
-        field, errors = validate_field(request.json)
-        if errors is not None:
-            app.logger.error(errors)
-            raise InvalidUsage(errors)
+        field = EntityCreator.create_field_from_json(request.json)
         if FieldRepo.update(field):
-            return jsonify(field), 200
+            return field.jsonify(), 200
         else:
-            raise Exception("Failed to update field: {}".format(field['_id']))
+            raise Exception("Failed to update field: {}".format(field.name))
     except Exception as e:
         app.logger.error("Failed to update: {}".format(e.details))
         return jsonify({"message": e.args[0]}), 400
