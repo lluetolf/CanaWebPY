@@ -3,8 +3,7 @@ from flask_cors import CORS
 from flask_pymongo import PyMongo
 from flask_bcrypt import Bcrypt
 
-from CanaWebAPI.helper.apiencoder import APIEncoder
-
+from CanaWebAPI.helper.apiencoder import APIEncoder, APIDecoder
 
 mongo = PyMongo()
 logger = None
@@ -29,6 +28,7 @@ def create_app():
         app.config.from_object(DevConfig)
 
     app.json_encoder = APIEncoder
+    app.json_decoder = APIDecoder
     CORS(app)
 
     mongo.init_app(app)
