@@ -16,15 +16,17 @@ field_schema = {
        'ingenioId': {'type': 'number'},
        'lastUpdated': {'type': 'string'}
    },
-   'required': ['_id', 'name', 'owner', 'size', 'cultivatedArea', 'acquisitionDate', 'ingenioId', 'lastUpdated']
+   'required': ['name', 'owner', 'size', 'cultivatedArea', 'acquisitionDate', 'ingenioId', 'lastUpdated']
 }
 
 
 def validate_field(field):
     try:
         validate(instance=field, schema=field_schema, format_checker=draft7_format_checker)
-        field['acquisitionDate'] = dateutil.parser.isoparse(field['acquisitionDate'])
-        field['lastUpdated'] = dateutil.parser.isoparse(field['lastUpdated'])
+        if isinstance(field.get('acquisitionDate'), str):
+            field['acquisitionDate'] = dateutil.parser.isoparse(field['acquisitionDate'])
+        if isinstance(field.get('lastUpdated'), str):
+            field['lastUpdated'] = dateutil.parser.isoparse(field['lastUpdated'])
         return field, None
     except Exception as e:
         if hasattr(e, 'message'):
