@@ -6,6 +6,7 @@ from CanaWebAPI.views.LogDecorator import DebugLogs
 from CanaWebAPI.entities.field import validate_field
 from CanaWebAPI.helper.InvalidUsage import InvalidUsage
 from CanaWebAPI.service.FieldRepository import FieldRepository
+from CanaWebAPI.views.auth import token_required
 
 bp = Blueprint('fields', __name__, url_prefix='/field')
 
@@ -17,8 +18,9 @@ FieldRepo = FieldRepository()
 # At some stage should be extracted to a Field Microservice
 #
 @bp.route("", methods=['POST'])
+@token_required
 @DebugLogs
-def add_field() -> str:
+def add_field(current_user) -> str:
     if not request.json:
         raise Exception("No JSON message sent.")
     try:
@@ -33,8 +35,9 @@ def add_field() -> str:
 
 
 @bp.route("", methods=['GET'])
+@token_required
 @DebugLogs
-def get_all_fields() -> str:
+def get_all_fields(current_user) -> str:
     try:
         all_fields = FieldRepo.read_all()
         return jsonify(all_fields), 200
@@ -44,8 +47,9 @@ def get_all_fields() -> str:
 
 
 @bp.route("/<field_name>", methods=['GET'])
+@token_required
 @DebugLogs
-def get_field(field_name) -> str:
+def get_field(current_user, field_name) -> str:
     if not field_name:
         raise Exception("No valid Name provided.")
 
@@ -62,8 +66,9 @@ def get_field(field_name) -> str:
 
 
 @bp.route("", methods=['PATCH'])
+@token_required
 @DebugLogs
-def update_field() -> str:
+def update_field(current_user) -> str:
     try:
         field = EntityCreator.create_field_from_json(request.json)
         if FieldRepo.update(field):
@@ -76,8 +81,9 @@ def update_field() -> str:
 
 
 @bp.route("/<field_name>", methods=['DELETE'])
+@token_required
 @DebugLogs
-def delete_field(field_name) -> str:
+def delete_field(current_user, field_name) -> str:
     try:
         if not field_name:
             raise Exception("No valid Name provided.")
