@@ -27,6 +27,7 @@ class TestingConfig(Config):
     SECRET_KEY = 'my_precious'
     TESTING = True
     DEBUG = True
+    TOKEN_LIVE_SPAN = 12
     MONGO_URI = 'mongodb+srv://canauser:{}@canawebmdb-p5yz3.azure.mongodb.net/CanaWebMDB_TEST?retryWrites=true&w=majority'.format(
         os.environ.get('MONGO_PW', 'NO_PASSWORD_PROVIDED')
     )
