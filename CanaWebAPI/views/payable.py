@@ -2,7 +2,7 @@ from flask import (Blueprint, jsonify, request)
 from flask import current_app as app
 
 from CanaWebAPI.views.LogDecorator import DebugLogs
-from CanaWebAPI.entities.payable import validate_payable
+from CanaWebAPI.entities.payable_entity import validate_payable
 from CanaWebAPI.helper.InvalidUsage import InvalidUsage
 from CanaWebAPI.service.PayableRepository import PayableRepository
 
