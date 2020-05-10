@@ -6,7 +6,7 @@ from CanaWebAPI import mongo
 from flask import current_app as app
 
 from CanaWebAPI.entities.entity_creator import EntityCreator
-from CanaWebAPI.entities.field import Field
+from CanaWebAPI.entities.fieldentity import FieldEntity
 
 
 class FieldRepository(object):
@@ -15,7 +15,7 @@ class FieldRepository(object):
     def __init__(self):
         self.fields = mongo.db.fields
 
-    def create(self, field: Field):
+    def create(self, field: FieldEntity):
         if field is not None:
             result = self.fields.insert_one(field.dict())
             if result.inserted_id is not None:
