@@ -2,9 +2,8 @@ from flask import (Blueprint, jsonify, request)
 from flask import current_app as app
 
 from CanaWebAPI.entities.entity_creator import EntityCreator
+from CanaWebAPI.entities.fieldentity import FieldEntity
 from CanaWebAPI.views.LogDecorator import DebugLogs
-from CanaWebAPI.entities.field import validate_field
-from CanaWebAPI.helper.InvalidUsage import InvalidUsage
 from CanaWebAPI.service.FieldRepository import FieldRepository
 from CanaWebAPI.views.auth import token_required
 
@@ -24,7 +23,7 @@ def add_field(current_user) -> str:
     if not request.json:
         raise Exception("No JSON message sent.")
     try:
-        field = EntityCreator.create_field_from_json(request.json)
+        field = FieldEntity(request.json)
         if FieldRepo.create(field):
             return field.jsonify(), 201
         else:
@@ -70,7 +69,7 @@ def get_field(current_user, field_name) -> str:
 @DebugLogs
 def update_field(current_user) -> str:
     try:
-        field = EntityCreator.create_field_from_json(request.json)
+        field = FieldEntity(request.json)
         if FieldRepo.update(field):
             return field.jsonify(), 200
         else:
