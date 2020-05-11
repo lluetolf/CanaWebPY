@@ -1,18 +1,19 @@
 import dateutil.parser
-from jsonschema import *
+from jsonschema import draft7_format_checker, validate
 
 from CanaWebAPI.entities.mongo_base_entity import MongoBaseEntity
 
 
 class PayableEntity(MongoBaseEntity):
-    class FieldEntity(MongoBaseEntity):
-        def __init__(self, json_dict: dict):
-            self.required = ['category', 'comment', 'fieldId', 'subCategory', 'documentId', 'pricePerUnit', 'quantity',
-                             'lastUpdated', 'transactionDate']
-            self.optional = ['_id']
-            super().__init__(json_dict)
+    def __init__(self, json_dict: dict):
+        self.required = ['category', 'comment', 'fieldName', 'subCategory', 'documentId', 'pricePerUnit', 'quantity',
+                         'lastUpdated', 'transactionDate']
+        self.optional = ['_id']
+        super().__init__(json_dict)
 
 
+import datetime
+payable_json = {'category': 'cat1', 'comment': 'comment2', 'fieldName': 'oinky', 'subCategory': 'subcat1', 'documentId': 1, 'pricePerUnit': 2, 'quantity': 3,'lastUpdated': datetime.datetime.now(), 'transactionDate': datetime.datetime.now()}
 #
 #
 #

@@ -8,7 +8,8 @@ from tests.base import BaseTestCase
 
 from CanaWebAPI.config import TestingConfig
 
-# @unittest.skip("demonstrating skipping")
+
+@unittest.skip("demonstrating skipping")
 class AuthenticationTests(BaseTestCase):
     @classmethod
     def setUpClass(cls):
