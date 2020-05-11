@@ -64,6 +64,30 @@ class FieldsBPTests(BaseTestLoggedIn):
         self.assert200(response)
         self.assertEqual(len(response.json), current_nbr_fields+1)
 
+    def test_add_field_failure(self):
+        #incomplete
+        new_field = {"owner": "Kiwi", "acquisitionDate": datetime.datetime(2020, 3, 18),
+         "cultivatedArea": 5, "ingenioId": -1, "lastUpdated": datetime.datetime.now(), "size": 9}
+        response = self.client.post('/field', json=new_field, headers=self.headers)
+        self.assertEqual(response.status_code, 400)
+
+        #garbage
+        new_field = "GARBAGE"
+        response = self.client.post('/field', json=new_field, headers=self.headers)
+        self.assertEqual(response.status_code, 400)
+
+        #additional attribute
+        new_field = {"name": "Jackfruit", "owner": "Kiwi", "acquisitionDate": datetime.datetime(2020, 3, 18),
+         "cultivatedArea": 5, "ingenioId": -1, "lastUpdated": datetime.datetime.now(), "size": 9, 'additional': 'added'}
+        response = self.client.post('/field', json=new_field, headers=self.headers)
+        self.assertEqual(response.status_code, 400)
+
+        #wronge type
+        new_field = {"name": "Jackfruit", "owner": "Kiwi", "acquisitionDate": datetime.datetime(2020, 3, 18),
+         "cultivatedArea": 5, "ingenioId": -1, "lastUpdated": datetime.datetime.now(), "size": "X"}
+        response = self.client.post('/field', json=new_field, headers=self.headers)
+        self.assertEqual(response.status_code, 400)
+
     def test_pick_and_delete_field(self):
         response = self.client.get('/field/Banana', headers=self.headers)
         self.assert200(response)
@@ -84,6 +108,11 @@ class FieldsBPTests(BaseTestLoggedIn):
         self.assert200(response)
         self.assertIsNotNone(response.json)
 
+    def test_delete_field_fail(self):
+        response = self.client.delete('/field/BananaXX', headers=self.headers)
+        self.assert400(response)
+        self.assertIsNotNone(response.json)
+
     def test_update_field(self):
         response = self.client.get('/field/Durian', headers=self.headers)
         self.assert200(response)
@@ -100,6 +129,8 @@ class FieldsBPTests(BaseTestLoggedIn):
         }
 
         response = self.client.patch('/field', json=new_durian, headers=self.headers)
+        self.assert200(response)
+
         response = self.client.get('/field/Durian', headers=self.headers)
         self.assert200(response)
         self.assertIsNotNone(response.json)
@@ -109,6 +140,57 @@ class FieldsBPTests(BaseTestLoggedIn):
                 self.assertEqual(new_durian[i], fetched_durian[i])
             else:
                 self.assertNotEqual(new_durian[i], fetched_durian[i])
+
+    def test_update_field_fail(self):
+        response = self.client.get('/field/Durian', headers=self.headers)
+        self.assert200(response)
+        self.assertIsNotNone(response.json)
+        original_durian = response.json
+
+        # Missing attribute
+        new_durian = {
+            "name": "Durian",
+            "acquisitionDate": datetime.datetime(2016, 6, 6),
+            "cultivatedArea": 6,
+            "ingenioId": 6,
+            "lastUpdated": datetime.datetime.now() - datetime.timedelta(seconds=10),
+            "size": 6
+        }
+        response = self.client.patch('/field', json=new_durian, headers=self.headers)
+        self.assert400(response)
+
+        # Wrong type
+        new_durian = {
+            "name": "Durian",
+            "owner": "Honeydew Melon2",
+            "acquisitionDate": datetime.datetime(2016, 6, 6),
+            "cultivatedArea": "XXXX",
+            "ingenioId": 6,
+            "lastUpdated": datetime.datetime.now() - datetime.timedelta(seconds=10),
+            "size": 6
+        }
+        response = self.client.patch('/field', json=new_durian, headers=self.headers)
+        self.assert400(response)
+
+        # Additional type
+        new_durian = {
+            "name": "Durian",
+            "owner": "Honeydew Melon2",
+            "acquisitionDate": datetime.datetime(2016, 6, 6),
+            "cultivatedArea": "XXXX",
+            "ingenioId": 6,
+            "lastUpdated": datetime.datetime.now() - datetime.timedelta(seconds=10),
+            "size": 6,
+            "additional": 'nonsense'
+        }
+        response = self.client.patch('/field', json=new_durian, headers=self.headers)
+        self.assert400(response)
+
+        # No JSON
+        new_durian = "GARBAGE"
+        response = self.client.patch('/field', data=new_durian, headers=self.headers)
+        self.assert400(response)
+        self.assertEqual(response.json['message'], 'No JSON message sent.')
 
 
 if __name__ == "__main__":

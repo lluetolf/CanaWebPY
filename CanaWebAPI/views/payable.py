@@ -2,7 +2,7 @@ from flask import (Blueprint, jsonify, request)
 from flask import current_app as app
 
 from CanaWebAPI.views.LogDecorator import DebugLogs
-from CanaWebAPI.entities.payable_entity import validate_payable
+from CanaWebAPI.entities.payable_entity import validate_payable, PayableEntity
 from CanaWebAPI.helper.InvalidUsage import InvalidUsage
 from CanaWebAPI.service.PayableRepository import PayableRepository
 
@@ -47,16 +47,14 @@ def add_payable() -> str:
     if not request.json:
         raise Exception("No JSON message sent.")
     try:
-        r = request.json
-        payable, errors = validate_payable(r)
-        if errors is not None:
-            app.logger.error(errors)
-            raise InvalidUsage(errors)
-        del r['_id']
-        payable = PayableRepo.create(payable)
-        return jsonify(payable), 200
+        payable = PayableEntity(request.json)
+        if PayableRepo.create(payable):
+            return payable.jsonify(), 201
+        else:
+            app.logger.error("Failed: Error creating a new payable.")
+            return jsonify({"message": "Error creating a new payable."}), 400
     except Exception as e:
-        app.logger.error("Failed: {}".format(repr(e)))
+        app.logger.error("Failed: {}".format(e.details))
         return jsonify({"message": "Error creating a new payable."}), 400
 
 

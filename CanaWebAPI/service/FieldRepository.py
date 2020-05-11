@@ -5,9 +5,6 @@ from bson import ObjectId
 from CanaWebAPI import mongo
 from flask import current_app as app
 
-from CanaWebAPI.entities.entity_creator import EntityCreator
-from CanaWebAPI.entities.fieldentity import FieldEntity
-
 
 class FieldRepository(object):
     """ Repository implementing CRUD operations on fields collection in MongoDB """
@@ -15,13 +12,13 @@ class FieldRepository(object):
     def __init__(self):
         self.fields = mongo.db.fields
 
-    def create(self, field: FieldEntity):
+    def create(self, field: {}):
         if field is not None:
-            result = self.fields.insert_one(field.dict())
+            # Make sure _id is not provided
+            field.pop('_id', None)
+            result = self.fields.insert_one(field)
             if result.inserted_id is not None:
-                _id = result.inserted_id
-                field._id = _id
-                print("Created new field with ObjectID: {}".format(_id))
+                print("Created new field with ObjectID: {}".format(field.get('_id', 'UNKNOWN')))
                 return True
             else:
                 app.logger.error("Unable to create Field.")
@@ -38,10 +35,11 @@ class FieldRepository(object):
         if not field:
             raise Exception("Nothing to update, field is None")
 
-        app.logger.info("Updating field with Name: {}".format(field.name))
-        field.lastUpdated = datetime.datetime.now()
-        result = self.fields.replace_one({'name': field.name}, field.dict())
-        app.logger.info("Return: {}".format(repr(result)))
+        app.logger.debug("Updating field with Name: {}".format(field['name']))
+        # Make sure _id is not provided
+        field.pop('_id', None)
+        field['lastUpdated'] = datetime.datetime.now()
+        result = self.fields.replace_one({'name': field['name']}, field)
         return bool(result.modified_count)
 
     def delete(self, field_name):
@@ -49,9 +47,10 @@ class FieldRepository(object):
             raise Exception("Nothing to delete, because field_name is None")
 
         result = self.fields.delete_one({'name': field_name})
-        app.logger.debug("Delete return: {}".format(repr(result)))
-
         return bool(result.deleted_count)
 
+
+
     def read_all(self):
-        return list(self.fields.find({}, {'_id': 0}))
+        return list(self.fields.find({}))
+
