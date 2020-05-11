@@ -34,4 +34,6 @@ class APIDecoder(JSONDecoder):
                     dct[k] = dateutil.parser.parse(v)
                 except:
                     pass
+            if isinstance(v, ObjectId):
+                dct[k] = str(v)
         return dct
