@@ -76,7 +76,50 @@ class PayablesBPTests(BaseTestLoggedIn):
         self.assertEqual(len(response.json), current_nbr_payables+1)
 
     def test_update_payable(self):
-        pass
+        new_payable = {'category': 'MO Matutina', 'subCategory': '', 'comment': 'Comment', 'fieldName': 'Durian',
+                       'documentId': 4, 'pricePerUnit': 11.8, 'quantity': 6,
+                       'lastUpdated': datetime.datetime.now(), 'transactionDate': datetime.datetime(1999, 10, 10)}
+
+        response = self.client.post('/payable', json=new_payable, headers=self.headers)
+        self.assertEqual(response.status_code, 201)
+
+        payable_local = response.json
+        pid = payable_local['_id']
+        payable_local['category'] = 'Update Cat'
+        payable_local['subCategory'] = 'Update subCategory'
+        payable_local['comment'] = 'Update comment'
+        payable_local['fieldName'] = 'Update fieldName'
+        payable_local['documentId'] = payable_local['documentId'] + 1
+        payable_local['pricePerUnit'] = payable_local['pricePerUnit'] + 1
+        payable_local['quantity'] = payable_local['quantity'] + 1
+        payable_local['transactionDate'] = datetime.datetime(2009, 10, 10)
+        response = self.client.patch('/payable', json=payable_local, headers=self.headers)
+        self.assertEqual(response.status_code, 200)
+
+        response = self.client.get('/payable/' + pid, headers=self.headers)
+        self.assertEqual(response.status_code, 200)
+        payable_db = response.json
+        for i in payable_db.keys():
+            if i == 'lastUpdated':
+                self.assertNotEqual(payable_db[i], payable_local[i])
+            else:
+                self.assertEqual(payable_db[i], payable_local[i])
 
     def test_delete_payable(self):
-        pass
+        new_payable = {'category': 'MO Matutina', 'subCategory': '', 'comment': 'Comment', 'fieldName': 'Durian',
+                       'documentId': 4, 'pricePerUnit': 11.8, 'quantity': 6,
+                       'lastUpdated': datetime.datetime.now(), 'transactionDate': datetime.datetime(1999, 10, 10)}
+
+        response = self.client.post('/payable', json=new_payable, headers=self.headers)
+        self.assertEqual(response.status_code, 201)
+
+        p_id = response.json['_id']
+
+        response = self.client.get('/payable/' + p_id, headers=self.headers)
+        self.assertEqual(response.status_code, 200)
+
+        response = self.client.delete('/payable/' + p_id, headers=self.headers)
+        self.assertEqual(response.status_code, 200)
+
+        response = self.client.get('/payable/' + p_id, headers=self.headers)
+        self.assertEqual(response.status_code, 204)

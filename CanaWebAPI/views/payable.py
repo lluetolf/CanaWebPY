@@ -86,7 +86,7 @@ def update_payable(current_user) -> str:
             return respond_failed('Issues connecting to the DB.', response_code=500)
     except Exception as e:
         app.logger.error("Failed to update: {}".format(repr(e)))
-        return respond_failed("Request failed internally. Check logs."), 500
+        return respond_failed("Request failed internally. Check logs.", response_code=500)
 
 
 @bp.route("/<payable_id>", methods=['DELETE'])
