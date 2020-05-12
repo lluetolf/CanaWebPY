@@ -52,3 +52,10 @@ class PayableRepository(object):
 
         result = self.payables.delete_one({'_id': ObjectId(payable_id)})
         return bool(result.deleted_count)
+
+    def read_range(self, from_date: datetime, to_date: datetime):
+        app.logger.debug("Read_Range:")
+        if from_date is None or to_date is None:
+            raise Exception("No date range provided.")
+
+        return list(self.payables.find({'transactionDate': {'$lte': to_date, '$gte': from_date}}))
