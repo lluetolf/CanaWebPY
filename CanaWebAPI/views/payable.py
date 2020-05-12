@@ -1,9 +1,9 @@
+import dateutil.parser
 from flask import (Blueprint, jsonify, request)
 from flask import current_app as app
 
 from CanaWebAPI.entities.entity_checks import check_payable
 from CanaWebAPI.views.LogDecorator import DebugLogs
-from CanaWebAPI.helper.InvalidUsage import InvalidUsage
 from CanaWebAPI.service.PayableRepository import PayableRepository
 from CanaWebAPI.views.auth import token_required
 
@@ -25,7 +25,7 @@ def get_all_payables(current_user) -> str:
         return jsonify(all_fields), 200
     except Exception as e:
         app.logger.error("Failed: {}".format(repr(e)))
-        return respond_failed("Request failed internally. Check logs."), 500
+        return respond_failed("Request failed internally. Check logs.", response_code=500)
 
 
 @bp.route("/<payable_id>", methods=['GET'])
@@ -43,7 +43,36 @@ def get_payable(current_user, payable_id) -> str:
             return jsonify(payable), 200
     except Exception as e:
         app.logger.error("Failed: {}".format(repr(e)))
-        return respond_failed("Request failed internally. Check logs."), 500
+        return respond_failed("Request failed internally. Check logs.", response_code=500)
+
+
+@bp.route("/<from_date>/<to_date>", methods=['GET'])
+@token_required
+@DebugLogs
+def get_range_of_payables(current_user, from_date, to_date) -> str:
+    if not from_date or not to_date:
+        return respond_failed("No date range provided.")
+
+    try:
+        from_date = dateutil.parser.parse(from_date)
+        to_date = dateutil.parser.parse(to_date)
+
+        if from_date > to_date:
+            raise
+
+    except Exception as e:
+        app.logger.error("Failed: {}".format(repr(e)))
+        return respond_failed("Date range invalid.")
+
+    try:
+        payable = PayableRepo.read_range(from_date, to_date)
+        if payable is None:
+            return jsonify({}), 204
+        else:
+            return jsonify(payable), 200
+    except Exception as e:
+        app.logger.error("Failed: {}".format(repr(e)))
+        return respond_failed("Request failed internally. Check logs.", response_code=500)
 
 
 @bp.route("", methods=['POST'])
@@ -65,7 +94,7 @@ def add_payable(current_user) -> str:
 
     except Exception as e:
         app.logger.error("Failed: {}".format(e.details))
-        return respond_failed("Request failed internally. Check logs."), 500
+        return respond_failed("Request failed internally. Check logs.", response_code=500)
 
 
 @bp.route("", methods=['PATCH'])
@@ -103,7 +132,7 @@ def delete_field(current_user, payable_id) -> str:
             return respond_failed("Unable to delete payable_id with id: {}".format(payable_id))
     except Exception as e:
         app.logger.error("Failed: {}".format(repr(e)))
-        return respond_failed("Request failed internally. Check logs."), 500
+        return respond_failed("Request failed internally. Check logs.", response_code=500)
 
 
 #

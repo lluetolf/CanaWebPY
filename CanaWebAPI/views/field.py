@@ -24,7 +24,7 @@ def get_all_fields(current_user) -> str:
         return jsonify(all_fields), 200
     except Exception as e:
         app.logger.error("Failed: {}".format(e.details))
-        return respond_failed("Request failed internally. Check logs."), 500
+        return respond_failed("Request failed internally. Check logs.", response_code=500)
 
 
 @bp.route("/<field_name>", methods=['GET'])
@@ -42,7 +42,7 @@ def get_field(current_user, field_name) -> str:
             return jsonify(field), 200
     except Exception as e:
         app.logger.error("Failed: {}".format(e.details))
-        return respond_failed("Request failed internally. Check logs."), 500
+        return respond_failed("Request failed internally. Check logs.", response_code=500)
 
 
 @bp.route("", methods=['POST'])
@@ -64,7 +64,7 @@ def add_field(current_user) -> str:
 
     except Exception as e:
         app.logger.error("Failed: {}".format(e.details))
-        return respond_failed("Request failed internally. Check logs."), 500
+        return respond_failed("Request failed internally. Check logs.", response_code=500)
 
 
 @bp.route("", methods=['PATCH'])
@@ -85,7 +85,7 @@ def update_field(current_user) -> str:
             return respond_failed('Issues connecting to the DB.', response_code=500)
     except Exception as e:
         app.logger.error("Failed to update: {}".format(e.details))
-        return respond_failed("Request failed internally. Check logs."), 500
+        return respond_failed("Request failed internally. Check logs.", response_code=500)
 
 
 @bp.route("/<field_name>", methods=['DELETE'])
@@ -102,7 +102,7 @@ def delete_field(current_user, field_name) -> str:
             return respond_failed('Unable to delete field with id: {}'.format(field_name))
     except Exception as e:
         app.logger.error("Failed to delete: {}".format(e.details))
-        return respond_failed("Request failed internally. Check logs."), 500
+        return respond_failed("Request failed internally. Check logs.", response_code=500)
 
 
 #
