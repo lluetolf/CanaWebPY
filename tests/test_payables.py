@@ -1,12 +1,9 @@
-import unittest
 import datetime
 
 from pymongo import MongoClient
 
-from CanaWebAPI.entities.payable_entity import PayableEntity
-from tests.base import BaseTestCase
-
 from CanaWebAPI.config import TestingConfig
+from CanaWebAPI.entities.entity_checks import check_payable
 from tests.basetest_loggedin import BaseTestLoggedIn
 
 
@@ -56,11 +53,10 @@ class PayablesBPTests(BaseTestLoggedIn):
         self.assertGreaterEqual(len(response.json), 2)
         try:
             json = response.json
-            pe = PayableEntity(json[1])
+            pe = check_payable(json[1])
         except:
             pass
         self.assertIsNotNone(pe)
-
 
     def test_add_payable(self):
         response = self.client.get('/payable', headers=self.headers)

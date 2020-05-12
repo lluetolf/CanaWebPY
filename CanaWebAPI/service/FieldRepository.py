@@ -1,7 +1,5 @@
 import datetime
 
-from bson import ObjectId
-
 from CanaWebAPI import mongo
 from flask import current_app as app
 
@@ -12,13 +10,22 @@ class FieldRepository(object):
     def __init__(self):
         self.fields = mongo.db.fields
 
+    def read_all(self):
+        app.logger.debug("Read_All: {}")
+        return list(self.fields.find({}))
+
+    def read_one(self, field_name: str):
+        app.logger.debug("Read_One: {}".format(field_name))
+        field = self.fields.find_one({"name": field_name}, {'_id': 0})
+        return field
+
     def create(self, field: {}):
         if field is not None:
             # Make sure _id is not provided
             field.pop('_id', None)
             result = self.fields.insert_one(field)
             if result.inserted_id is not None:
-                print("Created new field with ObjectID: {}".format(field.get('_id', 'UNKNOWN')))
+                app.logger.info("Created new field with ObjectID: {}".format(field.get('_id', 'UNKNOWN')))
                 return True
             else:
                 app.logger.error("Unable to create Field.")
@@ -26,13 +33,8 @@ class FieldRepository(object):
         else:
             raise Exception("Nothing to save, because field parameter is None")
 
-    def read_one(self, field_name=None):
-        app.logger.debug("Read_One: {}".format(field_name))
-        field = self.fields.find_one({"name": field_name}, {'_id': 0})
-        return field
-
     def update(self, field):
-        if not field:
+        if field is None:
             raise Exception("Nothing to update, field is None")
 
         app.logger.debug("Updating field with Name: {}".format(field['name']))
@@ -48,9 +50,4 @@ class FieldRepository(object):
 
         result = self.fields.delete_one({'name': field_name})
         return bool(result.deleted_count)
-
-
-
-    def read_all(self):
-        return list(self.fields.find({}))
 
