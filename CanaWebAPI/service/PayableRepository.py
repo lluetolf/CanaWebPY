@@ -38,9 +38,12 @@ class PayableRepository(object):
         if payable is None and payable.get('_id', 'UNKNOWN') != 'UNKNOWN':
             raise Exception("Nothing to update, payable is None")
 
-        app.logger.info("Updating payable with ObjectId: {}".format(payable['_id']))
+        p_id = payable['_id']
+        app.logger.info("Updating payable with ObjectId: {}".format(p_id))
+        # Make sure _id is not provided
+        payable.pop('_id', None)
         payable['lastUpdated'] = datetime.datetime.now()
-        result = self.payables.replace_one({'_id': ObjectId(payable['_id'])}, payable)
+        result = self.payables.replace_one({'_id': ObjectId(p_id)}, payable)
         return bool(result.modified_count)
 
     def delete(self, payable_id: str):
