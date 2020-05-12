@@ -22,7 +22,9 @@ class BaseTestLoggedIn(BaseTestCase):
 
         response_json = self.client.get('/upandrunning')
         self.assert200(response_json)
-        self.assertEqual(response_json.json, {'msg': "Up and running!"})
+        body = response_json.json
+        self.assertEqual(body['msg'], "Up and running!")
+        self.assertGreaterEqual(body['version'], 1)
 
         response = self.client.get('/auth/pong', headers=self.headers)
         self.assert200(response)
