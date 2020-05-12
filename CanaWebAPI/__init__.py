@@ -43,7 +43,7 @@ def create_app():
 
     @app.route('/upandrunning')
     def index_json():
-        return jsonify({"msg": "Up and running!"}), 200
+        return jsonify({"msg": "Up and running!", "version": app.config['VERSION']}), 200
 
     #
     # Import endpoints
@@ -58,6 +58,6 @@ def create_app():
     app.register_blueprint(payable.bp)
 
 #    from . import zafra
-#           app.register_blueprint(zafra.bp)
+#    app.register_blueprint(zafra.bp)
 
     return app
