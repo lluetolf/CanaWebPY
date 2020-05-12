@@ -1,6 +1,7 @@
 import datetime
 
-import dateutil
+import dateutil.parser
+from flask import current_app as app
 from flask.json import JSONEncoder, JSONDecoder
 from bson import ObjectId
 
@@ -32,8 +33,8 @@ class APIDecoder(JSONDecoder):
             if isinstance(v, str) and ("date" in k.lower() or k == 'lastUpdated'):
                 try:
                     dct[k] = dateutil.parser.parse(v)
-                except:
-                    pass
+                except Exception as e:
+                    app.logger.warning("Failed to convert date str to datetime.")
             if isinstance(v, ObjectId):
                 dct[k] = str(v)
         return dct
