@@ -1,7 +1,7 @@
 from flask import (Blueprint, jsonify, request)
 from flask import current_app as app
 
-from CanaWebAPI.entities.entity_creator import check_field
+from CanaWebAPI.entities.entity_checks import check_field
 from CanaWebAPI.views.LogDecorator import DebugLogs
 from CanaWebAPI.service.FieldRepository import FieldRepository
 from CanaWebAPI.views.auth import token_required
@@ -24,7 +24,7 @@ def get_all_fields(current_user) -> str:
         return jsonify(all_fields), 200
     except Exception as e:
         app.logger.error("Failed: {}".format(e.details))
-        return respond_failed('Error fetching all fields.', response_code=500)
+        return respond_failed("Request failed internally. Check logs."), 500
 
 
 @bp.route("/<field_name>", methods=['GET'])
@@ -37,19 +37,19 @@ def get_field(current_user, field_name) -> str:
     try:
         field = FieldRepo.read_one(field_name)
         if field is None:
-            return {}, 204
-
-        return jsonify(field), 200
+            return jsonify({}), 204
+        else:
+            return jsonify(field), 200
     except Exception as e:
         app.logger.error("Failed: {}".format(e.details))
-        return jsonify({"message": "Unable to find field with Name: {}".format(field_name)}), 400
+        return respond_failed("Request failed internally. Check logs."), 500
 
 
 @bp.route("", methods=['POST'])
 @token_required
 @DebugLogs
 def add_field(current_user) -> str:
-    if not request.json:
+    if not request.is_json:
         return respond_failed("No JSON message sent.")
 
     field, error = check_field(request.json)
@@ -64,7 +64,7 @@ def add_field(current_user) -> str:
 
     except Exception as e:
         app.logger.error("Failed: {}".format(e.details))
-        return respond_failed('Error creating a new field.', response_code=500)
+        return respond_failed("Request failed internally. Check logs."), 500
 
 
 @bp.route("", methods=['PATCH'])
@@ -85,7 +85,7 @@ def update_field(current_user) -> str:
             return respond_failed('Issues connecting to the DB.', response_code=500)
     except Exception as e:
         app.logger.error("Failed to update: {}".format(e.details))
-        return respond_failed('Error updating a new field.', response_code=500)
+        return respond_failed("Request failed internally. Check logs."), 500
 
 
 @bp.route("/<field_name>", methods=['DELETE'])
@@ -95,7 +95,6 @@ def delete_field(current_user, field_name) -> str:
     if not field_name:
         return respond_failed("No Name provided")
 
-    app.logger.info("Delete field with Name: {}".format(field_name))
     try:
         if FieldRepo.delete(field_name):
             return respond_success("Deleted")
@@ -103,9 +102,12 @@ def delete_field(current_user, field_name) -> str:
             return respond_failed('Unable to delete field with id: {}'.format(field_name))
     except Exception as e:
         app.logger.error("Failed to delete: {}".format(e.details))
-        return respond_failed('Error deleting a field.', response_code=500)
+        return respond_failed("Request failed internally. Check logs."), 500
 
 
+#
+# Helper Functions
+#
 def respond_failed(msg, response_code=400):
     app.logger.info("No Name provided")
     return jsonify({'status': 'failed', 'message': msg}), response_code
