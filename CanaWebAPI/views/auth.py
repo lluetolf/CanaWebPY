@@ -1,9 +1,8 @@
 import datetime
 
 import jwt
-from flask import Blueprint, request, jsonify, make_response, url_for
+from flask import Blueprint, request, jsonify
 from flask import current_app as app
-from werkzeug.utils import redirect
 
 from CanaWebAPI import bcrypt
 from functools import wraps
