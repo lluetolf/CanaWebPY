@@ -15,7 +15,7 @@ class AuthenticationTests(BaseTestCase):
     def setUpClass(cls):
         try:
             client = MongoClient(TestingConfig.MONGO_URI)
-            users = client['CanaWebMDB_TEST']['users']
+            users = client[TestingConfig.MONGO_DB]['users']
             users.delete_many({})
         except Exception as e:
             print("Unable to prepare DB." + e)

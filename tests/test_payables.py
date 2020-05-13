@@ -12,7 +12,7 @@ class PayablesBPTests(BaseTestLoggedIn):
     def setUpClass(cls):
         try:
             client = MongoClient(TestingConfig.MONGO_URI)
-            payables = client['CanaWebMDB_TEST']['payables']
+            payables = client[TestingConfig.MONGO_DB]['payables']
             payables.delete_many({})
             base_data = [
                 {'category': 'MO Matutina', 'subCategory': '', 'comment': 'Comment1', 'fieldName': 'Apple',

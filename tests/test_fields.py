@@ -7,13 +7,14 @@ from CanaWebAPI.config import TestingConfig
 from tests.basetest_loggedin import BaseTestLoggedIn
 
 
+# @unittest.skip("demonstrating skipping")
 class FieldsBPTests(BaseTestLoggedIn):
 
     @classmethod
     def setUpClass(cls):
         try:
             client = MongoClient(TestingConfig.MONGO_URI)
-            fields = client['CanaWebMDB_TEST']['fields']
+            fields = client[TestingConfig.MONGO_DB]['fields']
             fields.delete_many({})
             base_data = [
                 {"name": "Apple", "owner": "Elderberries", "acquisitionDate": datetime.datetime(2018, 1, 1),
