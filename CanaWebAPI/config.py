@@ -11,16 +11,24 @@ class Config:
 class ProdConfig(Config):
     DEBUG = False
     TESTING = False
-    MONGO_URI = 'mongodb+srv://canauser:{}@canawebmdb-p5yz3.azure.mongodb.net/CanaWebMDB?retryWrites=true&w=majority'.format(
-        os.environ.get('MONGO_PW', 'NO_PASSWORD_PROVIDED')
+    MONGO_USER = 'canauser'
+    MONGO_DB = 'CanaWebMDB'
+    MONGO_URI = 'mongodb+srv://{}:{}@canawebmdb-p5yz3.azure.mongodb.net/{}?retryWrites=true&w=majority'.format(
+        MONGO_USER,
+        os.environ.get('MONGO_PW', 'NO_PASSWORD_PROVIDED'),
+        MONGO_DB
     )
 
 
 class DevConfig(Config):
     DEBUG = True
     TESTING = True
-    MONGO_URI = 'mongodb+srv://canauser:{}@canawebmdb-p5yz3.azure.mongodb.net/CanaWebMDB_DEV?retryWrites=true&w=majority'.format(
-        os.environ.get('MONGO_PW', 'NO_PASSWORD_PROVIDED')
+    MONGO_USER = 'canauser_dev'
+    MONGO_DB = 'CanaWebMDB_DEV'
+    MONGO_URI = 'mongodb+srv://{}:{}@canawebmdb-p5yz3.azure.mongodb.net/{}?retryWrites=true&w=majority'.format(
+        MONGO_USER,
+        os.environ.get('MONGO_PW', 'NO_PASSWORD_PROVIDED'),
+        MONGO_DB
     )
 
 
@@ -29,6 +37,10 @@ class TestingConfig(Config):
     TESTING = True
     DEBUG = True
     TOKEN_LIVE_SPAN = 12
-    MONGO_URI = 'mongodb+srv://canauser:{}@canawebmdb-p5yz3.azure.mongodb.net/CanaWebMDB_TEST?retryWrites=true&w=majority'.format(
-        os.environ.get('MONGO_PW', 'NO_PASSWORD_PROVIDED')
+    MONGO_USER = 'canauser_dev'
+    MONGO_DB = 'CanaWebMDB_TEST'
+    MONGO_URI = 'mongodb+srv://{}:{}@canawebmdb-p5yz3.azure.mongodb.net/{}?retryWrites=true&w=majority'.format(
+        MONGO_USER,
+        os.environ.get('MONGO_PW', 'NO_PASSWORD_PROVIDED'),
+        MONGO_DB
     )
