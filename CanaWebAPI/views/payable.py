@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import dateutil.parser
 from flask import (Blueprint, jsonify, request)
 from flask import current_app as app
@@ -54,8 +56,11 @@ def get_range_of_payables(current_user, from_date, to_date) -> str:
         return respond_failed("No date range provided.")
 
     try:
-        from_date = dateutil.parser.parse(from_date)
-        to_date = dateutil.parser.parse(to_date)
+        # Take date part of provided values and add min/max time
+        from_date = datetime.combine(dateutil.parser.parse(from_date).date(),
+                                     datetime.min.time())
+        to_date = datetime.combine(dateutil.parser.parse(to_date).date(),
+                                     datetime.max.time())
 
         if from_date > to_date:
             raise

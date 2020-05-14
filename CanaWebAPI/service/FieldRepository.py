@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 from CanaWebAPI import mongo
 from flask import current_app as app
@@ -40,7 +40,7 @@ class FieldRepository(object):
         app.logger.debug("Updating field with Name: {}".format(field['name']))
         # Make sure _id is not provided
         field.pop('_id', None)
-        field['lastUpdated'] = datetime.datetime.now()
+        field['lastUpdated'] = datetime.utcnow()
         result = self.fields.replace_one({'name': field['name']}, field)
         return bool(result.modified_count)
 
