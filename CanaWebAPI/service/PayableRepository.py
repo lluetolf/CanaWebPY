@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 from bson import ObjectId
 
@@ -42,7 +42,7 @@ class PayableRepository(object):
         app.logger.info("Updating payable with ObjectId: {}".format(p_id))
         # Make sure _id is not provided
         payable.pop('_id', None)
-        payable['lastUpdated'] = datetime.datetime.now()
+        payable['lastUpdated'] = datetime.utcnow()
         result = self.payables.replace_one({'_id': ObjectId(p_id)}, payable)
         return bool(result.modified_count)
 
@@ -58,4 +58,4 @@ class PayableRepository(object):
         if from_date is None or to_date is None:
             raise Exception("No date range provided.")
 
-        return list(self.payables.find({'transactionDate': {'$lte': to_date, '$gte': from_date}}))
+        return list(self.payables.find({'transactionDate': {'$lte': to_date, '$gte': from_date} }))

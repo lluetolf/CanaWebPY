@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 from schema import Schema, And, Or, Optional, SchemaWrongKeyError
 
@@ -11,7 +11,7 @@ def _check_generic(entity_dict: {}, schema: Schema):
     except SchemaWrongKeyError as e:
         error = str(e)
     except Exception as e:
-        error = "Fatal"
+        error = str(e)
     return field, error
 
 
@@ -21,9 +21,9 @@ def check_field(field_dict: {}):
         'owner': And(str),
         'size': Or(float, int),
         'cultivatedArea': Or(float, int),
-        'acquisitionDate': And(datetime.datetime),
+        'acquisitionDate': And(datetime),
         'ingenioId': And(int),
-        'lastUpdated': And(datetime.datetime),
+        'lastUpdated': And(datetime),
         Optional('_id'): Or(str, None)})
 
     return _check_generic(field_dict, schema)
@@ -38,8 +38,8 @@ def check_payable(payable: {}):
         'pricePerUnit': Or(float, int),
         'quantity': And(int),
         'comment': And(str),
-        'transactionDate': And(datetime.datetime),
-        'lastUpdated': And(datetime.datetime),
+        'transactionDate': And(datetime),
+        'lastUpdated': And(datetime),
         Optional('_id'): Or(str, None)})
 
     return _check_generic(payable, schema)
