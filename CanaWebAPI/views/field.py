@@ -30,7 +30,7 @@ def get_all_fields(current_user) -> str:
 @bp.route("/<field_name>", methods=['GET'])
 @token_required
 @DebugLogs
-def get_field(current_user, field_name) -> str:
+def get_field_by_name(current_user, field_name) -> str:
     if not field_name:
         return respond_failed("No Name provided")
 
