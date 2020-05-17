@@ -1,4 +1,5 @@
 import datetime
+import unittest
 
 from pymongo import MongoClient
 
@@ -7,6 +8,7 @@ from CanaWebAPI.entities.entity_checks import check_payable
 from tests.basetest_loggedin import BaseTestLoggedIn
 
 
+# @unittest.skip("demonstrating skipping")
 class PayablesBPTests(BaseTestLoggedIn):
     @classmethod
     def setUpClass(cls):
