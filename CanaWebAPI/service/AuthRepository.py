@@ -18,7 +18,7 @@ class AuthRepository(object):
 
     def blacklist_user_token(self, username: str, token: str) -> bool:
         user = self.get_user(username)
-        if hasattr(user, 'blacklist'):
+        if 'blacklist' in user:
             user['blacklist'].append(token)
         else:
             user['blacklist'] = [token]
