@@ -30,6 +30,18 @@ def get_all_payables(current_user) -> str:
         return respond_failed("Request failed internally. Check logs.", response_code=500)
 
 
+@bp.route("latest/<nbr>", methods=['GET'])
+@token_required
+@DebugLogs
+def get_latest_payables(current_user, nbr) -> str:
+    try:
+        all_fields = PayableRepo.read_all(nbr)
+        return jsonify(all_fields), 200
+    except Exception as e:
+        app.logger.error("Failed: {}".format(repr(e)))
+        return respond_failed("Request failed internally. Check logs.", response_code=500)
+
+
 @bp.route("/<payable_id>", methods=['GET'])
 @token_required
 @DebugLogs
