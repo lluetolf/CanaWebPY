@@ -16,6 +16,16 @@ class AuthRepository(object):
         user = self.users.find_one({"username": username, 'password': password})
         return user is not None
 
+    def blacklist_user_token(self, username: str, token: str) -> bool:
+        user = self.get_user(username)
+        if hasattr(user, 'blacklist'):
+            user['blacklist'].append(token)
+        else:
+            user['blacklist'] = [token]
+
+        result = self.users.replace_one({"username": user['username']}, user)
+        return result is not None
+
     def register_new_user(self, username, password):
         app.logger.debug("register_new_user: {}".format(username))
         try:
@@ -29,5 +39,8 @@ class AuthRepository(object):
             app.logger.error("Failed with " + e)
             return "Failed with " + e
 
-    def get_user(self, username):
-        return self.users.find_one({"username": username})
+    def get_user(self, username, token=None):
+        if token is None:
+            return self.users.find_one({"username": username})
+        else:
+            return self.users.find_one({"username": username, "blacklist": {'$ne': token}})
