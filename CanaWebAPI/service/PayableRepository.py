@@ -1,5 +1,6 @@
 from datetime import datetime
 
+import pymongo
 from bson import ObjectId
 
 from CanaWebAPI import mongo
@@ -12,9 +13,12 @@ class PayableRepository(object):
     def __init__(self):
         self.payables = mongo.db.payables
 
-    def read_all(self) -> []:
-        app.logger.debug("Read_All: {}")
-        return list(self.payables.find({}))
+    def read_all(self, nbr=-1) -> []:
+        app.logger.debug("Read_All: {}".format(nbr))
+        if nbr == -1:
+            return list(self.payables.find({}))
+        else:
+            return list(self.payables.find({}, sort=[('lastUpdated', pymongo.DESCENDING)], limit=int(nbr)))
 
     def read_one(self, payable_id: str) -> {}:
         app.logger.debug("Read_One: {}".format(payable_id))

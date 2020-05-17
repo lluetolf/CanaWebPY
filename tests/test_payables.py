@@ -126,6 +126,12 @@ class PayablesBPTests(BaseTestLoggedIn):
         response = self.client.get('/payable/' + p_id, headers=self.headers)
         self.assertEqual(response.status_code, 204)
 
+    def test_get_latest_payables(self):
+        response = self.client.get('/payable/latest/2', headers=self.headers)
+        self.assert200(response)
+        self.assertIsNotNone(response.json)
+        self.assertEqual(len(response.json), 2)
+
     def test_get_range_of_payables(self):
         from_date = datetime.datetime(2020, 3, 1)
         to_date = datetime.datetime(2020, 12, 31)
