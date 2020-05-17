@@ -1,4 +1,3 @@
-import os
 import time
 import unittest
 
@@ -78,8 +77,9 @@ class AuthenticationTests(BaseTestCase):
         response = self.client.post('/auth/register', json=payload)
         self.assertEqual(response.status_code, 201)
 
-        self._test_token(response)
+        self._check_token_is_valid(response)
 
+    # @unittest.skip("demonstrating skipping")
     def test_register_login_timeout(self):
         payload = {
             "email": "piggy@tv6.mx",
@@ -87,11 +87,11 @@ class AuthenticationTests(BaseTestCase):
         }
         response = self.client.post('/auth/register', json=payload)
         self.assertEqual(response.status_code, 201)
-        self._test_token(response)
+        self._check_token_is_valid(response)
 
         response = self.client.post('/auth/login', json=payload)
         self.assert200(response)
-        self._test_token(response)
+        self._check_token_is_valid(response)
 
         time.sleep(15)
 
@@ -103,13 +103,46 @@ class AuthenticationTests(BaseTestCase):
         self.assert401(response)
         self.assertEqual(response.json['message'], 'Invalid token. Please log in again.')
 
-    def _test_token(self, response):
+    def test_logout(self):
+        payload = {
+            "email": "piggy@tv7.mx",
+            "password": "oinky7"
+        }
+
+        # Register and logout
+        rr = self.client.post('/auth/register', json=payload)
+        self.assertEqual(rr.status_code, 201)
+        self._check_token_is_valid(rr)
+        self._logout_and_check_token_is_invalid(rr.json["auth_token"])
+
+        # Login and Logout
+        r_login = self.client.post('/auth/login', json=payload)
+        self.assert200(r_login)
+        self._check_token_is_valid(r_login)
+        self._logout_and_check_token_is_invalid(r_login.json["auth_token"])
+
+        # Login
+        r_login = self.client.post('/auth/login', json=payload)
+        self.assert200(r_login)
+        self._check_token_is_valid(r_login)
+
+    def _check_token_is_valid(self, response):
         auth_token = response.json["auth_token"]
         self.assertIsNotNone(auth_token)
 
         response = self.client.get('/auth/pong', headers={'x-access-token': auth_token})
         self.assert200(response)
         self.assertEqual(response.json['msg'], 'pong')
+
+    def _logout_and_check_token_is_invalid(self, token):
+        # logout and check token is invalid
+        r_logout = self.client.post('/auth/logout', json={}, headers={'x-access-token': token})
+        self.assert200(r_logout)
+
+        response = self.client.get('/auth/pong', headers={'x-access-token': token})
+        self.assert401(response)
+        self.assertEqual(response.json['message'], 'Token blacklisted. Please login again')
+        time.sleep(1)
 
 
 if __name__ == "__main__":

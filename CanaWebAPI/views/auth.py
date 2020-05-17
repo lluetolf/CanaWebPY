@@ -27,7 +27,9 @@ def token_required(f):
         try:
             code, resp = decode_auth_token(token)
             if code == 0:
-                current_user = auth_repo.get_user(resp)
+                current_user = auth_repo.get_user(resp['sub'], token)
+                if current_user is None:
+                    return respond_failed('Token blacklisted. Please login again', response_code=401)
             else:
                 return jsonify({'message': resp}), 401
         except:
@@ -72,7 +74,7 @@ def decode_auth_token(auth_token):
         # if is_blacklisted_token:
         #     return 'Token blacklisted. Please log in again.'
         # else:
-        return 0, payload['sub']
+        return 0, payload
     except jwt.ExpiredSignatureError:
         return -1, 'Signature expired. Please log in again.'
     except jwt.InvalidTokenError:
@@ -102,6 +104,22 @@ def login() -> str:
                 return respond_failed('Could not create token.', response_code=404)
         else:
             return respond_failed('Username or password wrong.')
+    except Exception as e:
+        return respond_failed("Internal issue.", response_code=500)
+
+
+@bp.route("logout", methods=['POST'])
+@token_required
+def logout(current_user) -> str:
+    app.logger.info("Logout started")
+    try:
+        # Token must be there due to @token_required
+        token = request.headers['x-access-token']
+        if auth_repo.blacklist_user_token(current_user.get('username', None), token):
+            return respond_success('Logged out.')
+        else:
+            return respond_failed('Failed to logout', response_code=500)
+
     except Exception as e:
         return respond_failed("Internal issue.", response_code=500)
 
