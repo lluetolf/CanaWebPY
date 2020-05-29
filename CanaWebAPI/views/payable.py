@@ -99,6 +99,7 @@ def add_payable(current_user) -> str:
     if not request.is_json:
         return respond_failed("No JSON message sent.")
 
+    request.json['lastUpdated'] = datetime.now()
     payable, error = check_payable(request.json)
     if error:
         return respond_failed('Payable validation failed. {}'.format(error))
