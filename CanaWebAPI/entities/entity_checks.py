@@ -32,12 +32,13 @@ def check_field(field_dict: {}):
 def check_payable(payable: {}):
     schema = Schema({
         'fieldName': And(str),
+        'provider': And(str),
         'category': And(str),
-        'subCategory': And(str),
-        'documentId': Or(int),
+        Optional('subCategory'): Or(str, None),
+        Optional('documentId'): Or(str, None),
         'pricePerUnit': Or(float, int),
         'quantity': And(int),
-        'comment': And(str),
+        Optional('comment'): Or(str, None),
         'transactionDate': And(datetime),
         'lastUpdated': And(datetime),
         Optional('_id'): Or(str, None)})
