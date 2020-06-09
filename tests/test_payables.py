@@ -18,16 +18,16 @@ class PayablesBPTests(BaseTestLoggedIn):
             payables.delete_many({})
             base_data = [
                 {'category': 'MO Matutina', 'subCategory': '', 'comment': 'Comment1', 'fieldName': 'Apple',
-                 'documentId': 1, 'pricePerUnit': 2, 'quantity': 3,
+                 'documentId': "D1", 'pricePerUnit': 2, 'quantity': 3,
                  'lastUpdated': datetime.datetime.now(), 'transactionDate': datetime.datetime(2020, 1, 11)},
                 {'category': 'MO Matutina', 'subCategory': '', 'comment': 'Comment2', 'fieldName': 'Banana',
-                 'documentId': 2, 'pricePerUnit': 2.5, 'quantity': 4,
+                 'documentId': "D2", 'pricePerUnit': 2.5, 'quantity': 4,
                  'lastUpdated': datetime.datetime.now(), 'transactionDate': datetime.datetime(2020, 3, 11)},
                 {'category': 'MO Matutina', 'subCategory': '', 'comment': 'Comment3', 'fieldName': 'Clementine',
-                 'documentId': 3, 'pricePerUnit': 7.5, 'quantity': 5,
+                 'documentId': "D3", 'pricePerUnit': 7.5, 'quantity': 5,
                  'lastUpdated': datetime.datetime.now(), 'transactionDate': datetime.datetime(2020, 2, 11)},
                 {'category': 'MO Matutina', 'subCategory': '', 'comment': 'Comment4', 'fieldName': 'Durian',
-                 'documentId': 4, 'pricePerUnit': 11.8, 'quantity': 6,
+                 'documentId': "D4", 'pricePerUnit': 11.8, 'quantity': 6,
                  'lastUpdated': datetime.datetime.now(), 'transactionDate': datetime.datetime(2020, 4, 11)},
             ]
             payables.insert_many(base_data)
@@ -66,8 +66,8 @@ class PayablesBPTests(BaseTestLoggedIn):
         self.assert200(response)
         self.assertIsNotNone(response.json)
 
-        new_payable = {'category': 'MO Matutina', 'subCategory': '', 'comment': 'CommentX', 'fieldName': 'Durian',
-         'documentId': 4, 'pricePerUnit': 11.8, 'quantity': 6,
+        new_payable = {'category': 'MO Matutina', 'subCategory': '', 'provider': '', 'comment': 'CommentX', 'fieldName': 'Durian',
+         'documentId': 'D4', 'pricePerUnit': 11.8, 'quantity': 6,
          'lastUpdated': datetime.datetime.now(), 'transactionDate': datetime.datetime(1999, 10, 10)}
 
         response = self.client.post('/payable', json=new_payable, headers=self.headers)
@@ -78,8 +78,8 @@ class PayablesBPTests(BaseTestLoggedIn):
         self.assertEqual(len(response.json), current_nbr_payables+1)
 
     def test_update_payable(self):
-        new_payable = {'category': 'MO Matutina', 'subCategory': '', 'comment': 'Comment', 'fieldName': 'Durian',
-                       'documentId': 4, 'pricePerUnit': 11.8, 'quantity': 6,
+        new_payable = {'category': 'MO Matutina', 'subCategory': '', 'provider': '', 'comment': 'Comment', 'fieldName': 'Durian',
+                       'documentId': 'D321', 'pricePerUnit': 11.8, 'quantity': 6,
                        'lastUpdated': datetime.datetime.now(), 'transactionDate': datetime.datetime(1999, 10, 10)}
 
         response = self.client.post('/payable', json=new_payable, headers=self.headers)
@@ -91,7 +91,7 @@ class PayablesBPTests(BaseTestLoggedIn):
         payable_local['subCategory'] = 'Update subCategory'
         payable_local['comment'] = 'Update comment'
         payable_local['fieldName'] = 'Update fieldName'
-        payable_local['documentId'] = payable_local['documentId'] + 1
+        payable_local['documentId'] = payable_local['documentId'] + "X"
         payable_local['pricePerUnit'] = payable_local['pricePerUnit'] + 1
         payable_local['quantity'] = payable_local['quantity'] + 1
         payable_local['transactionDate'] = datetime.datetime(2009, 10, 10)
@@ -108,8 +108,8 @@ class PayablesBPTests(BaseTestLoggedIn):
                 self.assertEqual(payable_db[i], payable_local[i])
 
     def test_delete_payable(self):
-        new_payable = {'category': 'MO Matutina', 'subCategory': '', 'comment': 'Comment', 'fieldName': 'Durian',
-                       'documentId': 4, 'pricePerUnit': 11.8, 'quantity': 6,
+        new_payable = {'category': 'MO Matutina', 'subCategory': '', 'provider': '', 'comment': 'Comment', 'fieldName': 'Durian',
+                       'documentId': 'D1234', 'pricePerUnit': 11.8, 'quantity': 6,
                        'lastUpdated': datetime.datetime.now(), 'transactionDate': datetime.datetime(1999, 10, 10)}
 
         response = self.client.post('/payable', json=new_payable, headers=self.headers)
