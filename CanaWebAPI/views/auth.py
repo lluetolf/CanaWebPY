@@ -103,7 +103,7 @@ def login() -> str:
             else:
                 return respond_failed('Could not create token.', response_code=404)
         else:
-            return respond_failed('Username or password wrong.')
+            return respond_failed('Username or password wrong.', response_code=401)
     except Exception as e:
         return respond_failed("Internal issue.", response_code=500)
 
