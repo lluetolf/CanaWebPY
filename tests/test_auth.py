@@ -3,9 +3,8 @@ import unittest
 
 from pymongo import MongoClient
 
-from tests.base import BaseTestCase
-
 from CanaWebAPI.config import TestingConfig
+from tests.base import BaseTestCase
 
 
 # @unittest.skip("demonstrating skipping")
@@ -17,7 +16,7 @@ class AuthenticationTests(BaseTestCase):
             users = client[TestingConfig.MONGO_DB]['users']
             users.delete_many({})
         except Exception as e:
-            print("Unable to prepare DB." + e)
+            print("Unable to prepare DB." + str(e))
 
     @classmethod
     def tearDownClass(cls):
@@ -69,7 +68,7 @@ class AuthenticationTests(BaseTestCase):
         self.assert401(response)
         self.assertEqual(response.json['message'], 'No Token provided!')
 
-        #register
+        # register
         payload = {
             "email": "piggy5@tv.mx",
             "password": "oinky"

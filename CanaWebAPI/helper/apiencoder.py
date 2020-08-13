@@ -34,7 +34,7 @@ class APIDecoder(JSONDecoder):
                 try:
                     dct[k] = dateutil.parser.parse(v)
                 except Exception as e:
-                    app.logger.warning("Failed to convert date str to datetime.")
+                    app.logger.warning("Failed to convert date str to datetime. {}".format(str(e)))
             if isinstance(v, ObjectId):
                 dct[k] = str(v)
         return dct

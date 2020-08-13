@@ -2,9 +2,9 @@ from datetime import datetime
 
 import pymongo
 from bson import ObjectId
+from flask import current_app as app
 
 from CanaWebAPI import mongo
-from flask import current_app as app
 
 
 class PayableRepository(object):
@@ -61,4 +61,4 @@ class PayableRepository(object):
         if from_date is None or to_date is None:
             raise Exception("No date range provided.")
 
-        return list(self.payables.find({'transactionDate': {'$lte': to_date, '$gte': from_date} }))
+        return list(self.payables.find({'transactionDate': {'$lte': to_date, '$gte': from_date}}))

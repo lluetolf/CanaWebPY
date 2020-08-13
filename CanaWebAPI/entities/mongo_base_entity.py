@@ -14,7 +14,8 @@ class MongoBaseEntity:
             # Check only expected values are sent
             if set(provided_attributes) - set(all_possible_attributes):
                 print(
-                    "Failed, did not expect attributes: {}".format(list(set(provided_attributes) - set(all_possible_attributes))))
+                    "Failed, did not expect attributes: {}".format(
+                        list(set(provided_attributes) - set(all_possible_attributes))))
 
             # Check if all mandatory attributes are present
             if set(self.required) - set(provided_attributes):

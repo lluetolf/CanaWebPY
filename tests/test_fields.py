@@ -1,5 +1,5 @@
-import unittest
 import datetime
+import unittest
 
 from pymongo import MongoClient
 
@@ -56,36 +56,37 @@ class FieldsBPTests(BaseTestLoggedIn):
         self.assertIsNotNone(response.json)
 
         new_field = {"name": "Jackfruit", "owner": "Kiwi", "acquisitionDate": datetime.datetime(2020, 3, 18),
-         "cultivatedArea": 5, "ingenioId": -1, "lastUpdated": datetime.datetime.now(), "size": 9}
+                     "cultivatedArea": 5, "ingenioId": -1, "lastUpdated": datetime.datetime.now(), "size": 9}
 
         response = self.client.post('/field', json=new_field, headers=self.headers)
         self.assertEqual(response.status_code, 201)
 
         response = self.client.get('/field', headers=self.headers)
         self.assert200(response)
-        self.assertEqual(len(response.json), current_nbr_fields+1)
+        self.assertEqual(len(response.json), current_nbr_fields + 1)
 
     def test_add_field_failure(self):
-        #incomplete
+        # incomplete
         new_field = {"owner": "Kiwi", "acquisitionDate": datetime.datetime(2020, 3, 18),
-         "cultivatedArea": 5, "ingenioId": -1, "lastUpdated": datetime.datetime.now(), "size": 9}
+                     "cultivatedArea": 5, "ingenioId": -1, "lastUpdated": datetime.datetime.now(), "size": 9}
         response = self.client.post('/field', json=new_field, headers=self.headers)
         self.assertEqual(response.status_code, 400)
 
-        #garbage
+        # garbage
         new_field = "GARBAGE"
         response = self.client.post('/field', json=new_field, headers=self.headers)
         self.assertEqual(response.status_code, 400)
 
-        #additional attribute
+        # additional attribute
         new_field = {"name": "Jackfruit", "owner": "Kiwi", "acquisitionDate": datetime.datetime(2020, 3, 18),
-         "cultivatedArea": 5, "ingenioId": -1, "lastUpdated": datetime.datetime.now(), "size": 9, 'additional': 'added'}
+                     "cultivatedArea": 5, "ingenioId": -1, "lastUpdated": datetime.datetime.now(), "size": 9,
+                     'additional': 'added'}
         response = self.client.post('/field', json=new_field, headers=self.headers)
         self.assertEqual(response.status_code, 400)
 
-        #wronge type
+        # wronge type
         new_field = {"name": "Jackfruit", "owner": "Kiwi", "acquisitionDate": datetime.datetime(2020, 3, 18),
-         "cultivatedArea": 5, "ingenioId": -1, "lastUpdated": datetime.datetime.now(), "size": "X"}
+                     "cultivatedArea": 5, "ingenioId": -1, "lastUpdated": datetime.datetime.now(), "size": "X"}
         response = self.client.post('/field', json=new_field, headers=self.headers)
         self.assertEqual(response.status_code, 400)
 
@@ -146,7 +147,6 @@ class FieldsBPTests(BaseTestLoggedIn):
         response = self.client.get('/field/Durian', headers=self.headers)
         self.assert200(response)
         self.assertIsNotNone(response.json)
-        original_durian = response.json
 
         # Missing attribute
         new_durian = {

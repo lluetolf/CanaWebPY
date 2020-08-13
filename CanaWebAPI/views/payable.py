@@ -5,8 +5,8 @@ from flask import (Blueprint, jsonify, request)
 from flask import current_app as app
 
 from CanaWebAPI.entities.entity_checks import check_payable
-from CanaWebAPI.views.LogDecorator import DebugLogs
 from CanaWebAPI.service.PayableRepository import PayableRepository
+from CanaWebAPI.views.LogDecorator import debug_logs
 from CanaWebAPI.views.auth import token_required
 
 bp = Blueprint('payables', __name__, url_prefix='/payable')
@@ -20,8 +20,9 @@ PayableRepo = PayableRepository()
 #
 @bp.route("", methods=['GET'])
 @token_required
-@DebugLogs
+@debug_logs
 def get_all(current_user) -> str:
+    app.logger.debug("Call: get_all by {}".format(current_user))
     try:
         all_fields = PayableRepo.read_all()
         return jsonify(all_fields), 200
@@ -32,8 +33,9 @@ def get_all(current_user) -> str:
 
 @bp.route("latest/<nbr>", methods=['GET'])
 @token_required
-@DebugLogs
+@debug_logs
 def get_latest(current_user, nbr) -> str:
+    app.logger.debug("Call: get_latest by {}".format(current_user))
     try:
         all_fields = PayableRepo.read_all(nbr)
         return jsonify(all_fields), 200
@@ -44,8 +46,9 @@ def get_latest(current_user, nbr) -> str:
 
 @bp.route("/<payable_id>", methods=['GET'])
 @token_required
-@DebugLogs
+@debug_logs
 def get(current_user, payable_id) -> str:
+    app.logger.debug("Call: current_user by {}".format(current_user))
     if not payable_id:
         return respond_failed("No payable_id provided.")
 
@@ -62,8 +65,9 @@ def get(current_user, payable_id) -> str:
 
 @bp.route("/<from_date>/<to_date>", methods=['GET'])
 @token_required
-@DebugLogs
+@debug_logs
 def get_range(current_user, from_date, to_date) -> str:
+    app.logger.debug("Call: get_range by {}".format(current_user))
     if not from_date or not to_date:
         return respond_failed("No date range provided.")
 
@@ -72,7 +76,7 @@ def get_range(current_user, from_date, to_date) -> str:
         from_date = datetime.combine(dateutil.parser.parse(from_date).date(),
                                      datetime.min.time())
         to_date = datetime.combine(dateutil.parser.parse(to_date).date(),
-                                     datetime.max.time())
+                                   datetime.max.time())
 
         if from_date > to_date:
             raise
@@ -94,8 +98,9 @@ def get_range(current_user, from_date, to_date) -> str:
 
 @bp.route("", methods=['POST'])
 @token_required
-@DebugLogs
+@debug_logs
 def create(current_user) -> str:
+    app.logger.debug("Call: create by {}".format(current_user))
     if not request.is_json:
         return respond_failed("No JSON message sent.")
 
@@ -117,8 +122,9 @@ def create(current_user) -> str:
 
 @bp.route("", methods=['PATCH'])
 @token_required
-@DebugLogs
+@debug_logs
 def update(current_user) -> str:
+    app.logger.debug("Call: update by {}".format(current_user))
     if not request.is_json:
         return respond_failed("No JSON message sent.")
 
@@ -139,8 +145,9 @@ def update(current_user) -> str:
 
 @bp.route("/<payable_id>", methods=['DELETE'])
 @token_required
-@DebugLogs
+@debug_logs
 def delete(current_user, payable_id) -> str:
+    app.logger.debug("Call: delete by {}".format(current_user))
     if not payable_id:
         return respond_failed("No payable_id provided.")
 
@@ -157,11 +164,15 @@ def delete(current_user, payable_id) -> str:
 #
 # Helper Functions
 #
+# TODO: extract helpers to shared class for all blueprints
 def respond_failed(msg, response_code=400):
-    app.logger.info("No Name provided")
-    return jsonify({'status': 'failed', 'message': msg}), response_code
+    return respond_custom(msg, response_code)
 
 
-def respond_success(msg, response_code=200):
-    app.logger.info("No Name provided")
+def respond_success(msg):
+    return respond_custom(msg, 200)
+
+
+def respond_custom(msg: str, response_code: int):
+    app.logger.info(msg)
     return jsonify({'status': 'success', 'message': msg}), response_code

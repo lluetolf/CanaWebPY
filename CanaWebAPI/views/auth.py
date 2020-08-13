@@ -1,11 +1,11 @@
 import datetime
+from functools import wraps
 
 import jwt
 from flask import Blueprint, request, jsonify
 from flask import current_app as app
 
 from CanaWebAPI import bcrypt
-from functools import wraps
 from CanaWebAPI.service.AuthRepository import AuthRepository
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
@@ -32,7 +32,7 @@ def token_required(f):
                     return respond_failed('Token blacklisted. Please login again', response_code=401)
             else:
                 return jsonify({'message': resp}), 401
-        except:
+        except Exception:
             return jsonify({'message': 'Token is invalid!'}), 401
 
         return f(current_user, *args, **kwargs)
@@ -40,14 +40,15 @@ def token_required(f):
     return decorated
 
 
-def encode_auth_token(user_id):
+def encode_auth_token(user_id) -> str:
     """
     Generates the Auth Token
     :return: string
     """
     try:
         payload = {
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(days=0, seconds=app.config.get('TOKEN_LIVE_SPAN', 600)),
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(days=0,
+                                                                   seconds=app.config.get('TOKEN_LIVE_SPAN', 600)),
             'iat': datetime.datetime.utcnow(),
             'sub': user_id
         }
@@ -57,7 +58,7 @@ def encode_auth_token(user_id):
             algorithm='HS256'
         )
     except Exception as e:
-        return e
+        return str(e)
 
 
 def decode_auth_token(auth_token):
@@ -94,17 +95,18 @@ def login() -> str:
         if user and bcrypt.check_password_hash(user.get('password', ''), password):
             auth_token = encode_auth_token(username)
             if auth_token:
-                responseObject = {
+                response_object = {
                     'status': 'success',
                     'message': 'Successfully logged in.',
                     'auth_token': auth_token.decode()
                 }
-                return jsonify(responseObject), 200
+                return jsonify(response_object), 200
             else:
                 return respond_failed('Could not create token.', response_code=404)
         else:
             return respond_failed('Username or password wrong.', response_code=401)
     except Exception as e:
+        app.logger.error("Failed: {}".format(str(e)))
         return respond_failed("Internal issue.", response_code=500)
 
 
@@ -121,6 +123,7 @@ def logout(current_user) -> str:
             return respond_failed('Failed to logout', response_code=500)
 
     except Exception as e:
+        app.logger.error("Failed: {}".format(str(e)))
         return respond_failed("Internal issue.", response_code=500)
 
 
@@ -139,12 +142,12 @@ def register() -> str:
                 return respond_failed(msg)
             else:
                 auth_token = encode_auth_token(username)
-                responseObject = {
+                response_object = {
                     'status': 'success',
                     'message': 'Successfully registered.',
                     'auth_token': auth_token.decode()
                 }
-                return jsonify(responseObject), 201
+                return jsonify(response_object), 201
         else:
             return respond_failed('User already exists. Please Log in.', response_code=202)
     except KeyError as e:
@@ -169,10 +172,13 @@ def pong(current_user) -> str:
 # Helper Functions
 #
 def respond_failed(msg, response_code=400):
-    app.logger.info("No Name provided")
-    return jsonify({'status': 'failed', 'message': msg}), response_code
+    return respond_custom(msg, response_code)
 
 
-def respond_success(msg, response_code=200):
-    app.logger.info("No Name provided")
+def respond_success(msg):
+    return respond_custom(msg, 200)
+
+
+def respond_custom(msg: str, response_code: int):
+    app.logger.info(msg)
     return jsonify({'status': 'success', 'message': msg}), response_code

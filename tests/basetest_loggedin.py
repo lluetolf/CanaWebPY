@@ -10,7 +10,8 @@ class BaseTestLoggedIn(BaseTestCase):
             # Register a test user and save token
             with self.app.test_request_context():
                 payload = {
-                    "email": ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10)) + "@tv.mx",
+                    "email": ''.join(
+                        random.choice(string.ascii_uppercase + string.digits) for _ in range(10)) + "@tv.mx",
                     "password": "test_field"
                 }
                 response = self.client.post('/auth/register', json=payload)
