@@ -2,7 +2,7 @@ from flask import current_app as app
 from functools import wraps, partial
 
 
-def DebugLogs(fn):
+def debug_logs(fn):
     @wraps(fn)
     def wrapper(*args, **kwargs):
         try:
@@ -13,5 +13,5 @@ def DebugLogs(fn):
         except Exception as ex:
             app.logger.debug("Exception {0}".format(ex))
             raise ex
-        return result
+
     return wrapper

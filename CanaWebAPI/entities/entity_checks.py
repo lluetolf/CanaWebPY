@@ -4,14 +4,16 @@ from schema import Schema, And, Or, Optional, SchemaWrongKeyError
 
 
 def _check_generic(entity_dict: {}, schema: Schema):
+    error = None
+    field = None
+
     try:
-        error = None
-        field = None
         field = schema.validate(entity_dict)
     except SchemaWrongKeyError as e:
         error = str(e)
     except Exception as e:
         error = str(e)
+
     return field, error
 
 

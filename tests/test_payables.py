@@ -1,5 +1,4 @@
 import datetime
-import unittest
 
 from pymongo import MongoClient
 
@@ -53,11 +52,9 @@ class PayablesBPTests(BaseTestLoggedIn):
         self.assert200(response)
         self.assertIsNotNone(response.json)
         self.assertGreaterEqual(len(response.json), 2)
-        try:
-            json = response.json
-            pe = check_payable(json[1])
-        except:
-            pass
+        json = response.json
+        pe = check_payable(json[1])
+
         self.assertIsNotNone(pe)
 
     def test_add_payable(self):
@@ -66,19 +63,21 @@ class PayablesBPTests(BaseTestLoggedIn):
         self.assert200(response)
         self.assertIsNotNone(response.json)
 
-        new_payable = {'category': 'MO Matutina', 'subCategory': '', 'provider': '', 'comment': 'CommentX', 'fieldName': 'Durian',
-         'documentId': 'D4', 'pricePerUnit': 11.8, 'quantity': 6,
-         'lastUpdated': datetime.datetime.now(), 'transactionDate': datetime.datetime(1999, 10, 10)}
+        new_payable = {'category': 'MO Matutina', 'subCategory': '', 'provider': '', 'comment': 'CommentX',
+                       'fieldName': 'Durian',
+                       'documentId': 'D4', 'pricePerUnit': 11.8, 'quantity': 6,
+                       'lastUpdated': datetime.datetime.now(), 'transactionDate': datetime.datetime(1999, 10, 10)}
 
         response = self.client.post('/payable', json=new_payable, headers=self.headers)
         self.assertEqual(response.status_code, 201)
 
         response = self.client.get('/payable', headers=self.headers)
         self.assert200(response)
-        self.assertEqual(len(response.json), current_nbr_payables+1)
+        self.assertEqual(len(response.json), current_nbr_payables + 1)
 
     def test_update_payable(self):
-        new_payable = {'category': 'MO Matutina', 'subCategory': '', 'provider': '', 'comment': 'Comment', 'fieldName': 'Durian',
+        new_payable = {'category': 'MO Matutina', 'subCategory': '', 'provider': '', 'comment': 'Comment',
+                       'fieldName': 'Durian',
                        'documentId': 'D321', 'pricePerUnit': 11.8, 'quantity': 6,
                        'lastUpdated': datetime.datetime.now(), 'transactionDate': datetime.datetime(1999, 10, 10)}
 
@@ -108,7 +107,8 @@ class PayablesBPTests(BaseTestLoggedIn):
                 self.assertEqual(payable_db[i], payable_local[i])
 
     def test_delete_payable(self):
-        new_payable = {'category': 'MO Matutina', 'subCategory': '', 'provider': '', 'comment': 'Comment', 'fieldName': 'Durian',
+        new_payable = {'category': 'MO Matutina', 'subCategory': '', 'provider': '', 'comment': 'Comment',
+                       'fieldName': 'Durian',
                        'documentId': 'D1234', 'pricePerUnit': 11.8, 'quantity': 6,
                        'lastUpdated': datetime.datetime.now(), 'transactionDate': datetime.datetime(1999, 10, 10)}
 

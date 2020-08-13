@@ -33,11 +33,11 @@ class AuthRepository(object):
                 return "Username already registered."
 
             pw_hash = bcrypt.generate_password_hash(password)
-            user = self.users.insert_one({'username': username, 'password': pw_hash})
+            self.users.insert_one({'username': username, 'password': pw_hash})
             return None
         except Exception as e:
-            app.logger.error("Failed with " + e)
-            return "Failed with " + e
+            app.logger.error("Failed with " + str(e))
+            return "Failed with " + str(e)
 
     def get_user(self, username, token=None):
         if token is None:

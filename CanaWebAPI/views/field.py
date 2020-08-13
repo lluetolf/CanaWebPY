@@ -2,7 +2,7 @@ from flask import (Blueprint, jsonify, request)
 from flask import current_app as app
 
 from CanaWebAPI.entities.entity_checks import check_field
-from CanaWebAPI.views.LogDecorator import DebugLogs
+from CanaWebAPI.views.LogDecorator import debug_logs
 from CanaWebAPI.service.FieldRepository import FieldRepository
 from CanaWebAPI.views.auth import token_required
 
@@ -17,8 +17,9 @@ FieldRepo = FieldRepository()
 #
 @bp.route("", methods=['GET'])
 @token_required
-@DebugLogs
-def get_all_fields(current_user) -> str:
+@debug_logs
+def get_all_fields(current_user: str) -> str:
+    app.logger.debug("Call: get_all_fields by {}".format(current_user))
     try:
         all_fields = FieldRepo.read_all()
         return jsonify(all_fields), 200
@@ -29,8 +30,9 @@ def get_all_fields(current_user) -> str:
 
 @bp.route("/<field_name>", methods=['GET'])
 @token_required
-@DebugLogs
+@debug_logs
 def get_field_by_name(current_user, field_name) -> str:
+    app.logger.debug("Call: get_field_by_name by {}".format(current_user))
     if not field_name:
         return respond_failed("No Name provided")
 
@@ -47,8 +49,9 @@ def get_field_by_name(current_user, field_name) -> str:
 
 @bp.route("", methods=['POST'])
 @token_required
-@DebugLogs
+@debug_logs
 def add_field(current_user) -> str:
+    app.logger.debug("Call: add_field by {}".format(current_user))
     if not request.is_json:
         return respond_failed("No JSON message sent.")
 
@@ -69,8 +72,9 @@ def add_field(current_user) -> str:
 
 @bp.route("", methods=['PATCH'])
 @token_required
-@DebugLogs
+@debug_logs
 def update_field(current_user) -> str:
+    app.logger.debug("Call: update_field by {}".format(current_user))
     if not request.json:
         return respond_failed("No JSON message sent.")
 
@@ -90,8 +94,9 @@ def update_field(current_user) -> str:
 
 @bp.route("/<field_name>", methods=['DELETE'])
 @token_required
-@DebugLogs
+@debug_logs
 def delete_field(current_user, field_name) -> str:
+    app.logger.debug("Call: delete_field by {}".format(current_user))
     if not field_name:
         return respond_failed("No Name provided")
 
@@ -109,10 +114,13 @@ def delete_field(current_user, field_name) -> str:
 # Helper Functions
 #
 def respond_failed(msg, response_code=400):
-    app.logger.info("No Name provided")
-    return jsonify({'status': 'failed', 'message': msg}), response_code
+    return respond_custom(msg, response_code)
 
 
-def respond_success(msg, response_code=200):
-    app.logger.info("No Name provided")
+def respond_success(msg):
+    return respond_custom(msg, 200)
+
+
+def respond_custom(msg: str, response_code: int):
+    app.logger.info(msg)
     return jsonify({'status': 'success', 'message': msg}), response_code
