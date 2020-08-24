@@ -1,4 +1,3 @@
-import unittest
 from unittest import TestCase
 
 from CanaWebAPI import create_app

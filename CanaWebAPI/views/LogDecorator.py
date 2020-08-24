@@ -1,5 +1,5 @@
 from flask import current_app as app
-from functools import wraps, partial
+from functools import wraps
 
 
 def debug_logs(fn):

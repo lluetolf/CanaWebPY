@@ -21,7 +21,7 @@ PayableRepo = PayableRepository()
 @bp.route("", methods=['GET'])
 @token_required
 @debug_logs
-def get_all(current_user) -> str:
+def get_all(current_user) -> (str, int):
     app.logger.debug("Call: get_all by {}".format(current_user))
     try:
         all_fields = PayableRepo.read_all()
@@ -34,7 +34,7 @@ def get_all(current_user) -> str:
 @bp.route("latest/<nbr>", methods=['GET'])
 @token_required
 @debug_logs
-def get_latest(current_user, nbr) -> str:
+def get_latest(current_user, nbr) -> (str, int):
     app.logger.debug("Call: get_latest by {}".format(current_user))
     try:
         all_fields = PayableRepo.read_all(nbr)
@@ -47,7 +47,7 @@ def get_latest(current_user, nbr) -> str:
 @bp.route("/<payable_id>", methods=['GET'])
 @token_required
 @debug_logs
-def get(current_user, payable_id) -> str:
+def get(current_user, payable_id) -> (str, int):
     app.logger.debug("Call: current_user by {}".format(current_user))
     if not payable_id:
         return respond_failed("No payable_id provided.")
@@ -66,7 +66,7 @@ def get(current_user, payable_id) -> str:
 @bp.route("/<from_date>/<to_date>", methods=['GET'])
 @token_required
 @debug_logs
-def get_range(current_user, from_date, to_date) -> str:
+def get_range(current_user, from_date, to_date) -> (str, int):
     app.logger.debug("Call: get_range by {}".format(current_user))
     if not from_date or not to_date:
         return respond_failed("No date range provided.")
@@ -99,7 +99,7 @@ def get_range(current_user, from_date, to_date) -> str:
 @bp.route("", methods=['POST'])
 @token_required
 @debug_logs
-def create(current_user) -> str:
+def create(current_user) -> (str, int):
     app.logger.debug("Call: create by {}".format(current_user))
     if not request.is_json:
         return respond_failed("No JSON message sent.")
@@ -116,14 +116,14 @@ def create(current_user) -> str:
             return respond_failed('Issues connecting to the DB.', response_code=500)
 
     except Exception as e:
-        app.logger.error("Failed: {}".format(e.details))
+        app.logger.error("Failed: {}".format(str(e)))
         return respond_failed("Request failed internally. Check logs.", response_code=500)
 
 
 @bp.route("", methods=['PATCH'])
 @token_required
 @debug_logs
-def update(current_user) -> str:
+def update(current_user) -> (str, int):
     app.logger.debug("Call: update by {}".format(current_user))
     if not request.is_json:
         return respond_failed("No JSON message sent.")
@@ -146,7 +146,7 @@ def update(current_user) -> str:
 @bp.route("/<payable_id>", methods=['DELETE'])
 @token_required
 @debug_logs
-def delete(current_user, payable_id) -> str:
+def delete(current_user, payable_id) -> (str, int):
     app.logger.debug("Call: delete by {}".format(current_user))
     if not payable_id:
         return respond_failed("No payable_id provided.")
