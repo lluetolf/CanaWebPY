@@ -5,6 +5,9 @@ import jwt
 from flask import Blueprint, request, jsonify
 from flask import current_app as app
 
+from CanaWebAPI.views.LogDecorator import canaweb_ws_ep
+from CanaWebAPI.views.base_blueprint import respond_failed, respond_success
+
 from CanaWebAPI import bcrypt
 from CanaWebAPI.service.AuthRepository import AuthRepository
 
@@ -83,51 +86,46 @@ def decode_auth_token(auth_token):
 
 
 @bp.route("login", methods=['POST'])
+@canaweb_ws_ep
 def login() -> (str, int):
     app.logger.info("Login started")
 
-    try:
-        post_data = request.get_json()
-        username = post_data.get('email')
-        password = post_data.get('password')
-        app.logger.info("Provided: {} / {}".format(username, password))
-        user = auth_repo.get_user(username)
-        if user and bcrypt.check_password_hash(user.get('password', ''), password):
-            auth_token = encode_auth_token(username)
-            if auth_token:
-                response_object = {
-                    'status': 'success',
-                    'message': 'Successfully logged in.',
-                    'auth_token': auth_token
-                }
-                return jsonify(response_object), 200
-            else:
-                return respond_failed('Could not create token.', response_code=404)
+    post_data = request.get_json()
+    username = post_data.get('email')
+    password = post_data.get('password')
+    app.logger.info("Provided: {} / {}".format(username, password))
+    user = auth_repo.get_user(username)
+    if user and bcrypt.check_password_hash(user.get('password', ''), password):
+        auth_token = encode_auth_token(username)
+        if auth_token:
+            response_object = {
+                'status': 'success',
+                'message': 'Successfully logged in.',
+                'auth_token': auth_token
+            }
+            return jsonify(response_object), 200
         else:
-            return respond_failed('Username or password wrong.', response_code=401)
-    except Exception as e:
-        app.logger.error("Failed: {}".format(str(e)))
-        return respond_failed("Internal issue.", response_code=500)
+            return respond_failed('Could not create token.', response_code=404)
+    else:
+        return respond_failed('Username or password wrong.', response_code=401)
 
 
 @bp.route("logout", methods=['POST'])
 @token_required
+@canaweb_ws_ep
 def logout(current_user) -> (str, int):
     app.logger.info("Logout started")
-    try:
-        # Token must be there due to @token_required
-        token = request.headers['x-access-token']
-        if auth_repo.blacklist_user_token(current_user.get('username', None), token):
-            return respond_success('Logged out.')
-        else:
-            return respond_failed('Failed to logout', response_code=500)
 
-    except Exception as e:
-        app.logger.error("Failed: {}".format(str(e)))
-        return respond_failed("Internal issue.", response_code=500)
+    # Token must be there due to @token_required
+    token = request.headers['x-access-token']
+    if auth_repo.blacklist_user_token(current_user.get('username', None), token):
+        return respond_success('Logged out.')
+    else:
+        return respond_failed('Failed to logout', response_code=500)
 
 
 @bp.route("register", methods=['POST'])
+@canaweb_ws_ep
 def register() -> (str, int):
     try:
         post_data = request.get_json()
@@ -152,33 +150,16 @@ def register() -> (str, int):
             return respond_failed('User already exists. Please Log in.', response_code=202)
     except KeyError as e:
         return respond_failed("The following attribute is missing: {}".format(e))
-    except Exception as e:
-        app.logger.error(e)
-        return respond_failed('Try again', response_code=500)
 
 
 @bp.route("ping", methods=['GET'])
+@canaweb_ws_ep
 def ping() -> (str, int):
     return jsonify({'msg': 'ping'}), 200
 
 
 @bp.route("pong", methods=['GET'])
 @token_required
+@canaweb_ws_ep
 def pong(current_user) -> (str, int):
     return jsonify({'msg': 'pong', 'user': current_user.get('username', 'UNKNOWN')}), 200
-
-
-#
-# Helper Functions
-#
-def respond_failed(msg, response_code=400):
-    return respond_custom(msg, response_code)
-
-
-def respond_success(msg):
-    return respond_custom(msg, 200)
-
-
-def respond_custom(msg: str, response_code: int):
-    app.logger.info(msg)
-    return jsonify({'status': 'success', 'message': msg}), response_code

@@ -11,8 +11,10 @@ class BaseTestCase(TestCase):
     """ Base Tests """
 
     def create_app(self):
+        #TODO move this to conf
         os.environ[
-            'CANAWEB_MONGO'] = "mongodb+srv://canauser:wtz7uLZjUOUPTIHb@canawebmdb-p5yz3.azure.mongodb.net/CanaWebMDB?retryWrites=true&w=majority"
+            'CANAWEB_MONGO'] = "mongodb+srv://canauser:wtz7uLZjUOUPTIHb@canawebmdb-" \
+                               "p5yz3.azure.mongodb.net/CanaWebMDB?retryWrites=true&w=majority"
         return create_app()
 
     def check_up_and_running(self):

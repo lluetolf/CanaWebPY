@@ -23,7 +23,7 @@ class BaseTestLoggedIn(BaseTestCase):
         self.assertEqual(response.json['msg'], 'pong')
 
     def logged_in_up_and_running(self):
-        self.check_root_page
+        self.check_root_page()
 
         self.check_up_and_running()
 

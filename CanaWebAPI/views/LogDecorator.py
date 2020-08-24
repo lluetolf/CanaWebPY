@@ -1,8 +1,11 @@
 from flask import current_app as app
 from functools import wraps
+import random
+
+from CanaWebAPI.views.base_blueprint import respond_failed
 
 
-def debug_logs(fn):
+def canaweb_ws_ep(fn):
     @wraps(fn)
     def wrapper(*args, **kwargs):
         try:
@@ -11,7 +14,7 @@ def debug_logs(fn):
             app.logger.debug("{} - {}".format(fn.__name__, result))
             return result
         except Exception as ex:
-            app.logger.debug("Exception {0}".format(ex))
-            raise ex
+            app.logger.error("Failed: {}".format(repr(ex)))
+            return respond_failed("Request failed internally. Check logs.", response_code=500)
 
     return wrapper
