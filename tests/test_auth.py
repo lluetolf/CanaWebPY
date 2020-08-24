@@ -22,15 +22,8 @@ class AuthenticationTests(BaseTestCase):
     def tearDownClass(cls):
         pass
 
-    def test_up_and_running(self):
-        response_html = self.client.get('/')
-        self.assert200(response_html)
-
-        response_json = self.client.get('/upandrunning')
-        self.assert200(response_json)
-        body = response_json.json
-        self.assertEqual(body['msg'], "Up and running!")
-        self.assertGreaterEqual(body['version'], 1)
+    def test_up_running(self):
+        self.check_up_and_running()
 
     def test_register_user(self):
         payload = {
