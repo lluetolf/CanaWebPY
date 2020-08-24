@@ -17,16 +17,16 @@ class BaseTestLoggedIn(BaseTestCase):
                 response = self.client.post('/auth/register', json=payload)
                 self.headers = {'x-access-token': response.json["auth_token"]}
 
-    def logged_in_up_and_running(self):
-        response_html = self.client.get('/')
-        self.assert200(response_html)
-
-        response_json = self.client.get('/upandrunning')
-        self.assert200(response_json)
-        body = response_json.json
-        self.assertEqual(body['msg'], "Up and running!")
-        self.assertGreaterEqual(body['version'], 1)
-
+    def check_auth_on_pong(self):
         response = self.client.get('/auth/pong', headers=self.headers)
         self.assert200(response)
         self.assertEqual(response.json['msg'], 'pong')
+
+    def logged_in_up_and_running(self):
+        self.check_root_page
+
+        self.check_up_and_running()
+
+        self.check_auth_on_pong()
+
+
