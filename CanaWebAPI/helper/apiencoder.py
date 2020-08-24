@@ -28,7 +28,8 @@ class APIDecoder(JSONDecoder):
         JSONDecoder.__init__(self, object_hook=self.dt_parser,
                              *args, **kargs)
 
-    def dt_parser(self, dct):
+    @staticmethod
+    def dt_parser(dct):
         for k, v in dct.items():
             if isinstance(v, str) and ("date" in k.lower() or k == 'lastUpdated'):
                 try:

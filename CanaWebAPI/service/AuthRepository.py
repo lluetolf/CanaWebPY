@@ -1,8 +1,7 @@
-from bson import ObjectId
-
-from CanaWebAPI import mongo
 from flask import current_app as app
+
 from CanaWebAPI import bcrypt
+from CanaWebAPI import mongo
 
 
 class AuthRepository(object):

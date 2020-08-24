@@ -1,15 +1,7 @@
-from flask import (
-    Blueprint, request
-)
+from flask import (Blueprint, jsonify)
+from flask import current_app as app
 
 bp = Blueprint('zafras', __name__, url_prefix='/zafra')
-
-
-@app.errorhandler(InvalidUsage)
-def handle_invalid_usage(error):
-    response = jsonify(error.to_dict())
-    response.status_code = error.status_code
-    return response
 
 
 #
@@ -17,25 +9,12 @@ def handle_invalid_usage(error):
 # At some stage should be extracted to a Zafra Microservice
 #
 @app.route("/", methods=['POST'])
-def add_deduction() -> str:
-    errors = validate_zafra(request)
-    if errors is not None:
-        logging.error(errors)
-        raise InvalidUsage(errors)
-    deductions.append(request.json)
+def add_deduction() -> (str, int):
     response = {"status": "ok",
-                "message": "Nbr of fields: {}".format(len(deductions))}
+                "message": "Nbr of fields: {}".format(0)}
     return jsonify(response), 200
 
 
 @app.route("/", methods=['GET'])
-def get_all_zafra() -> str:
-    all_zafras = ZafraDB.read_all()
-
-    #    for zafra in all_zafras:
-    #            errors = validate_field(zafra)
-    #        if errors is not None:
-    #       logging.error(errors)
-    #       raise InvalidUsage(errors)
-
-    return jsonify(all_zafras), 200
+def get_all_zafra() -> (str, int):
+    return jsonify({}), 200

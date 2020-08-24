@@ -56,9 +56,9 @@ def encode_auth_token(user_id) -> str:
             payload,
             app.config.get('SECRET_KEY'),
             algorithm='HS256'
-        )
+        ).decode()
     except Exception as e:
-        return str(e)
+        raise e
 
 
 def decode_auth_token(auth_token):
@@ -83,7 +83,7 @@ def decode_auth_token(auth_token):
 
 
 @bp.route("login", methods=['POST'])
-def login() -> str:
+def login() -> (str, int):
     app.logger.info("Login started")
 
     try:
@@ -98,7 +98,7 @@ def login() -> str:
                 response_object = {
                     'status': 'success',
                     'message': 'Successfully logged in.',
-                    'auth_token': auth_token.decode()
+                    'auth_token': auth_token
                 }
                 return jsonify(response_object), 200
             else:
@@ -112,7 +112,7 @@ def login() -> str:
 
 @bp.route("logout", methods=['POST'])
 @token_required
-def logout(current_user) -> str:
+def logout(current_user) -> (str, int):
     app.logger.info("Logout started")
     try:
         # Token must be there due to @token_required
@@ -128,7 +128,7 @@ def logout(current_user) -> str:
 
 
 @bp.route("register", methods=['POST'])
-def register() -> str:
+def register() -> (str, int):
     try:
         post_data = request.get_json()
         username = post_data['email']
@@ -145,7 +145,7 @@ def register() -> str:
                 response_object = {
                     'status': 'success',
                     'message': 'Successfully registered.',
-                    'auth_token': auth_token.decode()
+                    'auth_token': auth_token
                 }
                 return jsonify(response_object), 201
         else:
@@ -158,13 +158,13 @@ def register() -> str:
 
 
 @bp.route("ping", methods=['GET'])
-def ping() -> str:
+def ping() -> (str, int):
     return jsonify({'msg': 'ping'}), 200
 
 
 @bp.route("pong", methods=['GET'])
 @token_required
-def pong(current_user) -> str:
+def pong(current_user) -> (str, int):
     return jsonify({'msg': 'pong', 'user': current_user.get('username', 'UNKNOWN')}), 200
 
 

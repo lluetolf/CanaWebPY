@@ -18,20 +18,20 @@ FieldRepo = FieldRepository()
 @bp.route("", methods=['GET'])
 @token_required
 @debug_logs
-def get_all_fields(current_user: str) -> str:
+def get_all_fields(current_user: str) -> (str, int):
     app.logger.debug("Call: get_all_fields by {}".format(current_user))
     try:
         all_fields = FieldRepo.read_all()
         return jsonify(all_fields), 200
     except Exception as e:
-        app.logger.error("Failed: {}".format(e.details))
+        app.logger.error("Failed: {}".format(str(e)))
         return respond_failed("Request failed internally. Check logs.", response_code=500)
 
 
 @bp.route("/<field_name>", methods=['GET'])
 @token_required
 @debug_logs
-def get_field_by_name(current_user, field_name) -> str:
+def get_field_by_name(current_user, field_name) -> (str, int):
     app.logger.debug("Call: get_field_by_name by {}".format(current_user))
     if not field_name:
         return respond_failed("No Name provided")
@@ -43,14 +43,14 @@ def get_field_by_name(current_user, field_name) -> str:
         else:
             return jsonify(field), 200
     except Exception as e:
-        app.logger.error("Failed: {}".format(e.details))
+        app.logger.error("Failed: {}".format(str(e)))
         return respond_failed("Request failed internally. Check logs.", response_code=500)
 
 
 @bp.route("", methods=['POST'])
 @token_required
 @debug_logs
-def add_field(current_user) -> str:
+def add_field(current_user) -> (str, int):
     app.logger.debug("Call: add_field by {}".format(current_user))
     if not request.is_json:
         return respond_failed("No JSON message sent.")
@@ -66,14 +66,14 @@ def add_field(current_user) -> str:
             return respond_failed('Issues connecting to the DB.', response_code=500)
 
     except Exception as e:
-        app.logger.error("Failed: {}".format(e.details))
+        app.logger.error("Failed: {}".format(str(e)))
         return respond_failed("Request failed internally. Check logs.", response_code=500)
 
 
 @bp.route("", methods=['PATCH'])
 @token_required
 @debug_logs
-def update_field(current_user) -> str:
+def update_field(current_user) -> (str, int):
     app.logger.debug("Call: update_field by {}".format(current_user))
     if not request.json:
         return respond_failed("No JSON message sent.")
@@ -88,14 +88,14 @@ def update_field(current_user) -> str:
         else:
             return respond_failed('Issues connecting to the DB.', response_code=500)
     except Exception as e:
-        app.logger.error("Failed to update: {}".format(e.details))
+        app.logger.error("Failed to update: {}".format(str(e)))
         return respond_failed("Request failed internally. Check logs.", response_code=500)
 
 
 @bp.route("/<field_name>", methods=['DELETE'])
 @token_required
 @debug_logs
-def delete_field(current_user, field_name) -> str:
+def delete_field(current_user, field_name) -> (str, int):
     app.logger.debug("Call: delete_field by {}".format(current_user))
     if not field_name:
         return respond_failed("No Name provided")
@@ -106,7 +106,7 @@ def delete_field(current_user, field_name) -> str:
         else:
             return respond_failed('Unable to delete field with id: {}'.format(field_name))
     except Exception as e:
-        app.logger.error("Failed to delete: {}".format(e.details))
+        app.logger.error("Failed to delete: {}".format(str(e)))
         return respond_failed("Request failed internally. Check logs.", response_code=500)
 
 
