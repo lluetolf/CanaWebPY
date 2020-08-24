@@ -12,7 +12,7 @@ def strip_accents(s):
 
 def transform_cargo_to_dict(line: str):
     try:
-        x = re.match('\*?\s?([A-z /,.:()]*)\s?\$?\s?([0-9,.]+)?\s?([0-9,.]+)?\s?([0-9,.]+)?\$?$', line)
+        x = re.match(r'\*?\s?([A-z /,.:()]*)\s?\$?\s?([0-9,.]+)?\s?([0-9,.]+)?\s?([0-9,.]+)?\$?$', line)
         to_remove = [',', '!', '.', ';', '(', ')', '/', ':']
         item = x.groups()[0].strip().lower().replace(" ", '_').translate({ord(x): '' for x in to_remove})
         tmp_list = [x.groups()[i] if x.groups()[i] is not None else '0.0' for i in range(1, 4)]
@@ -51,7 +51,7 @@ for f in files:
     tmp = lines[15].split('$')
     lines[15] = "* Importe de cana quedada masa comun $" + tmp[1]
     lines.pop(16)
-    lines[16] = re.sub(' ([A-Z])', '\g<1>', lines[16])  # T O T A L D E I N G R E S O S
+    lines[16] = re.sub(' ([A-Z])', r'\g<1>', lines[16])  # T O T A L D E I N G R E S O S
     del lines[18:27]
     index = lines[25].find('Corte')
     tmp = lines.pop(24)
