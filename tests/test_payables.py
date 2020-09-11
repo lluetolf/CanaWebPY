@@ -37,16 +37,6 @@ class PayablesBPTests(BaseTestLoggedIn):
         except Exception as e:
             print("Unable to prepare DB." + str(e))
 
-    def setUp(self):
-        self.login()
-
-    @classmethod
-    def tearDownClass(cls):
-        pass
-
-    def test_up_and_running(self):
-        self.logged_in_up_and_running()
-
     def test_get_all_payables(self):
         response = self.client.get('/payable', headers=self.headers)
         self.assert200(response)
