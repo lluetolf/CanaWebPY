@@ -29,4 +29,14 @@ class BaseTestLoggedIn(BaseTestCase):
 
         self.check_auth_on_pong()
 
+    def setUp(self):
+        self.login()
+
+    @classmethod
+    def tearDownClass(cls):
+        pass
+
+    def test_up_and_running(self):
+        self.logged_in_up_and_running()
+
 
