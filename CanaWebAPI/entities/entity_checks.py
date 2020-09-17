@@ -1,20 +1,27 @@
 from datetime import datetime
+from flask import current_app as app
 
-from schema import Schema, And, Or, Optional, SchemaWrongKeyError
+from schema import Schema, And, Or, Optional, SchemaWrongKeyError, SchemaMissingKeyError
 
 
 def _check_generic(entity_dict: {}, schema: Schema):
     error = None
-    field = None
+    entity = None
 
     try:
-        field = schema.validate(entity_dict)
+        entity = schema.validate(entity_dict)
     except SchemaWrongKeyError as e:
+        app.logger.error("Validation found wrong Key: {}".format("N/A" if e.errors is None else ''.join(
+            item for item in e.errors if item and item.strip())))
+        error = str(e)
+    except SchemaMissingKeyError as e:
+        app.logger.error("Validation found missing Key: {}".format("N/A" if e.errors is None else ''.join(
+            item for item in e.errors if item and item.strip())))
         error = str(e)
     except Exception as e:
         error = str(e)
 
-    return field, error
+    return entity, error
 
 
 def check_field(field_dict: {}):
