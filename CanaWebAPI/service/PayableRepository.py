@@ -42,7 +42,7 @@ class PayableRepository(object):
         if payable is None or payable.get('_id', 'UNKNOWN') == 'UNKNOWN':
             raise Exception("Nothing to update, payable is None")
 
-        p_id = payable['_id']
+        p_id = payable.get('_id')
         app.logger.info("Updating payable with ObjectId: {}".format(p_id))
         # Make sure _id is not provided
         payable.pop('_id', None)
